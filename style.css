@@ -1,3 +1,24 @@
+/* welcome page css */
+.ctn1 {
+  text-align: center;
+  /* position: relative; */
+  margin-top: 20%;
+}
+
+/* welcome page css */
+#undergrad {
+  position: relative;
+  border: solid 2px black;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+  background-color: #63831d;
+  color: orange;
+  font-size: 1em;
+}
+
+/* Below css applies to pg 1
+ and 2 */
 body {
   background-color: grey;
   margin: 0;
@@ -36,17 +57,18 @@ h4 {
   font-size: 18px;
 }
 
-.program {
+.undergrad_program {
   text-align: center;
-  position: relative;
-  font-size: 15px;
+  font-size: 40px;
+  /* border: solid 1px red; */
+  padding: 0;
 }
 
 .ctn {
   text-align: center;
 }
 
-#undergrad {
+#minor {
   position: relative;
   border: solid 2px black;
   padding: 7px;
@@ -116,23 +138,29 @@ select {
   width: 200px;
 }
 
-.total-need {
-  /* margin-top: 10px; */
-  margin-right: 200px;
+.core {
   float: right;
-  font-size: 16px;
+  margin-right: 200px;
+  /* border: solid 1px red; */
+  /* margin-left: 10px; */
+}
+
+#total-need {
+  float: right;
+  font-size: 14px;
   position: relative;
   font-weight: bold;
   color: white;
+  margin-left: 10px;
+  margin-bottom: 0;
 }
 
-.total-earn {
-  margin-top: 10px;
-  margin-right: 200px;
+#total-earn {
   float: right;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
+  margin-left: 10px;
 }
 
 /* first table div */
