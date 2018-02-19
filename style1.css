@@ -43,6 +43,7 @@ h3 {
   background-color: #63831d;
   color: black;
   margin-bottom: 10px;
+  border-collapse: collapse;
 }
 
 table, th, td .calendar {
@@ -53,7 +54,7 @@ table, th, td .calendar {
 }
 
 table {
-  border: solid 2px #3333;
+  border: solid 2px #333;
   border-width: medium;
   width: 95%;
   margin-left: auto;
@@ -80,11 +81,31 @@ div:first-child {
   font-family: 'Slabo 27px', serif;
 }
 
+.add_button {
+  /* border: solid 1px red; */
+  margin-left: 20px;
+}
+
+.close-btn {
+    border: 2px solid #c2c2c2;
+    padding: 1px 5px;
+    background-color: #605F61;
+    border-radius: 20px;
+    margin: 0;
+    float: right;
+}
+
+.close-btn a {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
 #plus_button{
-  /* position: relative; */
-  /* float: right; */
-  /* padding: 5px; */
-  /* margin: 5px; */
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
 }
 
 .plus_button {
@@ -92,6 +113,7 @@ div:first-child {
   border-color: #63831d;
   padding: 0;
   margin: 0;
+  border-color: #63831d;
   /* float: right; */
 }
 
@@ -148,20 +170,20 @@ table tbody tr:nth-child(odd) {
 }
 
 table tbody tr:nth-child(4n+0) td {
-  border-bottom: 1px solid #626E7E;
+  /* border-bottom: 1px solid #626E7E; */
 }
 
 table tbody tr td {
   text-align: center;
   vertical-align: middle;
-  border-left: 1px solid #626E7E;
+  /* border-left: 1px solid #626E7E; */
   position: relative;
   height: 15px;
   cursor: pointer;
 }
 
 table tbody tr td:last-child {
-  border-right: 1px solid #626E7E;
+  /* border-right: 1px solid #626E7E; */
 }
 
 table tbody tr td.hour {
@@ -169,7 +191,7 @@ table tbody tr td.hour {
   padding: 0;
   color: #626E7E;
   background: #fff;
-  border-bottom: 1px solid #626E7E;
+  /* border-bottom: 1px solid #626E7E; */
   border-collapse: separate;
   min-width: 100px;
   cursor: default;

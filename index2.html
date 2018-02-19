@@ -1,0 +1,613 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style1.css"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<script src="jquery-3.3.1.min.js"></script>
+<title>PPU Schedule Planner</title>
+</head>
+  <body>
+    <div class="ctn">
+
+      <h1 class="title">IT Schedule Planner</h1>
+      <h2>Schedule of Courses by Term</h2><br>
+      <h3>Fall 2017 - 2018</h3>
+
+<!-- Fall scheduler -->
+      <div class="fall">
+        <table class="sched">
+          <tr>
+            <th>Course #</th>
+            <th>Course Description</th>
+            <th>Credits</th>
+            <th>Add Course</th>
+          </tr>
+          <tr>
+            <td><select id="course1-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Databases<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button class="add_button" type="submit">Add</button></span><span class="close-btn"><a href="#">X</a></td>
+          </tr>
+          <tr>
+            <td><select id="course2-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Network and Security<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+          <tr>
+            <td><select id="course3-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Data Structures<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+          <tr>
+            <td><select id="course4-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Web Application Development<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+          <tr class="plus_button">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button type="button" id="plus_button" title="Add course">+</button></td>
+          </tr>
+        </table>
+        <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div>
+
+
+<!-- Spring Scheduler -->
+        <div class="spring">
+          <h3>Spring 2017 - 2018</h3>
+          <table class="sched">
+            <tr>
+              <th>Course #</th>
+              <th>Course Description</th>
+              <th>Credits</th>
+              <th>Add Course</th>
+            </tr>
+            <tr>
+              <td><select id="course1-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Intro to Programming<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course2-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Business Analytics<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course3-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Server Management<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course4-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Advanced Programming<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <!-- <tr>
+              <td><select id="course5-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Networking<br><button type="button">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course6-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Senior Project<br><button type="button">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr> -->
+
+          </table>
+          <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div>
+
+<!-- Summer scheduler -->
+          <div class="summer">
+            <h3>Summer 2018</h3>
+            <table class="sched">
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Add Course</th>
+              </tr>
+              <tr>
+                <td><select id="course1-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Cooperative Education I<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>6.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course2-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Cooperative Education II<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>6.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course3-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Internship in Info Tech I<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course4-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Internship in Info Tech II<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <!-- <tr>
+                <td><select id="course5-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Independent Study<br><button type="button">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr> -->
+            </table>
+            <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div>
+      </div>
+    </div>
+
+    <table id="calendar" class="calendar">
+      <thead>
+        <tr>
+          <th>Spring Semester</th>
+          <th>
+            <span class="day">1</span>
+            <span class="long">Monday</span>
+            <span class="short">Mon</span>
+          </th>
+          <th>
+            <span class="day">2</span>
+            <span class="long">Tuesday</span>
+            <span class="short">Tue</span>
+          </th>
+          <th>
+            <span class="day">3</span>
+            <span class="long">Wendsday</span>
+            <span class="short">We</span>
+          </th>
+          <th>
+            <span class="day">4</span>
+            <span class="long">Thursday</span>
+            <span class="short">Thur</span>
+          </th>
+          <th>
+            <span class="day active">5</span>
+            <span class="long">Friday</span>
+            <span class="short">Fri</span>
+          </th>
+          <th>
+            <span class="day">6</span>
+            <span class="long">Saturday</span>
+            <span class="short">Sat</span>
+          </th>
+          <th>
+            <span class="day">7</span>
+            <span class="long">Sunday</span>
+            <span class="short">Sun</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hour" rowspan="4"><span>6:00pm</span></td>
+          <td>Senior Project</td>
+          <td>Advanced Programming</td>
+          <td>Business Analytics</td>
+          <td>Server Management</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>7:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="hour" rowspan="4"><span>8:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>9:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- <tr>
+          <td class="hour" rowspan="4"><span>10:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+        <!-- <tr>
+          <td class="hour" rowspan="4"><span>11:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>12:00am</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>1:00am</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      </tbody>
+    </table>
+  </body>
+</html>
