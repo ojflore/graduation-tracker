@@ -1,0 +1,242 @@
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  color: black;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 44px;
+}
+
+h2 {
+  color: white;
+  float: left;
+  position: absolute;
+  /* border: solid 1px red; */
+  margin-top: 0px;
+  padding-left: 10px;
+}
+
+h3 {
+  padding-top: 0px;
+  margin-top: 30px;
+  color: white;
+  float: left;
+  margin-left: 40px;
+}
+
+.ctn {
+  text-align: center;
+}
+
+.sched {
+  border: solid 2px green;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #3333;
+  border-width: medium;
+  background-color: #63831d;
+  color: black;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+}
+
+table, th, td .calendar {
+  background: #626E7E;
+  color: #d1d5db;
+  padding: 1em;
+  overflow: hidden;
+}
+
+table {
+  border: solid 2px #333;
+  border-width: medium;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* th {
+  font-size: 20px;
+  border-width: medium;
+} */
+
+td {
+  padding: 7px;
+  color: black;
+}
+
+div:first-child {
+  /* border: solid 1px red; */
+  padding-bottom: 50px;
+  /* font-family: 'Dosis', sans-serif; */
+  font-family: 'Slabo 27px', serif;
+}
+
+.add_button {
+  /* border: solid 1px red; */
+  margin-left: 20px;
+}
+
+.close-btn {
+    border: 2px solid #c2c2c2;
+    padding: 1px 5px;
+    background-color: #605F61;
+    border-radius: 20px;
+    margin: 0;
+    float: right;
+}
+
+.close-btn a {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+#plus_button{
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+}
+
+.plus_button {
+  background-color: #63831d;
+  border-color: #63831d;
+  padding: 0;
+  margin: 0;
+  border-color: #63831d;
+  /* float: right; */
+}
+
+#calendar {
+  width: 90%;
+  border-spacing: 0;
+  border-collapse: separate;
+  table-layout: fixed;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  background-color: #63831d;
+}
+
+table thead tr th:first-child {
+  border-radius: 3px 0 0 0;
+}
+
+table thead tr th:last-child {
+  border-radius: 0 3px  0 0;
+}
+
+table thead tr th .day {
+  display: block;
+  font-size: 1.2em;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 5px;
+  padding: 5px;
+  line-height: 1.2;
+}
+
+table thead tr th .day.active {
+  background: #d1d5db;
+  color: #626E7E;
+}
+
+/* hides day abbreviation */
+table thead tr th .short {
+  display: none;
+}
+
+/* table thead tr th i {
+  vertical-align: middle;
+  font-size: 1em;
+} */
+
+table tbody tr {
+  background: #d1d5db;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #c8cdd4;
+}
+
+table tbody tr:nth-child(4n+0) td {
+  /* border-bottom: 1px solid #626E7E; */
+}
+
+table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+  /* border-left: 1px solid #626E7E; */
+  position: relative;
+  height: 15px;
+  cursor: pointer;
+}
+
+table tbody tr td:last-child {
+  /* border-right: 1px solid #626E7E; */
+}
+
+table tbody tr td.hour {
+  font-size: 1.2em;
+  padding: 0;
+  color: #626E7E;
+  background: #fff;
+  /* border-bottom: 1px solid #626E7E; */
+  border-collapse: separate;
+  min-width: 100px;
+  cursor: default;
+}
+
+table tbody tr td.hour span {
+  display: block;
+}
+
+@media (max-width: 60em) {
+  table thead tr th .long {
+    display: none;
+  }
+  table thead tr th .short {
+    display: block;
+  }
+  table tbody tr td.hour span {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+  }
+}
+@media (max-width: 27em) {
+  table thead tr th {
+    font-size: 65%;
+  }
+  table thead tr th .day {
+    display: block;
+    font-size: 1.2em;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 5px;
+    padding: 5px;
+  }
+  table thead tr th .day.active {
+    background: #d1d5db;
+    color: #626E7E;
+  }
+  table tbody tr td.hour {
+    font-size: 1.7em;
+  }
+  table tbody tr td.hour span {
+    transform: translateY(16px) rotate(270deg);
+    -webkit-transform: translateY(16px) rotate(270deg);
+    -moz-transform: translateY(16px) rotate(270deg);
+  }
+}

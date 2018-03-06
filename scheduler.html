@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="scheduler.css"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+<script src="gradtracker.js"></script>
+<title>PPU Schedule Planner</title>
+<script>
+$(function(){
+  gradtracker.listen(function(){ //listens to model everything it changes
+    $("#test").empty(); //empties the table
+    var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+    // console.log(schedule);
+    var sp18 = schedule["SP 18"];
+    // console.log(sp18);
+    for (var i = 0; i < sp18.length; i++) {
+      $("#test").append("<tr><td>" + sp18[i] + "</td></tr>");
+    }
+  });
+
+  gradtracker.listen(function(){ //listens to model everything it changes
+    $("#test").empty(); //empties the table
+    var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+    // console.log(catalog);
+    var cmps160 = catalog["CMPS 160"];
+    // console.log(cmps160);
+    var tr = $("#test").append("<tr>");
+    for (var key in cmps160) {
+      tr.append("<td>" + key + "</td>"); //adds object to the table
+    }
+    for (var course in catalog) {
+      var tr = $("#test").append("<tr>");
+      for (var key in catalog[course]) {
+        // console.log(i);
+        tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
+      }
+    }
+  });
+
+  $("#course1-drop").click(function(){ //makes a change in the model
+    gradtracker.addCourse("SP 18", "CMPS 160");
+  });
+});
+
+</script>
+</head>
+  <body>
+    <div class="ctn">
+
+      <h1 class="title">IT Schedule Planner</h1>
+      <h2>Schedule of Courses by Term</h2><br>
+      <h3>Fall 2018 - 2019</h3>
+
+<!-- Fall scheduler -->
+      <div class="fall">
+        <table>
+          <td><select id="test">
+            <option>Select a course</option>
+            <option>CMPS 160</option>
+            <option>CMPS 161</option>
+            <option>CMPS 262</option>
+            <option>CMPS 361</option>
+            <option>CMPS 363</option>
+            <option>CMPS 480</option>
+          </select></td>
+        </table>
+
+        <!-- <table class="sched">
+          <tr>
+            <th>Course #</th>
+            <th>Course Description</th>
+            <th>Credits</th>
+            <th>Add Course</th>
+          </tr>
+          <tr>
+            <td><select id="course1-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Databases<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button class="add_button" type="submit">Add</button></span><span class="close-btn"><a href="#">X</a></td>
+          </tr>
+          <tr>
+            <td><select id="course2-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Network and Security<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+          <tr>
+            <td><select id="course3-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Data Structures<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+          <tr>
+            <td><select id="course4-drop">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select></td>
+            <td>Web Application Development<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+            <td>3.0</td>
+            <td><button type="submit">Add</button</td>
+          </tr>
+        </table> -->
+        <!-- <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div> -->
+
+
+<!-- Spring Scheduler -->
+        <!-- <div class="spring">
+          <h3>Spring 2017 - 2018</h3>
+          <table class="sched">
+            <tr>
+              <th>Course #</th>
+              <th>Course Description</th>
+              <th>Credits</th>
+              <th>Add Course</th>
+            </tr>
+            <tr>
+              <td><select id="course1-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Intro to Programming<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course2-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Business Analytics<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course3-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Server Management<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course4-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Advanced Programming<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr> -->
+            <!-- <tr>
+              <td><select id="course5-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Networking<br><button type="button">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+            <tr>
+              <td><select id="course6-drop">
+                <option>Select a course</option>
+                <option>CMPS 162</option>
+                <option>CMPS 163</option>
+                <option>CMPS 261</option>
+                <option>CMPS 262</option>
+                <option>CMPS 362</option>
+                <option>CMPS 480</option>
+              </select></td>
+              <td>Senior Project<br><button type="button">View Description</button></td>
+              <td>3.0</td>
+              <td><button type="submit">Add</button</td>
+            </tr>
+          </table> -->
+          <!-- <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div> -->
+
+<!-- Summer scheduler -->
+          <!-- <div class="summer">
+            <h3>Summer 2018</h3>
+            <table class="sched">
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Add Course</th>
+              </tr>
+              <tr>
+                <td><select id="course1-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Cooperative Education I<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>6.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course2-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Cooperative Education II<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>6.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course3-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Internship in Info Tech I<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+              <tr>
+                <td><select id="course4-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Internship in Info Tech II<br><button type="button" title="View Course Description and Pre-Requisites">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr> -->
+              <!-- <tr>
+                <td><select id="course5-drop">
+                  <option>Select a course</option>
+                  <option>BMGT 380</option>
+                  <option>BMGT 480</option>
+                  <option>CMPS 355</option>
+                  <option>CMPS 356</option>
+                  <option>Indepedent Study</option>
+                </select></td>
+                <td>Independent Study<br><button type="button">View Description</button></td>
+                <td>3.0</td>
+                <td><button type="submit">Add</button</td>
+              </tr>
+            </table> -->
+            <!-- <div><button type="button" id="add-course" title="Generate Schedule">Generate</button></div> -->
+      </div>
+    </div>
+
+    <!-- <table id="calendar" class="calendar">
+      <thead>
+        <tr>
+          <th>Spring Semester</th>
+          <th>
+            <span class="day">1</span>
+            <span class="long">Monday</span>
+            <span class="short">Mon</span>
+          </th>
+          <th>
+            <span class="day">2</span>
+            <span class="long">Tuesday</span>
+            <span class="short">Tue</span>
+          </th>
+          <th>
+            <span class="day">3</span>
+            <span class="long">Wendsday</span>
+            <span class="short">We</span>
+          </th>
+          <th>
+            <span class="day">4</span>
+            <span class="long">Thursday</span>
+            <span class="short">Thur</span>
+          </th>
+          <th>
+            <span class="day active">5</span>
+            <span class="long">Friday</span>
+            <span class="short">Fri</span>
+          </th>
+          <th>
+            <span class="day">6</span>
+            <span class="long">Saturday</span>
+            <span class="short">Sat</span>
+          </th>
+          <th>
+            <span class="day">7</span>
+            <span class="long">Sunday</span>
+            <span class="short">Sun</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hour" rowspan="4"><span>6:00pm</span></td>
+          <td>Senior Project</td>
+          <td>Advanced Programming</td>
+          <td>Business Analytics</td>
+          <td>Server Management</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>7:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td class="hour" rowspan="4"><span>8:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="hour" rowspan="4"><span>9:00pm</span></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table> -->
+  </body>
+</html>

@@ -1,0 +1,288 @@
+/* welcome page css */
+.ctn1 {
+  text-align: center;
+  /* position: relative; */
+  margin-top: 20%;
+}
+
+/* welcome page css */
+#undergrad {
+  position: relative;
+  border: solid 2px black;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+  background-color: #63831d;
+  color: orange;
+  font-size: 1em;
+}
+
+/* Below css applies to pg 1
+ and 2 */
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  color: black;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 44px;
+}
+
+#minor:hover {
+	background: white;
+	color: #63831d;
+	cursor: pointer;
+}
+
+h2 {
+  color: white;
+  float: left;
+  position: absolute;
+  /* border: solid 1px red; */
+  margin-top: 0px;
+  padding-left: 10px;
+}
+
+h3 {
+  padding-top: 0px;
+  margin-top: 30px;
+  color: black;
+  float: left;
+  margin-left: 40px;
+}
+
+h4 {
+  padding: 5px;
+  margin: 0;
+  color: black;
+  font-size: 18px;
+}
+
+.undergrad_program {
+  text-align: center;
+  font-size: 40px;
+  /* border: solid 1px red; */
+  padding: 0;
+}
+
+.ctn {
+  text-align: center;
+}
+
+#minor {
+  position: relative;
+  border: solid 2px black;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+  background-color: #63831d;
+  color: orange;
+  font-size: 1em;
+}
+
+#mba {
+  position: relative;
+  border: solid 2px black;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+  width: 80px;
+  background-color: #63831d;
+  color: orange;
+  font-size: 1em;
+}
+
+#undergrad:hover {
+  background: white;
+  color: #63831d;
+  cursor: pointer;
+}
+
+#mba:hover {
+  background: white;
+  color: #63831d;
+  cursor: pointer;
+}
+
+.uni-core {
+  /* border: solid 2px black; */
+  margin-bottom: 15px;
+}
+
+table, th, td {
+  border: solid 2px green;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #606060;
+  background-color: #63831d;
+  color: orange;
+}
+
+table {
+  border: solid 2px black;
+  border-width: medium;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+th {
+  font-size: 20px;
+  border-width: medium;
+}
+
+select {
+  width: 200px;
+}
+
+.totals {
+  float: right;
+  margin-right: 250px;
+  color: white;
+  /* border: solid 1px red; */
+  /* margin-left: 10px; */
+}
+
+#total-need {
+  float: right;
+  font-size: 14px;
+  position: relative;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+#total-earn {
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+}
+
+/* first table div */
+.required-courses{
+  /* border: solid 1px pink; */
+  margin-bottom: 0;
+  padding-bottom: 25px;
+}
+
+/* first table */
+.uni-core {
+  margin-bottom: 30px;
+}
+
+/* second table div */
+.thematic-courses {
+  /* border: solid 1px aqua; */
+  margin-top: 0;
+  padding-bottom: 25px;
+}
+
+/* second table */
+.theme {
+  margin-bottom: 30px;
+}
+
+/* third table div */
+.major-courses {
+  /* border: solid 1px yellow; */
+  padding-bottom: 25px;
+}
+
+/* third table */
+.major-req {
+  margin-bottom: 30px;
+}
+
+/* fourth table div */
+.major-electives {
+  /* border: solid 1px white; */
+  padding-bottom: 25px;
+}
+
+/* fourth table */
+.major-elec {
+  margin-bottom: 30px;
+}
+
+/* fifth table div */
+.gen-elect {
+  margin-top: 0px;
+  margin-bottom: 50px;
+  /* border: solid 1px orange; */
+  padding-bottom: 25px;
+}
+
+/* fifth table */
+.general {
+  margin-bottom: 30px;
+}
+
+.elec {
+  border-style: none;
+  padding-top: 10px;
+}
+
+/* Totals calculation */
+
+.final-calc {
+  color: white;
+  font-size: 1.2em;
+  padding-bottom: 30px;
+}
+
+.tot-earn {
+  font-size: 1.7em;
+  margin: 0;
+  color: white;
+}
+
+.tot-need {
+  font-size: 1.7em;
+  margin: 0;
+  color: white;
+}
+
+/* #earn-cred {
+
+}
+
+#need-cred {
+
+} */
+
+#sched-button {
+  width: 300px;
+  border: solid 2px black;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: #63831d;
+  color: orange;
+  font-size: 1.2em;
+  margin: 0 auto;
+  font-family: 'Slabo 27px', serif;
+}
+
+#sched-button:hover {
+  background: white;
+  color: #63831d;
+  cursor: pointer;
+}
+
+div:first-child {
+  /* border: solid 1px red; */
+  padding-bottom: 50px;
+  /* font-family: 'Dosis', sans-serif; */
+  font-family: 'Slabo 27px', serif;
+}
