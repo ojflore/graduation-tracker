@@ -1,0 +1,26 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Graduation Tracker API</title>
+  <style>
+  table, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+  <h2>Graduation Tracker API Documentation</h2>
+  This API is for the <b>PPU Graduation Tracker</b> utility. This utility can be used by prospective and current PPU Students to track their courses and create mock class schedules. When you include gradtracker.js, a global variable is created called gradtracker. All methods should be called on this object. For example, we can add a course to the scheduler by using <b>gradtracker.addCourse("SP 18", "CMPS 160")</b> Below you can find the API:<br><br>
+  <table>
+    <tr><td>Method Name</td><td>Parameters</td><td>Return Value</td></td><td>Description</td></tr>
+	<tr><td>gradtracker.getCatalog()</td><td>Calls the function in gradtracker.js that returns the object in the catalog.</td><td>None</td></td><td>This method allows a user to <b>view</b> a specific course and it's description to include prerequisites in the catalog by term.</td></tr>
+    <tr><td>gradtracker.getSchedule()</td><td>Calls the function in gradtracker.js that returns the object in the schedule.</td><td>None</td></td><td>This method allows a user to <b>select</b> a course based on the term they have selected. Each term only allows for the selection of certain (available) courses.</td></tr>
+    <tr><td>gradtracker.addCourse()</td><td>Calls the function in gradtracker.js that adds the object to the schedule.</td><td>None</td></td><td>This method allows a user to <b>add</b> a course based on the term they have selected to the schedule.</td></tr>
+    <tr><td>listen(cb)</td><td><i>cb:</i> is the callback function. This function will be called when a change is made in the schedule.</td><td>None</td><td>The listen(cb) functionality is used to track changes in the model and receive notifications. This allows the UI to be updated when the model changes.</td></tr>
+	<tr><td>notify()</td><td>The notify function nests the addCourse() method.</td><td>None</td></td><td>This function notifies the global variable to add the course selected to the schedule.</td></tr>
+  </table>
+</body>
+</html>
