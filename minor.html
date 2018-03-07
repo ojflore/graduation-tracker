@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="mba_minor.css"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<script src="jquery-3.3.1.min.js"></script>
+<title>PPU Grad-Tracker</title>
+</head>
+  <body>
+    <div class="ctn">
+      <h1 class="title">Bachelor of Science: Information Technology</h1>
+      <!-- <h4>Choose Degree Program:</h4> -->
+      <!-- <button type="button" id="undergrad">Undergraduate</button> -->
+      <button onclick="window.location.href='grad-tracker.html'" type="button" id="undergrad">Home</button>
+      <button onclick="window.location.href='undergrad.html'" type="button" id="undergrad">Major</button>
+      <br>
+
+      <!-- <button type="button" id="minor">Minor</button> -->
+      <!-- <div class="program"><h1>Bachelor of Science: Information Technology</h1></div> -->
+
+      <div class="required-courses">
+        <h2>Information Technology Minor</h2><br><br>
+
+
+<!-- required courses table starts here -->
+      <div class="required-courses">
+        <h3>Choose 3 of the following:</h3><br>
+        <table class="theme">
+<!--Column Headers -->
+          <tr>
+            <th>Course Category</th>
+            <th>Course Description</th>
+            <th>Credits</th>
+            <th>Needed</th>
+            <th>Completed</th>
+          </tr>
+
+<!-- First row in Required table -->
+          <tr>
+            <td>Required courses - Choice 1</td>
+            <td>
+              <select id="etw1-drop">Select
+                <option>Select a course</option>
+                <option>CMPS 160 Databases</option>
+                <option>CMPS 161 Networking and Security</option>
+                <option>CMPS 162 Introduction to Programming</option>
+                <option>CMPS 163 Business Analytics</option>
+              </select>
+            </td>
+            <td>3.0</td>
+            <td><input type="checkbox"></input></td>
+            <td><input type="checkbox"></input></td>
+          </tr>
+
+<!-- second row in Required table -->
+          <tr>
+            <td>Required courses - Choice 2</td>
+            <td>
+              <select id="etw2-drop">Select
+                <option>Select a course</option>
+                <option>CMPS 160 Databases</option>
+                <option>CMPS 161 Networking and Security</option>
+                <option>CMPS 162 Introduction to Programming</option>
+                <option>CMPS 163 Business Analytics</option>
+              </select>
+            </td>
+            <td>3.0</td>
+            <td><input type="checkbox"></input></td>
+            <td><input type="checkbox"></input></td>
+          </tr>
+
+<!-- third in required table -->
+          <tr>
+            <td>Required courses - Choice 3</td>
+            <td>
+              <select id="invsci-drop">
+                <option>Select a course</option>
+                <option>Select a course</option>
+                <option>CMPS 160 Databases</option>
+                <option>CMPS 161 Networking and Security</option>
+                <option>CMPS 162 Introduction to Programming</option>
+                <option>CMPS 163 Business Analytics</option>
+              </select>
+            </td>
+            <td>3.0</td>
+            <td><input type="checkbox"></input></td>
+            <td><input type="checkbox"></input></td>
+          </tr>
+
+<!-- fourth row in required-courses table -->
+          <tr>
+            <td>Required Courses - Choice 4</td>
+            <td>
+              <select id="invmat-drop">
+                <option>Select a course</option>
+                <option>CMPS 160 Databases</option>
+                <option>CMPS 161 Networking and Security</option>
+                <option>CMPS 162 Introduction to Programming</option>
+                <option>CMPS 163 Business Analytics</option>
+              </select>
+            </td>
+            <td>3.0</td>
+            <td><input type="checkbox"></input></td>
+            <td><input type="checkbox"></input></td>
+          </tr>
+        </div><br>
+
+
+<!-- Additional Courses start here -->
+
+          <div class="Additional-courses">
+            <table class="CMPS-elec">
+              <h3>Additional CMPS courses (9 Credits):</h3><br><br>
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Needed</th>
+                <th>Completed</th>
+              </tr>
+              <tr>
+                <td>CMPS 260</td>
+                <td>Data Structures</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 261</td>
+                <td>Server Management</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 262</td>
+                <td>Advanced Programming</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 355</td>
+                <td>Internship in Info Tech I</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 356</td>
+                <td>Internship in Info Tech II</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 360</td>
+                <td>Survey of Programming Languages</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 361</td>
+                <td>Web Application Development</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 362</td>
+                <td>Networking</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 363</td>
+                <td>Digital Security</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 364</td>
+                <td>NoSQL Databases</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 460</td>
+                <td>Mobile Application Development</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 461</td>
+                <td>Big Data Applications</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 462</td>
+                <td>Data Mining</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 463</td>
+                <td>Entrepreneurship for Software Development</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>CMPS 464</td>
+                <td>Software Development for E-Commerce</td>
+                <td>3.0</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+              <tr>
+                <td>TBD</td>
+                <td>Special Topics/Independent Study</td>
+                <td>1 - 6</td>
+                <td><input type="checkbox"></input></td>
+                <td><input type="checkbox"></input></td>
+              </tr>
+            </table>
+          </div>
+          <br>
+
+            <div class="total-need"> Required course Credits Needed: </div>
+            <br>
+            <div class="total-earn"> Additional CMPS course Credits Earned: </div>
+            <br><br><br>
+          </div>
+          <div class="totals">
+          <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
+          <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
+        </div>
+        <div>
+          <button onclick="window.location.href='scheduler.html'" type="button" id="sub-button">Course Schedule</button>
+      </div>
+    </div>
+  </body>
+</html>
