@@ -6,13 +6,18 @@
 <link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
 <script src="jquery-3.3.1.min.js"></script>
 <title>PPU Grad-Tracker</title>
+<script>
+ $( function() {
+   $( document ).tooltip();
+ } );
+</script>
 </head>
   <body>
     <div class="ctn1">
       <h1 class="title">Information Technology Graduation Tracker</h1>
       <h4>Choose Degree Program:</h4>
-      <button onclick="window.location.href='undergrad.html'" type="button" id="undergrad">Undergraduate</button>
-      <button onclick="window.location.href='MBA.html'" type="button" id="mba">MBA</button>
+      <button onclick="window.location.href='undergrad.html'" type="button" id="undergrad" id="mba" title="Begin tracking undergrad status">Undergraduate</button>
+      <button onclick="window.location.href='MBA.html'" type="button" id="mba"title="Begin tracking MBA status.">MBA</button>
     </div>
   </body>
 </html>
