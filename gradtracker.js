@@ -40,8 +40,6 @@ var gradtracker = (function() {
 
 
 
-
-
   // define the playing grid (2d array)
   var grid = [[null, null, null],
               [null, null, null],
