@@ -13,6 +13,7 @@
 <!-- <script src="jquery-3.3.1.min.js"></script> -->
 <script src="gradtracker.js"></script>
 <title>PPU Grad-Tracker</title>
+<!-- Need Listner funciton for checkboxes when clicked -->
 </head>
   <body>
 
@@ -401,7 +402,7 @@
 <!-- General elective table starts here -->
           <div class="gen-elect">
             <h3>General Elective (9 Credits)</h3>
-            <table class="general" id="general_undergrad">
+            <table class="general" id="CMPS_gen">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
@@ -510,69 +511,13 @@
           <h2>Information Technology MBA</h2><br><br>
 
             <h3>Required Courses:</h3>
-            <table class="theme">
+            <table class="theme" id="theme_MBA">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 511</td>
-                <td>Accounting for Managers</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 570</td>
-                <td>Global Environment of Business</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 571</td>
-                <td>Legal Environment of Business</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 572</td>
-                <td>Marketing</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 573</td>
-                <td>Corporate Finance</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 574</td>
-                <td>Organizational Behaviors</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 576 or 540</td>
-                <td>Quanitative Methods or Statistics and Quanitative Methods</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 578</td>
-                <td>Managerial Economics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Core Credits Earned: </div>
@@ -591,41 +536,13 @@
   <!--- Business analytics starts here -->
           <div class="Business-analytics">
             <h3>Business Analytics Track:</h3><br>
-            <table class="theme">
+            <table class="theme" id="theme_analytics">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 542</td>
-                <td>Business Analytics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 543</td>
-                <td>Data Analysis and Visualization</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 544</td>
-                <td>Applied Data Mining</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 595</td>
-                <td>Special Topics: Business Analytics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Concentration Credits Earned: </div>
@@ -634,41 +551,13 @@
   <!--management info systems starts here -->
           <div class="Business-analytics">
             <h3>Management Information Systems:</h3><br><br>
-            <table class="theme">
+            <table class="theme" id="theme_MIS">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 580</td>
-                <td>Management Info. Systems</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 581</td>
-                <td>Dev. of Support Networks</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 582</td>
-                <td>Dbase Mgmt. and Applications</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 597</td>
-                <td>Special Topics Info. Systems</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Concentration Credits Earned: </div>
@@ -704,7 +593,7 @@
         <div class="required-courses">
           <h3>Choose 3 of the following:</h3><br>
           <!-- added ID "theme" for .js file-->
-          <table class="theme" id="theme">
+          <table class="theme" id="theme_minor">
       <!--Column Headers -->
             <tr>
               <th>Course Category</th>
@@ -786,132 +675,16 @@
 
 
       <!-- Additional Courses start here -->
-
-
-
             <div class="Additional-courses">
-              <h3>Additional CMPS courses (9 Credits):</h3><br><br>
 
               <table class="CMPS-elec" id="CMPS_elec">
-
+                <h3>Additional CMPS courses (9 Credits):</h3><br><br>
                 <tr>
                   <th>Course #</th>
                   <th>Course Description</th>
                   <th>Credits</th>
                   <th>Needed</th>
                   <th>Completed</th>
-                </tr>
-                <tr>
-                  <td>CMPS 260</td>
-                  <td>Data Structures</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 261</td>
-                  <td>Server Management</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 262</td>
-                  <td>Advanced Programming</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 355</td>
-                  <td>Internship in Info Tech I</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 356</td>
-                  <td>Internship in Info Tech II</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 360</td>
-                  <td>Survey of Programming Languages</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 361</td>
-                  <td>Web Application Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 362</td>
-                  <td>Networking</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 363</td>
-                  <td>Digital Security</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 364</td>
-                  <td>NoSQL Databases</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 460</td>
-                  <td>Mobile Application Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 461</td>
-                  <td>Big Data Applications</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 462</td>
-                  <td>Data Mining</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 463</td>
-                  <td>Entrepreneurship for Software Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 464</td>
-                  <td>Software Development for E-Commerce</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>TBD</td>
-                  <td>Special Topics/Independent Study</td>
-                  <td>1 - 6</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
                 </tr>
               </table>
             </div>
