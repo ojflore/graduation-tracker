@@ -1,4 +1,4 @@
-
+  //If it is in the DOM, it can't
 
 	// <!-- Core Courses Sum Function -->
     var total = 0;
@@ -288,14 +288,14 @@
 
     //where to put "creditsNeeded4(this)" for calculations. Onclick is HTML
     var major_elec_data = [
-      [ 'BMGT 380', 'Elementary Statistics', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'BMGT 480', 'Cooperative Education I', '6', 'Thematic', 'Thematic' ],
-      [ 'CMPS 355', 'Cooperative Education II', '3', 'Thematic', 'Thematic' ],
-      [ 'CMPS 356', 'Internship in Info Tech I', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 360', 'Internship in Info Tech II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 361', 'Survey of Programming Languages', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 362', 'Web Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 363', 'Networking', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'BMGT 380', 'Cooperative Education I', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'BMGT 480', 'Cooperative Education II', '6', 'Thematic', 'Thematic' ],
+      [ 'CMPS 355', 'Internship in Info Tech I', '3', 'Thematic', 'Thematic' ],
+      [ 'CMPS 356', 'Internship in Info Tech II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'CMPS 360', 'Survey of Programming Languages', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'CMPS 361', 'Web Application Developmen', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'CMPS 362', 'Advanced Networking', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'CMPS 363', 'Digital Security', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'CMPS 364', 'NoSQL Databases', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'CMPS 460', 'Mobile Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'CMPS 461', 'Big Data Applications', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
@@ -342,7 +342,7 @@
     var theme_minor_data = [
       [ 'Required courses - Choice 1', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'Required courses - Choice 2', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'MRequired courses - Choice 3', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
+      [ 'Required courses - Choice 3', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'Required courses - Choice 4', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
     ];
   theme_minor_data.forEach( function( rowData ){
