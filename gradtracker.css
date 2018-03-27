@@ -15,12 +15,13 @@ button {
   background-color: #63831d;
   color: orange;
   font-size: 1em;
+  font-weight: bold;
 }
 
 /* Below css applies to pg 1
  and 2 */
 body {
-  background-color: #fafbf5;
+  background-color: green;
   margin: 0;
   padding: 0;
 }
@@ -39,6 +40,14 @@ body {
 	cursor: pointer;
 }
 
+img {
+  opacity: 0;
+}
+
+h1 {
+  font-weight: bold;
+
+}
 h2 {
   /* color: white; */
   float: left;
