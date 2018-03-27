@@ -21,7 +21,11 @@ button {
 /* Below css applies to pg 1
  and 2 */
 body {
+<<<<<<< HEAD
+  background-color: #fafbf5;
+=======
   background-color: green;
+>>>>>>> 2fcf70183e0324eb3ca9445b34bb27116ade6935
   margin: 0;
   padding: 0;
 }
