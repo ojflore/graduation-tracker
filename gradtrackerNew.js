@@ -308,28 +308,6 @@
       $('#major_elec').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
     })
 
-    //where to put "creditsNeeded4(this)" for calculations. Onclick is HTML
-    var major_elec_data = [
-      [ 'BMGT 380', 'Elementary Statistics', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'BMGT 480', 'Cooperative Education I', '6.0', 'Thematic', 'Thematic' ],
-      [ 'CMPS 355', 'Cooperative Education II', '3.0', 'Thematic', 'Thematic' ],
-      [ 'CMPS 356', 'Internship in Info Tech I', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 360', 'Internship in Info Tech II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 361', 'Survey of Programming Languages', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 362', 'Web Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 363', 'Networking', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 364', 'NoSQL Databases', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 460', 'Mobile Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 461', 'Big Data Applications', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 462', 'Data Mining', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 463', 'Entrepreneurship for Software Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'CMPS 464', 'Software Development for E-Commerce', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-      [ 'TBD', 'Special Topics/Independent Study', '1-6', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    ];
-  major_elec_data.forEach( function( rowData ){
-      $('#major_elec').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-    })
-
     var CMPS_gen_data = [
       [ 'TestGen Elective 1', 'Need Dropdown', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
       [ 'TestGen Elective 2', 'Need Dropdown', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
