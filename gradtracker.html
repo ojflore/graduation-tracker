@@ -9,14 +9,39 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <!-- <script src="jquery-3.3.1.min.js"></script> -->
 <script src="gradtracker.js"></script>
 <title>PPU Grad-Tracker</title>
+<!-- Need Listner funciton for checkboxes when clicked -->
+<script type="text/javascript">
+$( function() {
+d3.select("body")
+.transition()
+.duration(3000)
+.style("background-color", "white");
+  d3.selectAll("button")
+  .transition()
+  .duration(3500)
+  .style("background-color", "green");
+  d3.selectAll("h1")
+  .transition()
+  .duration(5000)
+  .style("color", "#228B22");
+  d3.selectAll("img")
+  .transition()
+  .duration(5500)
+  .style("opacity", "1");
+  } );
+
+</script>
+
 </head>
   <body>
 
     <!-- Main page -->
     <div class="ctn1" id="ctn1">
+      <img src="pointparkseal.png">
       <h1 class="title">Point Park University Graduation Tracker</h1>
       <h4>Choose Degree Program:</h4>
       <button class="undergrad" id="undergrad">Undergraduate</button>
@@ -36,10 +61,13 @@
       <h1 class="undergrad_program">Bachelor of Science: Information Technology</h1>
       <button class="undergrad" id="home">Home</button>
       <button id="minor">Minor</button>
+
+
       <div class="required-courses">
         <h2>University Core Curriculum (42 Credits)</h2><br>
         <h3>Required Courses</h3>
-        <table class="uni-core">
+        <!--aded id for .js file -->
+        <table class="uni-core" id=uni_core>
           <tr>
             <th>Course #</th>
             <th>Course Description</th>
@@ -47,30 +75,7 @@
             <!-- <th>Needed</th> -->
             <th>Completed</th>
           </tr>
-          <tr>
-            <td>COMM 101</td>
-            <td>Oral Comm. & Pres.</td>
-            <td>3.0</td>
-            <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned1(this)"></input></td>
-          </tr>
-          <tr>
-            <td>ENGL 101</td>
-            <td>College Composition</td>
-            <td>3.0</td>
-            <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned1(this)"></input></td>
-          </tr>
-          <tr>
-            <td>UNIV 101</td>
-            <td>City-University Life</td>
-            <td>3.0</td>
-            <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned1(this)"></input></td>
-          </tr>
-          <tr>
-            <td>CMPS 480</td>
-            <td>Senior Capstone</td>
-            <td>3.0</td>
-            <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned1(this)"></input></td>
-          </tr>
+
         </table>
     <div class="totals">Core Credits Needed: <span id="core-need"></span></div>
 		</div>
@@ -78,7 +83,7 @@
 <!-- thematic courses table starts here -->
       <div class="thematic-courses">
         <h3>Thematic Courses</h3>
-        <table class="theme">
+        <table class="theme" id= "theme_undergrad">
 <!--Column Headers -->
           <tr>
             <th>Course Category</th>
@@ -383,167 +388,13 @@
           <div class="major-courses">
             <h2>Major Requirements (69 Credits)</h2><br>
             <h3>Required Courses (C = Taken in the core)</h3>
-            <table class="major-req">
+            <table class="major-req" id="major_req">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MATH 175</td>
-                <td>Elementary Statistics</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>MATH 180</td>
-                <td>College Algebra (Investigate Math)</td>
-                <td>C</td>
-                <td><label>Thematic</label></td>
-                <td><label>Thematic</label></td>
-              </tr>
-              <tr>
-                <td>PSYC 150</td>
-                <td>Psych. Foundations (Understand People)</td>
-                <td>C</td>
-                <td><label>Thematic</label></td>
-                <td><label>Thematic</label></td>
-              </tr>
-              <tr>
-                <td>ACCT 101</td>
-                <td>Introductory Accounting I</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>ACCT 102</td>
-                <td>Introductory Accounting II</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 101</td>
-                <td>Introduction to Business</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 201</td>
-                <td>Business Law I</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 202</td>
-                <td>Business Law II</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 205</td>
-                <td>Principals of Marketing</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 208</td>
-                <td>Principles of Management</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 221</td>
-                <td>Bus. Comm. and Research</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 300</td>
-                <td>Corporate Finance</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 310</td>
-                <td>Management Science</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 417</td>
-                <td>Strategic Planning</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 160</td>
-                <td>Databases</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 161</td>
-                <td>Network and Security</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 162</td>
-                <td>Introduction to Programming</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 163</td>
-                <td>Business Analytics</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 260</td>
-                <td>Data Structures</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 261</td>
-                <td>Server Management</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 262</td>
-                <td>Advanced Programming</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 480</td>
-                <td>Senior Project</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded3(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned3(this)"></input></td>
               </tr>
             </table>
             <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
@@ -555,7 +406,7 @@
 <!-- IT electives start here -->
           <div class="major-electives">
             <h3>IT Electives (9 Credits)</h3>
-            <table class="major-elec">
+            <table class="major-elec" id="major_elec">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
@@ -563,111 +414,7 @@
                 <th>Needed</th>
                 <th>Completed</th>
               </tr>
-              <tr>
-                <td>BMGT 380</td>
-                <td>Cooperative Education I</td>
-                <td>6.0</td>
-                <td><input type="checkbox" name="credits" value="6.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="6.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>BMGT 480</td>
-                <td>Cooperative Education II</td>
-                <td>6.0</td>
-                <td><input type="checkbox" name="credits" value="6.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="6.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 355</td>
-                <td>Internship in Info Tech I</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 356</td>
-                <td>Internship in Info Tech II</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 360</td>
-                <td>Survey of Programming Languages</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 361</td>
-                <td>Web Application Development</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 362</td>
-                <td>Networking</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 363</td>
-                <td>Digital Security</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 364</td>
-                <td>NoSQL Databases</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 460</td>
-                <td>Mobile Application Development</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 461</td>
-                <td>Big Data Applications</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 462</td>
-                <td>Data Mining</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 463</td>
-                <td>Entrepreneurship for Software Development</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>CMPS 464</td>
-                <td>Software Development for E-Commerce</td>
-                <td>3.0</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
-              <tr>
-                <td>TBD</td>
-                <td>Special Topics/Independent Study</td>
-                <td>1 - 6</td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsNeeded4(this)"></input></td>
-                <td><input type="checkbox" name="credits" value="3.0" onClick="creditsEarned4(this)"></input></td>
-              </tr>
+            <!-- Need notifier for onlick events -->
             </table>
 			       <div class="totals"> Major Elective Credits Needed: <span id="it-need"></span></div>
              <br>
@@ -678,7 +425,7 @@
 <!-- General elective table starts here -->
           <div class="gen-elect">
             <h3>General Elective (9 Credits)</h3>
-            <table class="general">
+            <table class="general" id="CMPS_gen">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
@@ -787,69 +534,13 @@
           <h2>Information Technology MBA</h2><br><br>
 
             <h3>Required Courses:</h3>
-            <table class="theme">
+            <table class="theme" id="theme_MBA">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 511</td>
-                <td>Accounting for Managers</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 570</td>
-                <td>Global Environment of Business</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 571</td>
-                <td>Legal Environment of Business</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 572</td>
-                <td>Marketing</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 573</td>
-                <td>Corporate Finance</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 574</td>
-                <td>Organizational Behaviors</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 576 or 540</td>
-                <td>Quanitative Methods or Statistics and Quanitative Methods</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 578</td>
-                <td>Managerial Economics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Core Credits Earned: </div>
@@ -868,41 +559,13 @@
   <!--- Business analytics starts here -->
           <div class="Business-analytics">
             <h3>Business Analytics Track:</h3><br>
-            <table class="theme">
+            <table class="theme" id="theme_analytics">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 542</td>
-                <td>Business Analytics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 543</td>
-                <td>Data Analysis and Visualization</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 544</td>
-                <td>Applied Data Mining</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 595</td>
-                <td>Special Topics: Business Analytics</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Concentration Credits Earned: </div>
@@ -911,41 +574,13 @@
   <!--management info systems starts here -->
           <div class="Business-analytics">
             <h3>Management Information Systems:</h3><br><br>
-            <table class="theme">
+            <table class="theme" id="theme_MIS">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
                 <th>Needed</th>
                 <th>Completed</th>
-              </tr>
-              <tr>
-                <td>MBA 580</td>
-                <td>Management Info. Systems</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 581</td>
-                <td>Dev. of Support Networks</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 582</td>
-                <td>Dbase Mgmt. and Applications</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
-              </tr>
-              <tr>
-                <td>MBA 597</td>
-                <td>Special Topics Info. Systems</td>
-                <td>3.0</td>
-                <td><input type="checkbox"></input></td>
-                <td><input type="checkbox"></input></td>
               </tr>
             </table>
             <div class="total-need"> Concentration Credits Earned: </div>
@@ -980,7 +615,8 @@
       <!-- required courses table starts here -->
         <div class="required-courses">
           <h3>Choose 3 of the following:</h3><br>
-          <table class="theme">
+          <!-- added ID "theme" for .js file-->
+          <table class="theme" id="theme_minor">
       <!--Column Headers -->
             <tr>
               <th>Course Category</th>
@@ -1062,9 +698,9 @@
 
 
       <!-- Additional Courses start here -->
-
             <div class="Additional-courses">
-              <table class="CMPS-elec">
+
+              <table class="CMPS-elec" id="CMPS_elec">
                 <h3>Additional CMPS courses (9 Credits):</h3><br><br>
                 <tr>
                   <th>Course #</th>
@@ -1072,118 +708,6 @@
                   <th>Credits</th>
                   <th>Needed</th>
                   <th>Completed</th>
-                </tr>
-                <tr>
-                  <td>CMPS 260</td>
-                  <td>Data Structures</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 261</td>
-                  <td>Server Management</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 262</td>
-                  <td>Advanced Programming</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 355</td>
-                  <td>Internship in Info Tech I</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 356</td>
-                  <td>Internship in Info Tech II</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 360</td>
-                  <td>Survey of Programming Languages</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 361</td>
-                  <td>Web Application Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 362</td>
-                  <td>Networking</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 363</td>
-                  <td>Digital Security</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 364</td>
-                  <td>NoSQL Databases</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 460</td>
-                  <td>Mobile Application Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 461</td>
-                  <td>Big Data Applications</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 462</td>
-                  <td>Data Mining</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 463</td>
-                  <td>Entrepreneurship for Software Development</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>CMPS 464</td>
-                  <td>Software Development for E-Commerce</td>
-                  <td>3.0</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
-                </tr>
-                <tr>
-                  <td>TBD</td>
-                  <td>Special Topics/Independent Study</td>
-                  <td>1 - 6</td>
-                  <td><input type="checkbox"></input></td>
-                  <td><input type="checkbox"></input></td>
                 </tr>
               </table>
             </div>
@@ -1233,214 +757,6 @@
 
 
 
-<script>
-	// <!-- Core Courses Sum Function -->
-    var total = 0;
-    function creditsNeeded1(item){
-        if(item.checked) {
-           total+= parseInt(item.value);
-        }
-		else {
-           total-= parseInt(item.value);
-        }
-        document.getElementById('core-need').innerHTML = total;
-        document.getElementById('core-need').innerHTML = total;
-    }
-	var total1 = 0;
-    function creditsEarned1(item){
-        if(item.checked){
-           total1+= parseInt(item.value);
-        } else{
-           total1-= parseInt(item.value);
-        }
-        document.getElementById('core-earn').innerHTML = total1;
-        document.getElementById('core-earn').innerHTML = total1;
-    }
-
-	// <!-- Thematic Courses Sum Function -->
-	var total2 = 0;
-    function creditsNeeded2(item){
-        if(item.checked) {
-           total2+= parseInt(item.value);
-        }
-		else {
-           total2-= parseInt(item.value);
-        }
-        document.getElementById('thematic-need').innerHTML = total2;
-        document.getElementById('thematic-need').innerHTML = total2;
-    }
-	var total3 = 0;
-    function creditsEarned2(item){
-        if(item.checked){
-           total3+= parseInt(item.value);
-        } else{
-           total3-= parseInt(item.value);
-        }
-        document.getElementById('thematic-earn').innerHTML = total3;
-        document.getElementById('thematic-earn').innerHTML = total3;
-    }
-
-	// <!-- Sum Functions js starts here -->
-	var total4 = 0;
-    function creditsNeeded3(item){
-        if(item.checked) {
-           total4+= parseInt(item.value);
-        }
-		else {
-           total4-= parseInt(item.value);
-        }
-        document.getElementById('major-need').innerHTML = total4;
-        document.getElementById('major-need').innerHTML = total4;
-    }
-	var total5 = 0;
-    function creditsEarned3(item){
-        if(item.checked){
-           total5+= parseInt(item.value);
-        } else{
-           total5-= parseInt(item.value);
-        }
-        document.getElementById('major-earn').innerHTML = total5;
-        document.getElementById('major-earn').innerHTML = total5;
-    }
-
-	// <!-- IT Electives Sum Function -->
-	var total6 = 0;
-    function creditsNeeded4(item){
-        if(item.checked) {
-           total6+= parseInt(item.value);
-        }
-		else {
-           total6-= parseInt(item.value);
-        }
-        document.getElementById('it-need').innerHTML = total6;
-        document.getElementById('it-need').innerHTML = total6;
-    }
-	var total7 = 0;
-    function creditsEarned4(item){
-        if(item.checked){
-           total7+= parseInt(item.value);
-        } else{
-           total7-= parseInt(item.value);
-        }
-        document.getElementById('it-earn').innerHTML = total7;
-        document.getElementById('it-earn').innerHTML = total7;
-    }
-
-	// <!-- General Elective Sum Function -->
-	var total8 = 0;
-    function creditsNeeded5(item){
-        if(item.checked) {
-           total8+= parseInt(item.value);
-        }
-		else {
-           total8-= parseInt(item.value);
-        }
-        document.getElementById('elective-need').innerHTML = total8;
-        document.getElementById('elective-need').innerHTML = total8;
-    }
-	var total9 = 0;
-    function creditsEarned5(item){
-        if(item.checked){
-           total9+= parseInt(item.value);
-        } else{
-           total9-= parseInt(item.value);
-        }
-        document.getElementById('elective-earn').innerHTML = total9;
-        document.getElementById('elective-earn').innerHTML = total9;
-    }
-
-// jquery starts here
-  $(function(){
-    gradtracker.listen(function(){ //listens to model everything it changess
-      $("#test").empty(); //empties the table
-      var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
-      // console.log(schedule);
-      var sp18 = schedule["SP 18"];
-      // console.log(sp18);
-      for (var i = 0; i < sp18.length; i++) {
-        $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
-      }
-    });
-
-    gradtracker.listen(function(){ //listens to model everything it changes
-      $("#test").empty(); //empties the table
-      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
-      console.log(catalog);
-      var cmps160 = catalog["CMPS 160"];
-      console.log(cmps160);
-      var tr = $("#test").append("<tr>");
-      for (var key in cmps160) {
-        tr.append("<td>" + key + "</td>"); //adds object to the table
-      }
-      for (var course in catalog) {
-        var tr = $("#test").append("<tr>");
-        for (var key in catalog[course]) {
-          console.log(key);
-          tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
-        }
-      }
-    });
-
-    $("#course1-drop").click(function(){ //makes a change in the model
-      gradtracker.addCourse("SP 18", "CMPS 160");
-    });
-
-    $("#test").change(function() {
-        console.log("hello world");
-        console.log($(this).val());
-        gradtracker.addCourse("SP 18", $(this).val());
-    });
-// Hide and Show divs
-    $(function(){
-      //hides all divs except the main div onload of page
-      $("#ctn2").hide();
-      $("#ctn3").hide();
-      $("#ctn4").hide();
-      $("#ctn5").hide();
-      //hides the main div onclick of undergrad button and shows undergrad page
-      $("#undergrad").click(function(){
-        $("#ctn1").hide();
-        $("#ctn2").show();
-      });
-      //hides undergrad page onclick of home button and takes you back to main page
-      $("#home").click(function(){
-        $("#ctn1").show();
-        $("#ctn2").hide();
-      });
-      //hides main page onclick of mba button and takes you to mba page
-      $("#mba").click(function(){
-        $("#ctn3").show();
-        $("#ctn1").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home1").click(function(){
-        $("#ctn1").show();
-        $("#ctn3").hide();
-      });
-      //hides main page onclick of mba button and takes you to mba page
-      $("#minor").click(function(){
-        $("#ctn4").show();
-        $("#ctn2").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home2").click(function(){
-        $("#ctn1").show();
-        $("#ctn4").hide();
-      });
-      $(".sched-button").click(function(){
-        $("#ctn5").show();
-        $("#ctn2").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home3").click(function(){
-        $("#ctn1").show();
-        $("#ctn5").hide();
-      });
-    });
-
-
-  });
-
-  </script>
+<script src="gradtrackerNew.js"></script>
   </body>
 </html>
