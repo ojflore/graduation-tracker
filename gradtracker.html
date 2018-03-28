@@ -873,95 +873,96 @@ var total9 = 0;
       document.getElementById('elective-earn').innerHTML = total9;
   }
 // jquery starts here
-  $(function(){
-    gradtracker.listen(function(){ //listens to model everything it changess
-      $("#test").empty(); //empties the table
-      var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
-      // console.log(schedule);
-      var sp18 = schedule["SP 18"];
-      // console.log(sp18);
-      for (var i = 0; i < sp18.length; i++) {
-        $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
-      }
-    });
+$(function(){
+  gradtracker.listen(function(){ //listens to model everything it changess
+    $("#test").empty(); //empties the table
+    var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+    // console.log(schedule);
+    var sp18 = schedule["SP 18"];
+    // console.log(sp18);
+    for (var i = 0; i < sp18.length; i++) {
+      $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
+    }
+  });
 
-    gradtracker.listen(function(){ //listens to model everything it changes
-      $("#test").empty(); //empties the table
-      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
-      console.log(catalog);
-      var cmps160 = catalog["CMPS 160"];
-      console.log(cmps160);
+  gradtracker.listen(function(){ //listens to model everything it changes
+    $("#test").empty(); //empties the table
+    var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+    console.log(catalog);
+    var cmps160 = catalog["CMPS 160"];
+    console.log(cmps160);
+    var tr = $("#test").append("<tr>");
+
+    for (var key in cmps160) {
+      tr.append("<td>" + key + "</td>"); //adds object to the table
+    }
+    for (var course in catalog) {
       var tr = $("#test").append("<tr>");
-for (var key in cmps160) {
-  tr.append("<td>" + key + "</td>"); //adds object to the table
-}
-for (var course in catalog) {
-  var tr = $("#test").append("<tr>");
-  for (var key in catalog[course]) {
-    console.log(key);
-    tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
-  }
-}
-});
+      for (var key in catalog[course]) {
+        console.log(key);
+        tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
+      }
+    }
+  });
 
-$("#course1-drop").click(function(){ //makes a change in the model
-gradtracker.addCourse("SP 18", "CMPS 160");
-});
+  $("#course1-drop").click(function(){ //makes a change in the model
+    gradtracker.addCourse("SP 18", "CMPS 160");
+  });
 
-$("#test").change(function() {
-  console.log("hello world");
-  console.log($(this).val());
-  gradtracker.addCourse("SP 18", $(this).val());
+  $("#test").change(function() {
+      console.log("hello world");
+      console.log($(this).val());
+      gradtracker.addCourse("SP 18", $(this).val());
+  });
 });
-
 
 // Toggle divs
-    $(function(){
-      //hides all divs except the main div onload of page
-      $("#ctn2").hide();
-      $("#ctn3").hide();
-      $("#ctn4").hide();
-      $("#ctn5").hide();
-      //hides the main div onclick of undergrad button and shows undergrad page
-      $("#undergrad").click(function(){
-        $("#ctn1").hide();
-        $("#ctn2").show();
-      });
-      //hides undergrad page onclick of home button and takes you back to main page
-      $("#home").click(function(){
-        $("#ctn1").show();
-        $("#ctn2").hide();
-      });
-      //hides main page onclick of mba button and takes you to mba page
-      $("#mba").click(function(){
-        $("#ctn3").show();
-        $("#ctn1").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home1").click(function(){
-        $("#ctn1").show();
-        $("#ctn3").hide();
-      });
-      //hides main page onclick of mba button and takes you to mba page
-      $("#minor").click(function(){
-        $("#ctn4").show();
-        $("#ctn2").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home2").click(function(){
-        $("#ctn1").show();
-        $("#ctn4").hide();
-      });
-      $(".sched-button").click(function(){
-        $("#ctn5").show();
-        $("#ctn2").hide();
-      });
-      //hides mba page onclick of home button and takes you back to main page
-      $("#home3").click(function(){
-        $("#ctn1").show();
-        $("#ctn5").hide();
-      });
-    });
+$(function(){
+  //hides all divs except the main div onload of page
+  $("#ctn2").hide();
+  $("#ctn3").hide();
+  $("#ctn4").hide();
+  $("#ctn5").hide();
+  //hides the main div onclick of undergrad button and shows undergrad page
+  $("#undergrad").click(function(){
+    $("#ctn1").hide();
+    $("#ctn2").show();
+  });
+  //hides undergrad page onclick of home button and takes you back to main page
+  $("#home").click(function(){
+    $("#ctn1").show();
+    $("#ctn2").hide();
+  });
+  //hides main page onclick of mba button and takes you to mba page
+  $("#mba").click(function(){
+    $("#ctn3").show();
+    $("#ctn1").hide();
+  });
+  //hides mba page onclick of home button and takes you back to main page
+  $("#home1").click(function(){
+    $("#ctn1").show();
+    $("#ctn3").hide();
+  });
+  //hides main page onclick of mba button and takes you to mba page
+  $("#minor").click(function(){
+    $("#ctn4").show();
+    $("#ctn2").hide();
+  });
+  //hides mba page onclick of home button and takes you back to main page
+  $("#home2").click(function(){
+    $("#ctn1").show();
+    $("#ctn4").hide();
+  });
+  $(".sched-button").click(function(){
+    $("#ctn5").show();
+    $("#ctn2").hide();
+  });
+  //hides mba page onclick of home button and takes you back to main page
+  $("#home3").click(function(){
+    $("#ctn1").show();
+    $("#ctn5").hide();
+  });
+});
 </script>
   </body>
 </html>
