@@ -757,6 +757,211 @@ d3.select("body")
 
 
 
-<script src="gradtrackerNew.js"></script>
+<script>
+// <!-- Core Courses Sum Function -->
+  var total = 0;
+  function creditsNeeded1(item){
+      if(item.checked) {
+         total+= parseInt(item.value);
+      }
+  else {
+         total-= parseInt(item.value);
+      }
+      document.getElementById('core-need').innerHTML = total;
+      document.getElementById('core-need').innerHTML = total;
+  }
+var total1 = 0;
+  function creditsEarned1(item){
+      if(item.checked){
+         total1+= parseInt(item.value);
+      } else{
+         total1-= parseInt(item.value);
+      }
+      document.getElementById('core-earn').innerHTML = total1;
+      document.getElementById('core-earn').innerHTML = total1;
+  }
+
+// <!-- Thematic Courses Sum Function -->
+var total2 = 0;
+  function creditsNeeded2(item){
+      if(item.checked) {
+         total2+= parseInt(item.value);
+      }
+  else {
+         total2-= parseInt(item.value);
+      }
+      document.getElementById('thematic-need').innerHTML = total2;
+      document.getElementById('thematic-need').innerHTML = total2;
+  }
+var total3 = 0;
+  function creditsEarned2(item){
+      if(item.checked){
+         total3+= parseInt(item.value);
+      } else{
+         total3-= parseInt(item.value);
+      }
+      document.getElementById('thematic-earn').innerHTML = total3;
+      document.getElementById('thematic-earn').innerHTML = total3;
+  }
+
+// <!-- Sum Functions js starts here -->
+var total4 = 0;
+  function creditsNeeded3(item){
+      if(item.checked) {
+         total4+= parseInt(item.value);
+      }
+  else {
+         total4-= parseInt(item.value);
+      }
+      document.getElementById('major-need').innerHTML = total4;
+      document.getElementById('major-need').innerHTML = total4;
+  }
+var total5 = 0;
+  function creditsEarned3(item){
+      if(item.checked){
+         total5+= parseInt(item.value);
+      } else{
+         total5-= parseInt(item.value);
+      }
+      document.getElementById('major-earn').innerHTML = total5;
+      document.getElementById('major-earn').innerHTML = total5;
+  }
+
+// <!-- IT Electives Sum Function -->
+var total6 = 0;
+  function creditsNeeded4(item){
+      if(item.checked) {
+         total6+= parseInt(item.value);
+      }
+  else {
+         total6-= parseInt(item.value);
+      }
+      document.getElementById('it-need').innerHTML = total6;
+      document.getElementById('it-need').innerHTML = total6;
+  }
+var total7 = 0;
+  function creditsEarned4(item){
+      if(item.checked){
+         total7+= parseInt(item.value);
+      } else{
+         total7-= parseInt(item.value);
+      }
+      document.getElementById('it-earn').innerHTML = total7;
+      document.getElementById('it-earn').innerHTML = total7;
+  }
+
+// <!-- General Elective Sum Function -->
+var total8 = 0;
+  function creditsNeeded5(item){
+      if(item.checked) {
+         total8+= parseInt(item.value);
+      }
+  else {
+         total8-= parseInt(item.value);
+      }
+      document.getElementById('elective-need').innerHTML = total8;
+      document.getElementById('elective-need').innerHTML = total8;
+  }
+var total9 = 0;
+  function creditsEarned5(item){
+      if(item.checked){
+         total9+= parseInt(item.value);
+      } else{
+         total9-= parseInt(item.value);
+      }
+      document.getElementById('elective-earn').innerHTML = total9;
+      document.getElementById('elective-earn').innerHTML = total9;
+  }
+// jquery starts here
+  $(function(){
+    gradtracker.listen(function(){ //listens to model everything it changess
+      $("#test").empty(); //empties the table
+      var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+      // console.log(schedule);
+      var sp18 = schedule["SP 18"];
+      // console.log(sp18);
+      for (var i = 0; i < sp18.length; i++) {
+        $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
+      }
+    });
+
+    gradtracker.listen(function(){ //listens to model everything it changes
+      $("#test").empty(); //empties the table
+      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+      console.log(catalog);
+      var cmps160 = catalog["CMPS 160"];
+      console.log(cmps160);
+      var tr = $("#test").append("<tr>");
+for (var key in cmps160) {
+  tr.append("<td>" + key + "</td>"); //adds object to the table
+}
+for (var course in catalog) {
+  var tr = $("#test").append("<tr>");
+  for (var key in catalog[course]) {
+    console.log(key);
+    tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
+  }
+}
+});
+
+$("#course1-drop").click(function(){ //makes a change in the model
+gradtracker.addCourse("SP 18", "CMPS 160");
+});
+
+$("#test").change(function() {
+  console.log("hello world");
+  console.log($(this).val());
+  gradtracker.addCourse("SP 18", $(this).val());
+});
+
+
+// Toggle divs
+    $(function(){
+      //hides all divs except the main div onload of page
+      $("#ctn2").hide();
+      $("#ctn3").hide();
+      $("#ctn4").hide();
+      $("#ctn5").hide();
+      //hides the main div onclick of undergrad button and shows undergrad page
+      $("#undergrad").click(function(){
+        $("#ctn1").hide();
+        $("#ctn2").show();
+      });
+      //hides undergrad page onclick of home button and takes you back to main page
+      $("#home").click(function(){
+        $("#ctn1").show();
+        $("#ctn2").hide();
+      });
+      //hides main page onclick of mba button and takes you to mba page
+      $("#mba").click(function(){
+        $("#ctn3").show();
+        $("#ctn1").hide();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home1").click(function(){
+        $("#ctn1").show();
+        $("#ctn3").hide();
+      });
+      //hides main page onclick of mba button and takes you to mba page
+      $("#minor").click(function(){
+        $("#ctn4").show();
+        $("#ctn2").hide();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home2").click(function(){
+        $("#ctn1").show();
+        $("#ctn4").hide();
+      });
+      $(".sched-button").click(function(){
+        $("#ctn5").show();
+        $("#ctn2").hide();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home3").click(function(){
+        $("#ctn1").show();
+        $("#ctn5").hide();
+      });
+    });
+</script>
   </body>
 </html>
