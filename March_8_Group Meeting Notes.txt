@@ -1,7 +1,0 @@
-NOTES FROM THURSDAY GROUP MEETING:
-
-
-- Remove or autofill "Needed" column for Required Courses Field
-- Work on creating a web form that summarize Grad Tracker information
-- Possible changes to styling
-- Security, configuring HTTPS
