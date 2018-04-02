@@ -22,10 +22,263 @@ var gradtracker = (function() {
     "ZU 18": []
   };
 
-
+var themes = [
+  {
+    name: 'Explore the World - Choice 1',
+    credits: '3.0',
+    needed: true,
+    completed: true
+  },
+  {
+    name: 'Explore the World - Choice 1',
+    credits: '3.0',
+    needed: true,
+    completed: true
+  },
+  // {
+  //   name: 'Investigate Science',
+  //   credits: '3.0',
+  //   needed: false,
+  //   completed: false
+  // },
+  // {
+  //   name: 'Investigate Mathematics',
+  //   credits: '3.0',
+  //   needed: false,
+  //   completed: false
+  // },
+  // {
+  //   name: 'Interpret Creative Works',
+  //   credits: '3.0',
+  //   needed: false,
+  //   completed: false
+  // },    
+  {
+    name: 'Understand People',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'Understand People',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+// {
+//     name: 'Succeed in Business',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   },
+//   {
+//     name: 'Appreciate & Apply the Arts',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   },
+//   {
+//     name: 'Discover Technology',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   },
+//   {
+//     name: 'COMM 101',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   },
+//   {
+//     name: 'ENGL 101',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//     },
+//     {
+//     name: 'UNIV 101',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   },
+//   {
+//     name: 'CMPS 480',
+//     credits: '3.0',
+//     needed: false,
+//     completed: false
+//   }
+];
 //code from dr voortman
   function getThematicCourses(theme) {
   var mapping = {
+    "Explore the World - Choice 1": [
+      {
+        course_code: "ARBC 101",
+        course_description: "Elementary Arabic I"
+      },
+      {
+        course_code: "ARBC 102",
+        course_description: "Elementary Arabic II"
+      },
+      {
+        course_code: "ARBC 201",
+        course_description: "Intermediate Arabic I"
+      },
+      {
+        course_code: "ARBC 202",
+        course_description: "Intermediate Arabic II"
+      },
+      {
+        course_code: "ECON 201",
+        course_description: "Principles of Macroeconomics"
+      },
+      {
+        course_code: "FREN 101",
+        course_description: "Elementary French I"
+      },
+      {
+        course_code: "FREN 101",
+        course_description: "Elementary French I"
+      },
+      {
+        course_code: "FREN 102",
+        course_description: "Elementary French II"
+      },
+      {
+        course_code: "FREN 201",
+        course_description: "Intermediate French I"
+      },
+      {
+        course_code: "FREN 202",
+        course_description: "Intermediate French II"
+      },
+      {
+        course_code: "GCS 175",
+        course_description: "Intro to Global Cultural Studies"
+      },
+      {
+        course_code: "GCS 225",
+        course_description: "Anthropology of Belief"
+      },
+      {
+        course_code: "GCS 230",
+        course_description: "Literature: A Global View"
+      },
+      {
+        course_code: "GCS 295",
+        course_description: "Special Topics in GCS"
+      },
+      {
+        course_code: "GCS/MLNG 205",
+        course_description: "Languages of the World"
+      },
+      {
+        course_code: "HIST 201",
+        course_description: "Western Civilization I"
+      },
+      {
+        course_code: "HIST 202",
+        course_description: "Western Civilization II"
+      },
+      {
+        course_code: "HIST 255",
+        course_description: "Military History"
+      },
+      {
+        course_code: "MLNG 221",
+        course_description: "Spanish Literature in Translation"
+      },
+      {
+        course_code: "MLNG 225",
+        course_description: "Representation of Minorities in World Literature"
+      },
+      {
+        course_code: "MLNG 228",
+        course_description: "Eastern European Literature/Culture"
+      },
+      {
+        course_code: "PADM 210",
+        course_description: "Public Administration"
+      },
+      {
+        course_code: "POLS 205",
+        course_description: "World Geography"
+      },
+      {
+        course_code: "POLS 250",
+        course_description: "Intro to Study of Gov’t Systems"
+      },
+      {
+        course_code: "PHIL 100",
+        course_description: "World Religions"
+      },
+      {
+        course_code: "SOC 111",
+        course_description: "World Cultures"
+      },
+      {
+        course_code: "SOC/MLNG 260",
+        course_description: "Japanese Culture"
+      },
+      {
+        course_code: "SPAN 101",
+        course_description: "Elementary Spanish I"
+      },
+      {
+        course_code: "SPAN 102",
+        course_description: "Elementary Spanish II"
+      },
+      {
+        course_code: "SPAN 201 ",
+        course_description: "Intermediate Spanish I"
+      },
+      {
+        course_code: "SPAN 201 ",
+        course_description: "Intermediate Spanish II"
+      },
+      {
+        course_code: "THEA 225 ",
+        course_description: "History Theatre I"
+      },
+      {
+        course_code: "HEA 226",
+        course_description: "History Theatre II"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ],
+    "Investigate Science": [
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ],
+    "Investigate Mathematics": [
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ], 
+    "Interpret Creative Works": [
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ], 
     "Understand People": [
       {
         course_code: "EDUC 220",
@@ -35,14 +288,107 @@ var gradtracker = (function() {
         course_code: "EDUC 228",
         course_description: "Educational Psychology"
       },
+      {
+        course_code: "HIST 203",
+        course_description: "History of the United States I"
+      },
+      {
+        course_code: "HIST 204",
+        course_description: "Foundations in Feminism: Women’s History"
+      },      
+      {
+        course_code: "HIST 206",
+        course_description: "Foundations in Feminism: Women’s History"
+      },
+
+      {
+        course_code: "HIST 220",
+        course_description: "History of American Music"
+      },
+      {
+        course_code: "POLS 102",
+        course_description: "American National Government"
+      },      
+      {
+        course_code: "PSYC 150",
+        course_description: "Psychological Foundations"
+      },
+
+      {
+        course_code: "PSYC 203",
+        course_description: "Theories of Personality"
+      },
+      {
+        course_code: "PSYC 214",
+        course_description: "Psychology of Emotion"
+      },
+
+      {
+        course_code: "PSYC 230",
+        course_description: " Marriage and the Family"
+      },
+      {
+        course_code: "SOCW 105",
+        course_description: "Sociological Foundations"
+      },
+      {
+        course_code: "SOCW 240",
+        course_description: "Anthropological Approaches"
+      }            
     ],
     "Succeed in Business": [
-      // ...
-    ]
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ], 
+    "Appreciate & Apply the Arts": [
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ],
+    "Discover Technology": [
+      {
+        course_code: "EDUC 220",
+        course_description: "Family and Community Diversity"
+      },
+      {
+        course_code: "TRAN",
+        course_description: "Approved Transfer"
+      }              
+    ]             
+    // "Succeed in Business": [
+    //   // ...
+    //]
   };
   return mapping[theme];
 }
+function displayCourses(createRow) {
+  themes.forEach((theme) => {
+    const themeCourses = getThematicCourses(theme.name);
+    createRow(theme, themeCourses);
+  })
+}
 
+ function calculateCreditsNeeded(item, currentvalue, notify) {
+  var total = 0;
+    if (item.checked){
+     total = parseInt(currentvalue) + parseInt(item.value);
+    } else {
+     total = parseInt(currentvalue) - parseInt(item.value);
+    }
+    //total = item.checked ? parseInt(total) + parseInt(item.value) : parseInt(total) - parseInt(item.value);
+   notify(total);
+ }
 // var understandPeople = gradtracker.getThematicCourses("Understand People");
 // for (var i = 0; i < understandPeople.length; i++) {
 //   // add option to dropdown
@@ -278,7 +624,9 @@ function notify() {
     notify: notify,
     getSchedule: getSchedule,
     addCourse: addCourse,
-    getCatalog: getCatalog
+    getCatalog: getCatalog,
+    calculateCreditsNeeded: calculateCreditsNeeded,
+    displayCourses: displayCourses
   };
 
   /*
