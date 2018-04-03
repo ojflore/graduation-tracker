@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="gradtracker.css"/>
 <link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -58,17 +59,20 @@ d3.select("body")
 
     <!-- IT Undergrad page -->
     <div class="ctn" id="ctn2">
-      <h1 class="undergrad_program">Bachelor of Science: Information Technology</h1>
-      <button class="undergrad" id="home">Home</button>
-      <button id="minor">Minor</button>
+      <div class="header" id="head1">
+        <h1 class="undergrad_program">Bachelor of Science: Information Technology</h1>
+        <button class="undergrad" id="home">Home</button>
+        <button id="minor">Minor</button>
 
-    <h2>University Core Curriculum (42 Credits)</h2><br><br> 
+          </div>
+
+    <h2 id="toggle1" title="Click To Toggle Table Views">University Core Curriculum (42 Credits)</h2><br><br>
     <!-- thematic courses table starts here -->
      <!-- <div class="required-courses">    -->
     <div class="myImplementation2">
     <h3>My Required Courses</h3>
     <!--aded id for .js file -->
-    <!--Column Headers -->  
+    <!--Column Headers -->
     <table class="unicore" id="myImplementation2">
     <!-- <table class="uni-core" id=uni_core> -->
       <tr>
@@ -79,7 +83,7 @@ d3.select("body")
         <th>Completed</th>
       </tr>
     </table>
-          <br>  
+          <br>
     </div>
    <!--  <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
     <br>
@@ -90,7 +94,7 @@ d3.select("body")
       <!-- <div class="thematic-courses">     -->
     <div class="myImplementation">
       <h3>Thematic Courses</h3>
-    <!--Column Headers -->  
+    <!--Column Headers -->
       <table class="theme" id="myImplementation">
         <tr>
          <th>Course Category</th>
@@ -100,21 +104,21 @@ d3.select("body")
          <th>Completed</th>
         </tr>
       </table>
-            <br>  
+            <br>
     </div>
     <!--  <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
     <br>
     <div class="totals"> Major Credits Earned: <span id="major-earn"></span></div>
     <br>
     </div> -->
-      
+
     <!-- major requirements starts here -->
     <!--       <div class="major-courses">-->
     <div class="myImplementation3">
-        <h2>Major Requirements (69 Credits)</h2><br>
+        <h2 id="toggle2" title="Click To Toggle View">Major Requirements (69 Credits)</h2><br>
         <h3>Required Courses (C = Taken in the core)</h3>
         <!-- <table class="major-req" id="major_req">  -->
-    <!--Column Headers -->  
+    <!--Column Headers -->
       <table class="marjorReq" id="myImplementation3">
         <tr>
          <th>Course #</th>
@@ -124,7 +128,7 @@ d3.select("body")
          <th>Completed</th>
         </tr>
       </table>
-            <br>  
+            <br>
     </div>
     <!--   <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
     <br>
@@ -133,7 +137,7 @@ d3.select("body")
     </div> -->
 
       <!-- IT electives start here -->
-    <div class="myImplementation4">      
+    <div class="myImplementation4">
           <!-- <div class="major-electives"> -->
             <h3>IT Electives (9 Credits)</h3>
             <!-- <table class="major-elec" id="major_elec"> -->
@@ -146,8 +150,8 @@ d3.select("body")
          <th>Completed</th>
         </tr>
       </table>
-            <br>  
-    </div>              
+            <br>
+    </div>
 
       <!-- 			       <div class="totals"> Major Elective Credits Needed: <span id="it-need"></span></div>
              <br>
@@ -157,7 +161,7 @@ d3.select("body")
 
       <!-- General elective table starts here -->
         <!--           <div class="gen-elect">-->
-    <div class="myImplementation5">            
+    <div class="myImplementation5">
       <h3>General Elective (9 Credits)</h3>
       <!--             <table class="general" id="CMPS_gen"> -->
       <table class="genelec" id="myImplementation5">
@@ -169,8 +173,8 @@ d3.select("body")
          <th>Completed</th>
         </tr>
       </table>
-            <br>  
-    </div>  
+            <br>
+    </div>
     <!--              <div class="totals"> General Electives Credits Needed: <span id="elective-need"></span></div>
             <br>
             <div class="totals"> General Electives Credits Earned: <span id="elective-earn"></span></div>
@@ -660,8 +664,7 @@ $("#test").change(function() {
 });
 
 
-// JOSE'S CODE 
-//HIDE TABLES
+//Jaime's Changes using toggle instead of show/hide.
 
 // Toggle divs
     // $(function(){
@@ -670,44 +673,60 @@ $("#test").change(function() {
       $("#ctn3").hide();
       $("#ctn4").hide();
       $("#ctn5").hide();
+
+
+      //Toggle Table Views
+      $("#toggle1").click(function(){
+        $(".myImplementation").toggle();
+        $(".myImplementation2").toggle();
+      });
+
+      $("#toggle2").click(function(){
+        $(".marjorReq").toggle();
+        $(".marjorelec").toggle();
+      });
+
+      //Tool Tips
+      $("#toggle1").tooltip();
+      $("#toggle2").tooltip();
       //hides the main div onclick of undergrad button and shows undergrad page
       $("#undergrad").click(function(){
-        $("#ctn1").hide();
-        $("#ctn2").show();
+        $("#ctn1").toggle();
+        $("#ctn2").toggle();
       });
       //hides undergrad page onclick of home button and takes you back to main page
       $("#home").click(function(){
-        $("#ctn1").show();
-        $("#ctn2").hide();
+        $("#ctn1").toggle();
+        $("#ctn2").toggle();
       });
       //hides main page onclick of mba button and takes you to mba page
       $("#mba").click(function(){
-        $("#ctn3").show();
-        $("#ctn1").hide();
+        $("#ctn3").toggle();
+        $("#ctn1").toggle();
       });
       //hides mba page onclick of home button and takes you back to main page
       $("#home1").click(function(){
-        $("#ctn1").show();
-        $("#ctn3").hide();
+        $("#ctn1").toggle();
+        $("#ctn3").toggle();
       });
       //hides main page onclick of mba button and takes you to mba page
       $("#minor").click(function(){
-        $("#ctn4").show();
-        $("#ctn2").hide();
+        $("#ctn4").toggle();
+        $("#ctn2").toggle();
       });
       //hides mba page onclick of home button and takes you back to main page
       $("#home2").click(function(){
-        $("#ctn1").show();
-        $("#ctn4").hide();
+        $("#ctn1").toggle();
+        $("#ctn4").toggle();
       });
       $(".sched-button").click(function(){
-        $("#ctn5").show();
-        $("#ctn2").hide();
+        $("#ctn5").toggle();
+        $("#ctn2").toggle();
       });
       //hides mba page onclick of home button and takes you back to main page
       $("#home3").click(function(){
-        $("#ctn1").show();
-        $("#ctn5").hide();
+        $("#ctn1").toggle();
+        $("#ctn5").toggle();
       });
 
     </script>
