@@ -22,6 +22,50 @@ var gradtracker = (function() {
     "ZU 18": []
   };
 
+  //Darnita - 4/2/2018 - Mapping
+var unicores = [
+  {
+    name: 'COMM 101',
+    description: 'Oral Comm. & Pres.',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'ENGL 101',
+    description: 'College Composition',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'UNIV 101',
+    description: 'City-University Life',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 480',
+    description: 'Senior Capstone',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//code from dr voortman
+  function getUnivCoreCourses(unicore) {
+  var mapping1 = {};
+  return mapping1[unicore];
+}
+function displaysCourses(createRow) {
+  unicores.forEach((unicore) => {
+    var unicoreCourses = getUnivCoreCourses(unicore.name);
+    createRow(unicore, unicoreCourses);
+  })
+}
+
 var themes = [
   {
     name: 'Explore the World - Choice 1',
@@ -35,24 +79,18 @@ var themes = [
     needed: true,
     completed: true
   },
-  // {
-  //   name: 'Investigate Science',
-  //   credits: '3.0',
-  //   needed: false,
-  //   completed: false
-  // },
-  // {
-  //   name: 'Investigate Mathematics',
-  //   credits: '3.0',
-  //   needed: false,
-  //   completed: false
-  // },
-  // {
-  //   name: 'Interpret Creative Works',
-  //   credits: '3.0',
-  //   needed: false,
-  //   completed: false
-  // },    
+  {
+    name: 'Investigate Science',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'Interpret Creative Works',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },    
   {
     name: 'Understand People',
     credits: '3.0',
@@ -65,48 +103,24 @@ var themes = [
     needed: false,
     completed: false
   },
-// {
-//     name: 'Succeed in Business',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   },
-//   {
-//     name: 'Appreciate & Apply the Arts',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   },
-//   {
-//     name: 'Discover Technology',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   },
-//   {
-//     name: 'COMM 101',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   },
-//   {
-//     name: 'ENGL 101',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//     },
-//     {
-//     name: 'UNIV 101',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   },
-//   {
-//     name: 'CMPS 480',
-//     credits: '3.0',
-//     needed: false,
-//     completed: false
-//   }
+  {
+    name: 'Succeed in Business',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'Appreciate & Apply the Arts',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'Discover Technology',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
 ];
 //code from dr voortman
   function getThematicCourses(theme) {
@@ -251,32 +265,124 @@ var themes = [
     ],
     "Investigate Science": [
       {
+        course_code: "BIOL 101",
+        course_description: "General Biology I"
+      },
+      {
+        course_code: "BIOL 102",
+        course_description: "General Biology II"
+      },
+      {
         course_code: "EDUC 220",
         course_description: "Family and Community Diversity"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "CHEM 101",
+        course_description: "General Chemistry I"
+      },
+      {
+        course_code: "NSET 110",
+        course_description: "Intro to Natural Sciences I"
+      },
+      {
+        course_code: "NSET 111",
+        course_description: "Environmental Science"
+      },
+      {
+        course_code: "NSET 120",
+        course_description: "General Biology I"
+      },
+      {
+        course_code: "NSET 122",
+        course_description: "The Science of Light"
+      },
+      {
+        course_code: "NSET 130",
+        course_description: "Owner’s Manual for Human Body"
+      },
+      {
+        course_code: "NSET 131",
+        course_description: "Impacts of Microbes and Infectious Diseases on History"
+      },
+      {
+        course_code: "NSET 140",
+        course_description: "Chemistry in Daily Life"
+      },
+      {
+        course_code: "NSET 181",
+        course_description: "Astronomy, Space, and Time"
+      },                             
+      {
+        course_code: "NSET 182",
+        course_description: "Are We Alone? The Search for Life in the Universe"
       }              
     ],
     "Investigate Mathematics": [
       {
-        course_code: "EDUC 220",
-        course_description: "Family and Community Diversity"
+        course_code: "MATH 150",
+        course_description: "The Mathematical Experience"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "MATH 165",
+        course_description: "Basic Algebra"
+      },
+      {
+        course_code: "MATH 175",
+        course_description: "Elementary Statistics"
+      },
+      {
+        course_code: "MATH 180",
+        course_description: "College Algebra"
+      },
+      {
+        course_code: "MATH 181",
+        course_description: "Pre-Calculus"
+      },                  
+      {
+        course_code: "MATH 190",
+        course_description: "Calculus 1"
       }              
     ], 
     "Interpret Creative Works": [
       {
-        course_code: "EDUC 220",
-        course_description: "Family and Community Diversity"
+        course_code: "CINE 202",
+        course_description: "Children’s Literature"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "EDUC 252",
+        course_description: "Children’s Literature"
+      },
+      {
+        course_code: "ENGL 120",
+        course_description: "Introduction to Literary Studies"
+      },
+      {
+        course_code: "ENGL 250",
+        course_description: "World Lit: Drama, Poetry, Epic"
+      },
+      {
+        course_code: "ENGL 251",
+        course_description: "World Lit: Novels"
+      },
+      {
+        course_code: "EDUC 252",
+        course_description: "The Art of Creative Nonfiction"
+      },
+      {
+        course_code: "ENGL 253",
+        course_description: "The Art of Poetry"
+      },
+      {
+        course_code: "ENGL 254",
+        course_description: "The Art of Short Story"
+      },
+      {
+        course_code: "ENGL 255",
+        course_description: "Theoretical Approaches to the Study of Literature"
+      },      
+      {
+        course_code: "JOUR 225",
+        course_description: "Deconstructing the Story"
       }              
     ], 
     "Understand People": [
@@ -338,46 +444,494 @@ var themes = [
     ],
     "Succeed in Business": [
       {
-        course_code: "EDUC 220",
-        course_description: "Family and Community Diversity"
+        course_code: "BMGT 204",
+        course_description: "Salesmanship"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "BMGT 205",
+        course_description: "Principles of Marketing"
+      },
+      {
+        course_code: "BMGT 234",
+        course_description: "Ethical Leadership"
+      },
+      {
+        course_code: "BMGT 271",
+        course_description: "The Money Thing: Life and Finances During and After College"
+      },      
+      {
+        course_code: "CMPS 330",
+        course_description: "Electronic Commerce"
+      },
+      {
+        course_code: "ECON 202",
+        course_description: "Principles of Microeconomics"
+      },
+      {
+        course_code: "ECON 203",
+        course_description: "Economic History of the U.S."
       }              
     ], 
     "Appreciate & Apply the Arts": [
       {
-        course_code: "EDUC 220",
+        course_code: "ART 100",
         course_description: "Family and Community Diversity"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "EDUC 228",
+        course_description: "Intro to Visual Arts"
+      },
+      {
+        course_code: "CINE 170",
+        course_description: "Introduction to Screenwriting for NonMajors"
+      },
+      {
+        course_code: "COMM 290",
+        course_description: "Seminar in Media Studies"
+      },      
+      {
+        course_code: "COPA 250",
+        course_description: "Exploring the Arts"
+      },
+      {
+        course_code: "COPA 252",
+        course_description: "The Art of Creative Nonfiction"
+      },
+      {
+        course_code: "COPA 253",
+        course_description: "The Art of Poetry"
+      },      
+      {
+        course_code: "COPA 254",
+        course_description: "The Art of Short Story"
+      },
+      {
+        course_code: "EDUC 251",
+        course_description: "Art and Music in Teaching"
+      },
+      {
+        course_code: "ENGL 200",
+        course_description: "Creative Writing"
+      },      
+      {
+        course_code: "PSYC 150",
+        course_description: "Psychological Foundations"
+      },
+      {
+        course_code: "MLNG 220",
+        course_description: "French Literature in Translation"
+      },
+      {
+        course_code: "MUS 101",
+        course_description: "Music Appreciation"
+      },      
+      {
+        course_code: "PHOT 101",
+        course_description: "Photography for Non-Majors"
+      },
+      {
+        course_code: "THEA 111",
+        course_description: "Introduction to Acting"
+      },            
+      {
+        course_code: "THEA 230",
+        course_description: "Introduction to Theatrer"
       }              
     ],
     "Discover Technology": [
       {
-        course_code: "EDUC 220",
-        course_description: "Family and Community Diversity"
+        course_code: "CMPS 114",
+        course_description: "Problem Solving with Info Tech"
       },
       {
-        course_code: "TRAN",
-        course_description: "Approved Transfer"
+        course_code: "EDUC 101",
+        course_description: "Technological Literacy in Education for the 21st Century"
+      },
+      {
+        course_code: "ETGR 205",
+        course_description: "Engineering Technology Graphics"
+      },
+      {
+        course_code: "JOUR 103",
+        course_description: "Graphic Design I"
+      },      
+      {
+        course_code: "NSET 101",
+        course_description: "Intro to Natural Sciences and Technology"
       }              
     ]             
-    // "Succeed in Business": [
-    //   // ...
-    //]
   };
   return mapping[theme];
 }
 function displayCourses(createRow) {
   themes.forEach((theme) => {
-    const themeCourses = getThematicCourses(theme.name);
+    var themeCourses = getThematicCourses(theme.name);
     createRow(theme, themeCourses);
   })
 }
+
+var majorReqs = [
+  {
+    name: 'MATH 175',
+    description: 'Elementary Statistics',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MATH 180',
+    description: 'College Algebra (Investigate Math)',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'UNIV 101',
+    description: 'Psych. Foundations (Understand People)',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'PSYC 150',
+    description: 'Psych. Foundations (Understand People)',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'ACCT 101',
+    description: 'Introductory Accounting I',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'ACCT 102',
+    description: 'Introductory Accounting II',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 101',
+    description: 'Introduction to Business',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 201',
+    description: 'Business Law I',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'BMGT 202',
+    description: 'Business Law II',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 205',
+    description: 'Principals of Marketing',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 221',
+    description: 'Bus. Comm. and Research',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'BMGT 300',
+    description: 'Corporate Finance',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+    {
+    name: 'BMGT 310',
+    description: 'Management Science',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 417',
+    description: 'Strategic Planning',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 160',
+    description: 'Databases',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 161',
+    description: 'Network and Security',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 162',
+    description: 'Introduction to Programming',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 163',
+    description: 'Business Analytics',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 260',
+    description: 'Data Structurese',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+{
+    name: 'CMPS 261',
+    description: 'Server Management',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 262',
+    description: 'Advanced Programming',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+  {
+    name: 'CMPS 480',
+    description: 'Senior Capstone',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//code from dr voortman
+  function getMajorReqsCourses(majorReq) {
+  var mapping3 = {};
+  return mapping3[majorReq];
+}
+function display3Courses(createRow) {
+  majorReqs.forEach((majorReq) => {
+    var majorReqCourses =getMajorReqsCourses(majorReq.name);
+    createRow(majorReq, majorReqCourses);
+  })
+}
+
+var majorelecs = [
+  {
+    name: 'BMGT 380',
+    description: 'Cooperative Education I',
+    credits: '6.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 480',
+    description: 'Cooperative Education II',
+    credits: '6.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 355',
+    description: 'Internship in Info Tech I',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 356',
+    description: 'Internship in Info Tech II',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 360',
+    description: 'Survey of Programming Languages',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 361',
+    description: 'Web Application Development',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 362',
+    description: 'Digital Security',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 363',
+    description: 'Business Law I',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 364',
+    description: 'NoSQL Databases',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'BMGT 205',
+    description: 'Principals of Marketing',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 460',
+    description: 'Mobile Application Development',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'BMGT 300',
+    description: 'Corporate Finance',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+    {
+    name: 'CMPS 460',
+    description: 'Mobile Application Development',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 461',
+    description: 'Big Data Applications',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 462',
+    description: 'Data Mining',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 463',
+    description: 'Entrepreneurship for Software Development',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 464',
+    description: 'Software Development for E-Commerce',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'TBD',
+    description: 'Special Topics/Independent Studye',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//code from dr voortman
+  function getMajCourses(majorelec) {
+  var mapping4 = {};
+  return mapping4[majorelec];
+}
+function display4Courses(createRow) {
+  majorelecs.forEach((majorelec) => {
+    var majorelecCourses = getMajCourses(majorelec.name);
+    createRow(majorelec, majorelecCourses);
+  })
+}
+
+
+var genelecs = [
+  {
+    name: 'General Elective 1',
+    credits: '3.0',
+    needed: true,
+    completed: true
+  },
+  {
+    name: 'General Elective 2',
+    credits: '3.0',
+    needed: true,
+    completed: true
+  },
+  {
+    name: 'General Elective 3',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+  function getGenCourses(genelec) {
+  var mapping5 = {
+    "General Elective 1": [
+      {
+        course_code: "",
+        course_description: "General Elective"
+      }        
+    ],
+    "General Elective 2": [
+      {
+        course_code: "",
+        course_description: "General Elective"
+      }        
+    ],
+    "General Elective 3": [     
+      {
+        course_code: "",
+        course_description: "General Elective"
+      }               
+    ]             
+  };
+  return mapping5[genelec];
+}
+function display5Courses(createRow) {
+  genelecs.forEach((genelec) => {
+    var genelecCourses = getGenCourses(genelec.name);
+    createRow(genelec, genelecCourses);
+  })
+}
+
 
  function calculateCreditsNeeded(item, currentvalue, notify) {
   var total = 0;
@@ -439,99 +993,6 @@ function displayCourses(createRow) {
  }
 
   //Darnita - 3/26/2018 - Line 1072-ish "Additional Courses"
-  var CMPS_elecs_data = [
-    [ 'CMPS 260', 'TEST 1 Data Structures', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 260','TEST 2 Data Structures', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-  CMPS_elecs_data.forEach( function( rowData ){
-    $('#CMPS_elecs').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var uni_core_data = [
-    [ 'COMM 101', 'Oral Comm. & Pres.', '3.0', '<input type="checkbox"/>' ],
-    [ 'ENGL 101','College Composition', '3.0', '<input type="checkbox"/>' ],
-    [ 'UNIV 101', 'City-University Life', '3.0', '<input type="checkbox"/>' ],
-    [ 'CMPS 480','Senior Capstone', '3.0', '<input type="checkbox"/>' ],
-  ];
-  uni_core_data.forEach( function( rowData ){
-    $('#uni_core').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var theme_undergrad_data = [
-    [ 'Explore the World - Choice 1', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Explore the World - Choice 2', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Investigate Science', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Investigate Mathematics', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Interpret Creative Works', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Understand People - Choice 1', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Understand People - Choice 2', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Succeed in Business', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Appreciate & Apply the Arts', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Discover Technology', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-  theme_undergrad_data.forEach( function( rowData ){
-    $('#theme_undergrad').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var major_req_data = [
-    [ 'MATH 175', 'Elementary Statistics', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MATH 180', 'College Algebra (Investigate Math)', 'C', 'Thematic', 'Thematic' ],
-    [ 'PSYC 150', 'Psych. Foundations (Understand People)', 'C', 'Thematic', 'Thematic' ],
-    [ 'ACCT 101', 'Introductory Accounting I', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'ACCT 102', 'Introductory Accounting II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 101', 'Introduction to Business', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 201', 'Business Law I', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 202', 'Business Law II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 205', 'Principals of Marketing', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 208', 'Principles of Management', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 221', 'Bus. Comm. and Research', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 300', 'Corporate Finance', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 310', 'Management Science', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 417', 'Strategic Planning', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 160', 'Databases', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 161', 'Network and Security', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 162', 'Introduction to Programming', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 163', 'Business Analytics', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 260', 'Data Structures', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 261', 'Server Management', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 262', 'Advanced Programming', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 480', 'Senior Project', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-  major_req_data.forEach( function( rowData ){
-    $('#major_req').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  //where to put "creditsNeeded4(this)" for calculations. Onclick is HTML
-  var major_elec_data = [
-    [ 'BMGT 380', 'Cooperative Education I', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'BMGT 480', 'Cooperative Education II', '6', 'Thematic', 'Thematic' ],
-    [ 'CMPS 355', 'Internship in Info Tech I', '3', 'Thematic', 'Thematic' ],
-    [ 'CMPS 356', 'Internship in Info Tech II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 360', 'Survey of Programming Languages', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 361', 'Web Application Developmen', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 362', 'Advanced Networking', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 363', 'Digital Security', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 364', 'NoSQL Databases', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 460', 'Mobile Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 461', 'Big Data Applications', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 462', 'Data Mining', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 463', 'Entrepreneurship for Software Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 464', 'Software Development for E-Commerce', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'TBD', 'Special Topics/Independent Study', '1-6', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-major_elec_data.forEach( function( rowData ){
-    $('#major_elec').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var CMPS_gen_data = [
-    [ 'TestGen Elective 1', 'Need Dropdown', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'TestGen Elective 2', 'Need Dropdown', '6.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'TestGen Elective 2', 'Neeed Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-  CMPS_gen_data.forEach( function( rowData ){
-    $('#CMPS_gen').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
   var theme_minor_data = [
     [ 'Required courses - Choice 1', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
     [ 'Required courses - Choice 2', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
@@ -618,6 +1079,7 @@ function notify() {
     listeners[i](grid);
   }
 }
+ 
   // all functionality is accessed through the methods below
   return {
     listen: listen,
@@ -626,6 +1088,10 @@ function notify() {
     addCourse: addCourse,
     getCatalog: getCatalog,
     calculateCreditsNeeded: calculateCreditsNeeded,
+    displaysCourses: displaysCourses,
+    display3Courses: display3Courses,
+    display4Courses: display4Courses,
+    display5Courses: display5Courses,
     displayCourses: displayCourses
   };
 
