@@ -1,0 +1,734 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="gradtracker.css"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- <script src="jquery-3.3.1.min.js"></script> -->
+<script src="gradtracker.js"></script>
+<title>PPU Grad-Tracker</title>
+<!-- Need Listner function for checkboxes when clicked -->
+<script type="text/javascript">
+$( function() {
+d3.select("body")
+.transition()
+.duration(3000)
+.style("background-color", "white");
+  d3.selectAll("button")
+  .transition()
+  .duration(3500)
+  .style("background-color", "green");
+  d3.selectAll("h1")
+  .transition()
+  .duration(5000)
+  .style("color", "#228B22");
+  d3.selectAll("img")
+  .transition()
+  .duration(5500)
+  .style("opacity", "1");
+  } );
+
+</script>
+
+</head>
+  <body>
+
+    <!-- Main page -->
+    <div class="ctn1" id="ctn1">
+      <img src="pointparkseal.png">
+      <h1 class="title">Point Park University Graduation Tracker</h1>
+      <h4>Choose Degree Program:</h4>
+      <button class="undergrad" id="undergrad">Undergraduate</button>
+      <button id="mba">MBA</button>
+      <!-- <select id="programs">
+        <option>Information Technology</option>
+        <option>Accounting</option>
+        <option>SAEM</option>
+        <option>Business Management</option>
+        <option>Mechanical Engineering Technology</option>
+      </select> -->
+      <!-- <button onclick="window.location.href='undergrad.html'" type="button" id="undergrad">Undergraduate</button> -->
+    </div>
+
+    <!-- IT Undergrad page -->
+    <div class="ctn" id="ctn2">
+      <div class="header" id="head1">
+        <h1 class="undergrad_program">Bachelor of Science: Information Technology</h1>
+        <button class="undergrad" id="home">Home</button>
+        <button id="minor">Minor</button>
+
+          </div>
+
+    <h2 id="toggle1" title="Click To Toggle Table Views">University Core Curriculum (42 Credits)</h2><br><br>
+    <!-- thematic courses table starts here -->
+     <!-- <div class="required-courses">    -->
+    <div class="myImplementation2">
+    <h3>My Required Courses</h3>
+    <!--aded id for .js file -->
+    <!--Column Headers -->
+    <table class="unicore" id="myImplementation2">
+    <!-- <table class="uni-core" id=uni_core> -->
+      <tr>
+        <th>Course #</th>
+        <th>Course Description</th>
+        <th>Credits</th>
+    <!--       <th>Needed</th> -->
+        <th>Completed</th>
+      </tr>
+    </table>
+          <br>
+    </div>
+   <!--  <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
+    <br>
+    <div class="totals"> Major Credits Earned: <span id="major-earn"></span></div>
+    <br>
+    </div> -->
+    <!-- thematic courses table starts here -->
+      <!-- <div class="thematic-courses">     -->
+    <div class="myImplementation">
+      <h3>Thematic Courses</h3>
+    <!--Column Headers -->
+      <table class="theme" id="myImplementation">
+        <tr>
+         <th>Course Category</th>
+         <th>Course Description</th>
+         <th>Credits</th>
+         <th>Needed</th>
+         <th>Completed</th>
+        </tr>
+      </table>
+            <br>
+    </div>
+    <!--  <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
+    <br>
+    <div class="totals"> Major Credits Earned: <span id="major-earn"></span></div>
+    <br>
+    </div> -->
+
+    <!-- major requirements starts here -->
+    <!--       <div class="major-courses">-->
+    <div class="myImplementation3">
+        <h2 id="toggle2" title="Click To Toggle View">Major Requirements (69 Credits)</h2><br>
+        <h3>Required Courses (C = Taken in the core)</h3>
+        <!-- <table class="major-req" id="major_req">  -->
+    <!--Column Headers -->
+      <table class="marjorReq" id="myImplementation3">
+        <tr>
+         <th>Course #</th>
+         <th>Course Description</th>
+         <th>Credits</th>
+         <th>Needed</th>
+         <th>Completed</th>
+        </tr>
+      </table>
+            <br>
+    </div>
+    <!--   <div class="totals"> Major Credits Needed: <span id="major-need"></span></div>
+    <br>
+		<div class="totals"> Major Credits Earned: <span id="major-earn"></span></div>
+    <br>
+    </div> -->
+
+      <!-- IT electives start here -->
+    <div class="myImplementation4">
+          <!-- <div class="major-electives"> -->
+            <h3>IT Electives (9 Credits)</h3>
+            <!-- <table class="major-elec" id="major_elec"> -->
+      <table class="marjorelec" id="myImplementation4">
+        <tr>
+         <th>Course #</th>
+         <th>Course Description</th>
+         <th>Credits</th>
+         <th>Needed</th>
+         <th>Completed</th>
+        </tr>
+      </table>
+            <br>
+    </div>
+
+      <!-- 			       <div class="totals"> Major Elective Credits Needed: <span id="it-need"></span></div>
+             <br>
+			       <div class="totals"> Major Elective Credits Earned: <span id="it-earn"></span></div>
+            <br>
+          </div> -->
+
+      <!-- General elective table starts here -->
+        <!--           <div class="gen-elect">-->
+    <div class="myImplementation5">
+      <h3>General Elective (9 Credits)</h3>
+      <!--             <table class="general" id="CMPS_gen"> -->
+      <table class="genelec" id="myImplementation5">
+        <tr>
+         <th>Course #</th>
+         <th>Course Description</th>
+         <th>Credits</th>
+         <th>Needed</th>
+         <th>Completed</th>
+        </tr>
+      </table>
+            <br>
+    </div>
+    <!--              <div class="totals"> General Electives Credits Needed: <span id="elective-need"></span></div>
+            <br>
+            <div class="totals"> General Electives Credits Earned: <span id="elective-earn"></span></div>
+           <br>
+		</div> -->
+
+    <div class="final-calc">
+      <h5 class="tot-earn"> Total Credits Earned: <input id="tot-earn"></input></h5>
+      <br>
+      <h5 class="tot-need"> Total Credits Needed: <input id="tot-need"></input></h5>
+    </div>
+    <button class="sched-button" id="sched-button">Course Schedule</button>
+  </div>
+
+
+
+      <!-- IT MBA Page -->
+      <div class="ctn" id="ctn3">
+        <h1 class="title">Master of Business Administration</h1>
+        <button id="home1">Home</button>
+        <button id="undergrad">Undergraduate</button>
+        <br><br>
+
+  <!-- Required Courses start here -->
+        <div class="required-courses">
+          <h2>Information Technology MBA</h2><br><br>
+
+            <h3>Required Courses:</h3>
+            <table class="theme" id="theme_MBA">
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Needed</th>
+                <th>Completed</th>
+              </tr>
+            </table>
+            <div class="total-need"> Core Credits Earned: </div>
+          </div>
+
+  <!-- Concentration Courses start here -->
+          <div class="concentration">
+            <h3>Concentration:</h3><br>
+             <select id="etw-drop">Select
+              <option>Choose one</option>
+              <option>Business Analytics</option>
+              <option>Management Information Systems</option>
+            </select><br><br><br>
+          </div>
+
+  <!--- Business analytics starts here -->
+          <div class="Business-analytics">
+            <h3>Business Analytics Track:</h3><br>
+            <table class="theme" id="theme_analytics">
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Needed</th>
+                <th>Completed</th>
+              </tr>
+            </table>
+            <div class="total-need"> Concentration Credits Earned: </div>
+          </div><br><br>
+
+  <!--management info systems starts here -->
+          <div class="Business-analytics">
+            <h3>Management Information Systems:</h3><br><br>
+            <table class="theme" id="theme_MIS">
+              <tr>
+                <th>Course #</th>
+                <th>Course Description</th>
+                <th>Credits</th>
+                <th>Needed</th>
+                <th>Completed</th>
+              </tr>
+            </table>
+            <div class="total-need"> Concentration Credits Earned: </div>
+          </div><br><br><br>
+
+
+        <div class="totals">
+        <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
+        <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
+      </div>
+      <div>
+      <button class="sched-button" id="sub-button">Course Schedule</button>
+    </div>
+  </div>
+
+      <!-- IT Minor Page -->
+      <div class="ctn" id="ctn4">
+        <h1 class="title">Bachelor of Science: Information Technology</h1>
+        <!-- <h4>Choose Degree Program:</h4> -->
+        <!-- <button type="button" id="undergrad">Undergraduate</button> -->
+        <button id="home2">Home</button>
+        <button id="undergrad">Major</button>
+        <br>
+
+        <!-- <button type="button" id="minor">Minor</button> -->
+        <!-- <div class="program"><h1>Bachelor of Science: Information Technology</h1></div> -->
+
+        <div class="required-courses">
+          <h2>Information Technology Minor</h2><br><br>
+
+
+      <!-- required courses table starts here -->
+        <div class="required-courses">
+          <h3>Choose 3 of the following:</h3><br>
+          <!-- added ID "theme" for .js file-->
+          <table class="theme" id="theme_minor">
+      <!--Column Headers -->
+            <tr>
+              <th>Course Category</th>
+              <th>Course Description</th>
+              <th>Credits</th>
+              <th>Needed</th>
+              <th>Completed</th>
+            </tr>
+
+      <!-- First row in Required table -->
+            <tr>
+              <td>Required courses - Choice 1</td>
+              <td>
+                <select id="etw1-drop">Select
+                  <option>Select a course</option>
+                  <option>CMPS 160 Databases</option>
+                  <option>CMPS 161 Networking and Security</option>
+                  <option>CMPS 162 Introduction to Programming</option>
+                  <option>CMPS 163 Business Analytics</option>
+                </select>
+              </td>
+              <td>3.0</td>
+              <td><input type="checkbox"></input></td>
+              <td><input type="checkbox"></input></td>
+            </tr>
+
+      <!-- second row in Required table -->
+            <tr>
+              <td>Required courses - Choice 2</td>
+              <td>
+                <select id="etw2-drop">Select
+                  <option>Select a course</option>
+                  <option>CMPS 160 Databases</option>
+                  <option>CMPS 161 Networking and Security</option>
+                  <option>CMPS 162 Introduction to Programming</option>
+                  <option>CMPS 163 Business Analytics</option>
+                </select>
+              </td>
+              <td>3.0</td>
+              <td><input type="checkbox"></input></td>
+              <td><input type="checkbox"></input></td>
+            </tr>
+
+      <!-- third in required table -->
+            <tr>
+              <td>Required courses - Choice 3</td>
+              <td>
+                <select id="invsci-drop">
+                  <option>Select a course</option>
+                  <option>Select a course</option>
+                  <option>CMPS 160 Databases</option>
+                  <option>CMPS 161 Networking and Security</option>
+                  <option>CMPS 162 Introduction to Programming</option>
+                  <option>CMPS 163 Business Analytics</option>
+                </select>
+              </td>
+              <td>3.0</td>
+              <td><input type="checkbox"></input></td>
+              <td><input type="checkbox"></input></td>
+            </tr>
+
+      <!-- fourth row in required-courses table -->
+            <tr>
+              <td>Required Courses - Choice 4</td>
+              <td>
+                <select id="invmat-drop">
+                  <option>Select a course</option>
+                  <option>CMPS 160 Databases</option>
+                  <option>CMPS 161 Networking and Security</option>
+                  <option>CMPS 162 Introduction to Programming</option>
+                  <option>CMPS 163 Business Analytics</option>
+                </select>
+              </td>
+              <td>3.0</td>
+              <td><input type="checkbox"></input></td>
+              <td><input type="checkbox"></input></td>
+            </tr>
+          </div><br>
+
+
+      <!-- Additional Courses start here -->
+            <div class="Additional-courses">
+
+              <table class="CMPS-elec" id="CMPS_elec">
+                <h3>Additional CMPS courses (9 Credits):</h3><br><br>
+                <tr>
+                  <th>Course #</th>
+                  <th>Course Description</th>
+                  <th>Credits</th>
+                  <th>Needed</th>
+                  <th>Completed</th>
+                </tr>
+              </table>
+            </div>
+            <br>
+
+              <div class="total-need"> Required course Credits Needed: </div>
+              <br>
+              <div class="total-earn"> Additional CMPS course Credits Earned: </div>
+              <br><br><br>
+            </div>
+            <div class="totals">
+            <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
+            <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
+          </div>
+          <div>
+            <button class="sched-button" id="sub-button">Course Schedule</button>
+        </div>
+      </div>
+
+<!-- Scheduler Page -->
+      <div class="ctn" id="ctn5">
+        <h1 class="title">IT Schedule Planner</h1>
+        <button id="home3">Home</button>
+        <h2>Schedule of Courses by Term</h2><br>
+        <h3>Fall 2018 - 2019</h3>
+
+        <!-- Fall scheduler -->
+        <div class="fall">
+          <table>
+            <td><select id="test">
+              <option>Select a course</option>
+              <option>CMPS 160</option>
+              <option>CMPS 161</option>
+              <option>CMPS 262</option>
+              <option>CMPS 361</option>
+              <option>CMPS 363</option>
+              <option>CMPS 480</option>
+            </select>
+          </td>
+          <tr id="test1">
+          </tr>
+          </table>
+        </div>
+      </div>
+
+
+
+
+<script src="gradtracker.js"></script>
+
+<!-- Darnita's code starts here -->
+<!-- UNDERGRAD THEMATIC CORE TABLE -->
+<script type="text/javascript">
+  $(function() {
+
+    gradtracker.displayCourses(function(theme, themeData) {
+      // create table row
+       var tableRow = $('<tr>');
+       // apend data to the first column
+      tableRow.append($('<td>').append(theme.name));
+
+      // create selector
+      var selector = $('<select>');
+      selector.append('<option value="">Select a Course </option>')
+      themeData.forEach((data, i) => {
+        selector.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>')
+      });
+
+      // append selectpr to the second column
+      tableRow.append($('<td>').append(selector));
+
+      // append credits
+      tableRow.append($('<td>').append(theme.credits))
+      // create checkbox
+      var checkbox = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      var checkbox1 = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      tableRow.append($('<td>').append(checkbox))
+      tableRow.append($('<td>').append(checkbox1))
+
+      $('#myImplementation').find('tbody').append(tableRow);
+    })
+
+  })
+</script>
+
+<!-- UNDERGRAD UNIVERSITY CORE TABLE -->
+<script type="text/javascript">
+  $(function() {
+
+    gradtracker.displaysCourses(function(unicore, unicoreData) {
+      // create table row
+       var tableRow = $('<tr>');
+       // apend data to the first column
+      tableRow.append($('<td>').append(unicore.name));
+
+      // append credits
+      tableRow.append($('<td>').append(unicore.description));
+
+      // append credits
+      tableRow.append($('<td>').append(unicore.credits))
+      // create checkbox
+      var checkbox = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      var checkbox1 = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      tableRow.append($('<td>').append(checkbox))
+      // tableRow.append($('<td>').append(checkbox1))
+
+      $('#myImplementation2').find('tbody').append(tableRow);
+    })
+  })
+</script>
+
+<!-- UNDERGRAD MAJOR REQUIREMENTS TABLE -->
+<script type="text/javascript">
+  $(function() {
+
+    gradtracker.display3Courses(function(majorReq, majorReqData) {
+      // create table row
+       var tableRow = $('<tr>');
+       // apend data to the first column
+      tableRow.append($('<td>').append(majorReq.name));
+
+      // append credits
+      tableRow.append($('<td>').append(majorReq.description));
+
+      // append credits
+      tableRow.append($('<td>').append(majorReq.credits))
+      // create checkbox
+      var checkbox = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      var checkbox1 = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      tableRow.append($('<td>').append(checkbox))
+      tableRow.append($('<td>').append(checkbox1))
+
+      $('#myImplementation3').find('tbody').append(tableRow);
+    })
+  })
+</script>
+
+<!-- UNDERGRAD IT ELECTIVES TABLE -->
+<script type="text/javascript">
+  $(function() {
+
+    gradtracker.display4Courses(function(majorelec, majorelecData) {
+      // create table row
+       var tableRow = $('<tr>');
+       // apend data to the first column
+      tableRow.append($('<td>').append(majorelec.name));
+
+      // append credits
+      tableRow.append($('<td>').append(majorelec.description));
+
+      // append credits
+      tableRow.append($('<td>').append(majorelec.credits))
+      // create checkbox
+      var checkbox = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      var checkbox1 = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      tableRow.append($('<td>').append(checkbox))
+      tableRow.append($('<td>').append(checkbox1))
+
+      $('#myImplementation4').find('tbody').append(tableRow);
+    })
+  })
+</script>
+
+<!-- UNDERGRAD GENERAL ELECTIVES TABLE -->
+<script type="text/javascript">
+  $(function() {
+
+    gradtracker.display5Courses(function(genelec, genelecData) {
+      // create table row
+       var tableRow = $('<tr>');
+       // apend data to the first column
+      tableRow.append($('<td>').append(genelec.name));
+
+     // create selector
+      var selector = $('<select>');
+      selector.append('<option value="">Select a Course </option>')
+      genelecData.forEach((data, i) => {
+        selector.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>')
+      });
+      // append selectpr to the second column
+      tableRow.append($('<td>').append(selector));
+
+      // append credits
+      tableRow.append($('<td>').append(genelec.credits))
+      // create checkbox
+      var checkbox = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      var checkbox1 = $('<input>', {
+        type: 'checkbox',
+        value: ''
+      });
+      tableRow.append($('<td>').append(checkbox))
+      tableRow.append($('<td>').append(checkbox1))
+
+      $('#myImplementation5').find('tbody').append(tableRow);
+    })
+
+  })
+</script>
+
+
+<!-- //CALCULATIONS -->
+<script>
+
+   function calculateCreditsNeeded(item, elem1) {
+    var currentValue = $('#' + elem1).text();
+     gradtracker.calculateCreditsNeeded(item, currentValue, function(total) {
+      console.log($('#' + elem1).text());
+      $('#'+ elem1).html(total);
+     //$('#'+ elem2).html(total);
+    })
+   }
+
+// Darnita's code ends here
+
+
+
+// jquery starts here
+$(function(){
+  gradtracker.listen(function(){ //listens to model everything it changess
+    $("#test").empty(); //empties the table
+    var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+    // console.log(schedule);
+    var sp18 = schedule["SP 18"];
+    // console.log(sp18);
+    for (var i = 0; i < sp18.length; i++) {
+      $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
+    }
+  });
+
+  gradtracker.listen(function(){ //listens to model everything it changes
+    $("#test").empty(); //empties the table
+    var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+    console.log(catalog);
+    var cmps160 = catalog["CMPS 160"];
+    console.log(cmps160);
+    var tr = $("#test").append("<tr>");
+    for (var key in cmps160) {
+      tr.append("<td>" + key + "</td>"); //adds object to the table
+    }
+    for (var course in catalog) {
+      var tr = $("#test").append("<tr>");
+      for (var key in catalog[course]) {
+        console.log(key);
+        tr.append("<td>" + catalog[course][key] + "</td>"); //adds object to the table
+      }
+    }
+  });
+
+$("#course1-drop").click(function(){ //makes a change in the model
+gradtracker.addCourse("SP 18", "CMPS 160");
+});
+
+$("#test").change(function() {
+  console.log("hello world");
+  console.log($(this).val());
+  gradtracker.addCourse("SP 18", $(this).val());
+});
+});
+
+
+//Jaime's Changes using toggle instead of show/hide.
+
+// Toggle divs
+    // $(function(){
+      //hides all divs except the main div onload of page
+      $("#ctn2").hide();
+      $("#ctn3").hide();
+      $("#ctn4").hide();
+      $("#ctn5").hide();
+
+
+      //Toggle Table Views
+      $("#toggle1").click(function(){
+        $(".myImplementation").toggle();
+        $(".myImplementation2").toggle();
+      });
+
+      $("#toggle2").click(function(){
+        $(".marjorReq").toggle();
+        $(".marjorelec").toggle();
+      });
+
+      //Tool Tips
+      $("#toggle1").tooltip();
+      $("#toggle2").tooltip();
+      //hides the main div onclick of undergrad button and shows undergrad page
+      $("#undergrad").click(function(){
+        $("#ctn1").toggle();
+        $("#ctn2").toggle();
+      });
+      //hides undergrad page onclick of home button and takes you back to main page
+      $("#home").click(function(){
+        $("#ctn1").toggle();
+        $("#ctn2").toggle();
+      });
+      //hides main page onclick of mba button and takes you to mba page
+      $("#mba").click(function(){
+        $("#ctn3").toggle();
+        $("#ctn1").toggle();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home1").click(function(){
+        $("#ctn1").toggle();
+        $("#ctn3").toggle();
+      });
+      //hides main page onclick of mba button and takes you to mba page
+      $("#minor").click(function(){
+        $("#ctn4").toggle();
+        $("#ctn2").toggle();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home2").click(function(){
+        $("#ctn1").toggle();
+        $("#ctn4").toggle();
+      });
+      $(".sched-button").click(function(){
+        $("#ctn5").toggle();
+        $("#ctn2").toggle();
+      });
+      //hides mba page onclick of home button and takes you back to main page
+      $("#home3").click(function(){
+        $("#ctn1").toggle();
+        $("#ctn5").toggle();
+      });
+
+    </script>
+  </body>
+</html>
