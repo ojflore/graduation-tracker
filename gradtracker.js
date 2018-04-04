@@ -59,12 +59,6 @@ var unicores = [
   var mapping1 = {};
   return mapping1[unicore];
 }
-function displaysCourses(createRow) {
-  unicores.forEach((unicore) => {
-    var unicoreCourses = getUnivCoreCourses(unicore.name);
-    createRow(unicore, unicoreCourses);
-  })
-}
 
 var themes = [
   {
@@ -563,12 +557,6 @@ var themes = [
   };
   return mapping[theme];
 }
-function displayCourses(createRow) {
-  themes.forEach((theme) => {
-    var themeCourses = getThematicCourses(theme.name);
-    createRow(theme, themeCourses);
-  })
-}
 
 var majorReqs = [
   {
@@ -732,12 +720,6 @@ var majorReqs = [
   var mapping3 = {};
   return mapping3[majorReq];
 }
-function display3Courses(createRow) {
-  majorReqs.forEach((majorReq) => {
-    var majorReqCourses =getMajorReqsCourses(majorReq.name);
-    createRow(majorReq, majorReqCourses);
-  })
-}
 
 var majorelecs = [
   {
@@ -784,14 +766,14 @@ var majorelecs = [
   },
   {
     name: 'CMPS 362',
-    description: 'Digital Security',
+    description: 'Networking',
     credits: '3.0',
     needed: false,
     completed: false
   },
   {
     name: 'CMPS 363',
-    description: 'Business Law I',
+    description: 'Digital Security',
     credits: '3.0',
     needed: false,
     completed: false
@@ -804,33 +786,12 @@ var majorelecs = [
     completed: false
   },
   {
-    name: 'BMGT 205',
-    description: 'Principals of Marketing',
-    credits: '3.0',
-    needed: false,
-    completed: false
-  },
-  {
     name: 'CMPS 460',
     description: 'Mobile Application Development',
     credits: '3.0',
     needed: false,
     completed: false
     },
-    {
-    name: 'BMGT 300',
-    description: 'Corporate Finance',    
-    credits: '3.0',
-    needed: false,
-    completed: false
-  },
-    {
-    name: 'CMPS 460',
-    description: 'Mobile Application Development',    
-    credits: '3.0',
-    needed: false,
-    completed: false
-  },
   {
     name: 'CMPS 461',
     description: 'Big Data Applications',
@@ -873,13 +834,6 @@ var majorelecs = [
   var mapping4 = {};
   return mapping4[majorelec];
 }
-function display4Courses(createRow) {
-  majorelecs.forEach((majorelec) => {
-    var majorelecCourses = getMajCourses(majorelec.name);
-    createRow(majorelec, majorelecCourses);
-  })
-}
-
 
 var genelecs = [
   {
@@ -925,13 +879,34 @@ var genelecs = [
   };
   return mapping5[genelec];
 }
-function display5Courses(createRow) {
-  genelecs.forEach((genelec) => {
-    var genelecCourses = getGenCourses(genelec.name);
-    createRow(genelec, genelecCourses);
+
+
+function displayCourses(name, createRow) {
+  if (name === "Core") {
+    var courseset = unicores;
+    var getcoursedatafn = getUnivCoreCourses;
+  }
+  if (name === "Thematic") {
+    var courseset = themes;
+    var getcoursedatafn = getThematicCourses;
+  }
+  if (name === "Major Reqs") {
+    var courseset = majorReqs;
+    var getcoursedatafn = getMajorReqsCourses;
+  }
+  if (name === "Major Courses") {
+    var courseset = majorelecs;
+    var getcoursedatafn = getMajCourses;
+  }
+  if (name === "General Electives") {
+    var courseset = genelecs;
+    var getcoursedatafn = getGenCourses;
+  }
+  courseset.forEach((course) => {
+    var coursedata = getcoursedatafn(course.name);
+    createRow(course, coursedata);
   })
 }
-
 
  function calculateCreditsNeeded(item, currentvalue, notify) {
   var total = 0;
@@ -1088,10 +1063,6 @@ function notify() {
     addCourse: addCourse,
     getCatalog: getCatalog,
     calculateCreditsNeeded: calculateCreditsNeeded,
-    displaysCourses: displaysCourses,
-    display3Courses: display3Courses,
-    display4Courses: display4Courses,
-    display5Courses: display5Courses,
     displayCourses: displayCourses
   };
 
