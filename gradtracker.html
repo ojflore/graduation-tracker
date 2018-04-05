@@ -196,18 +196,20 @@
       <div class="required-courses">
         <h2>Information Technology MBA</h2><br><br>
           <h3>Required Courses:</h3>
-        <table class="theme" id="theme_MBA">
+        <table class="theme" id="myImplementation6">
           <tr>
             <th>Course #</th>
             <th>Course Description</th>
             <th>Credits</th>
-            <th>Needed</th>
             <th>Completed</th>
           </tr>
         </table>
-        <div class="total-need"> Core Credits Earned: </div>
-      </div>
-
+      </div>  
+      <!-- NEEDED AND COMPLETED TOTALS -->
+      <div class="total-need"> Core Credits Needed: <span id="core-need">24</span></div>
+      <br>
+      <div class="total-need"> Core Credits Earned: <span id="core-earn">0</span></div>
+      <br>        
       <!-- Concentration Courses start here -->
       <div class="concentration">
         <h3>Concentration:</h3><br>
@@ -221,41 +223,46 @@
   <!--- Business analytics starts here -->
           <div class="Business-analytics">
             <h3>Business Analytics Track:</h3><br>
-            <table class="theme" id="theme_analytics">
+            <table class="theme" id="myImplementation7">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
-                <th>Needed</th>
                 <th>Completed</th>
               </tr>
             </table>
-            <div class="total-need"> Concentration Credits Earned: </div>
-          </div><br><br>
+          </div>
+            <!-- NNEEDED AND COMPLETED TOTALS -->
+            <div class="total-need"> Core Credits Needed: <span id="core-need">12</span></div>
+            <br>
+            <div class="total-need"> Core Credits Earned: <span id="core-earn">0</span></div>
+            <br>   
+          <br><br>
 
   <!--management info systems starts here -->
           <div class="Business-analytics">
             <h3>Management Information Systems:</h3><br><br>
-            <table class="theme" id="theme_MIS">
+            <table class="theme" id="myImplementation8">
               <tr>
                 <th>Course #</th>
                 <th>Course Description</th>
                 <th>Credits</th>
-                <th>Needed</th>
                 <th>Completed</th>
               </tr>
             </table>
-            <div class="total-need"> Concentration Credits Earned: </div>
-          </div><br><br><br>
+           </div>  
+            <div class="total-need"> Concentration Credits Needed: <span id="core-need">12</span></div>
+            <br>
+            <div class="total-need"> Concentration Credits Earned: <span id="core-earn">0</span></div>
+            <br>   
+            <br>
 
 
         <div class="totals">
         <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
         <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
       </div>
-      <div>
       <button class="sched-button" id="sub-button">Course Schedule</button>
-    </div>
   </div>
 
       <!-- IT Minor Page -->
@@ -270,124 +277,53 @@
         <!-- <button type="button" id="minor">Minor</button> -->
         <!-- <div class="program"><h1>Bachelor of Science: Information Technology</h1></div> -->
 
-        <div class="required-courses">
           <h2>Information Technology Minor</h2><br><br>
-
-
-      <!-- required courses table starts here -->
+      <!-- Minor required courses table starts here -->
         <div class="required-courses">
           <h3>Choose 3 of the following:</h3><br>
           <!-- added ID "theme" for .js file-->
-          <table class="theme" id="theme_minor">
+          <table class="theme" id="myImplementation9">
       <!--Column Headers -->
             <tr>
               <th>Course Category</th>
               <th>Course Description</th>
               <th>Credits</th>
-              <th>Needed</th>
               <th>Completed</th>
             </tr>
+        </div><br>
 
-      <!-- First row in Required table -->
-            <tr>
-              <td>Required courses - Choice 1</td>
-              <td>
-                <select id="etw1-drop">Select
-                  <option>Select a course</option>
-                  <option>CMPS 160 Databases</option>
-                  <option>CMPS 161 Networking and Security</option>
-                  <option>CMPS 162 Introduction to Programming</option>
-                  <option>CMPS 163 Business Analytics</option>
-                </select>
-              </td>
-              <td>3.0</td>
-              <td><input type="checkbox"></input></td>
-              <td><input type="checkbox"></input></td>
-            </tr>
-
-      <!-- second row in Required table -->
-            <tr>
-              <td>Required courses - Choice 2</td>
-              <td>
-                <select id="etw2-drop">Select
-                  <option>Select a course</option>
-                  <option>CMPS 160 Databases</option>
-                  <option>CMPS 161 Networking and Security</option>
-                  <option>CMPS 162 Introduction to Programming</option>
-                  <option>CMPS 163 Business Analytics</option>
-                </select>
-              </td>
-              <td>3.0</td>
-              <td><input type="checkbox"></input></td>
-              <td><input type="checkbox"></input></td>
-            </tr>
-
-      <!-- third in required table -->
-            <tr>
-              <td>Required courses - Choice 3</td>
-              <td>
-                <select id="invsci-drop">
-                  <option>Select a course</option>
-                  <option>Select a course</option>
-                  <option>CMPS 160 Databases</option>
-                  <option>CMPS 161 Networking and Security</option>
-                  <option>CMPS 162 Introduction to Programming</option>
-                  <option>CMPS 163 Business Analytics</option>
-                </select>
-              </td>
-              <td>3.0</td>
-              <td><input type="checkbox"></input></td>
-              <td><input type="checkbox"></input></td>
-            </tr>
-
-      <!-- fourth row in required-courses table -->
-            <tr>
-              <td>Required Courses - Choice 4</td>
-              <td>
-                <select id="invmat-drop">
-                  <option>Select a course</option>
-                  <option>CMPS 160 Databases</option>
-                  <option>CMPS 161 Networking and Security</option>
-                  <option>CMPS 162 Introduction to Programming</option>
-                  <option>CMPS 163 Business Analytics</option>
-                </select>
-              </td>
-              <td>3.0</td>
-              <td><input type="checkbox"></input></td>
-              <td><input type="checkbox"></input></td>
-            </tr>
-          </div><br>
-
+<!--             <div class="total-need"> Required Credits Needed: <span id="core-need">9</span></div>
+            <br>
+            <div class="total-need"> Required Credits Earned: <span id="core-earn">0</span></div>
+            <br><br> -->
 
       <!-- Additional Courses start here -->
             <div class="Additional-courses">
 
-              <table class="CMPS-elec" id="CMPS_elec">
+              <table class="CMPS-elec" id="myImplementation10">
                 <h3>Additional CMPS courses (9 Credits):</h3><br><br>
                 <tr>
                   <th>Course #</th>
                   <th>Course Description</th>
                   <th>Credits</th>
-                  <th>Needed</th>
                   <th>Completed</th>
                 </tr>
               </table>
             </div>
             <br>
 
-              <div class="total-need"> Required course Credits Needed: </div>
-              <br>
-              <div class="total-earn"> Additional CMPS course Credits Earned: </div>
-              <br><br><br>
-            </div>
+            <div class="total-need"> Additional CMPS Credits Needed: <span id="core-need">9</span></div>
+            <br>
+            <div class="total-need"> Additional Credits Earned: <span id="core-earn">0</span></div>
+            <br>   <br><br>
             <div class="totals">
             <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
             <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
           </div>
           <div>
             <button class="sched-button" id="sub-button">Course Schedule</button>
-        </div>
-      </div>
+       </div>
+
 
 <!-- Scheduler Page -->
       <div class="ctn" id="ctn5">
@@ -493,6 +429,11 @@
     createTable("Major Reqs", "#myImplementation3", true, false, true);
     createTable("Major Courses", "#myImplementation4", true, false, true);
     createTable("General Electives", "#myImplementation5", false, true, true);
+    createTable("MBA Theme", "#myImplementation6", true, false, true);
+    createTable("Business Analytics Track", "#myImplementation7", true, false, true);
+    createTable("Management Information Systems", "#myImplementation8", true, false, true);
+    createTable("Minor Courses", "#myImplementation9", false, true, true);      
+    createTable("Additional CMPS Courses", "#myImplementation10", true, false, true);           
 
   })
 </script>

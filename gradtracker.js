@@ -881,6 +881,363 @@ var genelecs = [
 }
 
 
+  //Darnita - 4/2/2018 - Mapping
+var themeMBA = [
+  {
+    name: 'MBA 511',
+    description: 'Test Accounting for Managers',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 570',
+    description: 'Global Environment of Business',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'MBA 571',
+    description: 'Legal Environment of Business',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 572',
+    description: 'Marketing',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 573',
+    description: 'Corporate Finance',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'MBA 574',
+    description: 'Organizational Behaviors',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 576 or 540',
+    description: 'Quanitative Methods or Statistics and Quanitative Methods',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 578',
+    description: 'Managerial Economics',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//code from dr voortman
+  function getThemeMBACourses(themeMBA) {
+  var mapping6 = {};
+  return mapping6[themeMBA];
+}
+
+// Array for Business Analytic Courses
+var trackBA = [
+  {
+    name: 'MBA 542',
+    description: 'Business Analytics',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 543',
+    description: 'Data Analysis and Visualization',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'MBA 544',
+    description: 'Applied Data Mining',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 595',
+    description: 'Corporate Finance',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//Function to map Business Analytic Courses
+  function getTrackBACourses(trackBA) {
+  var mapping7 = {};
+  return mapping7[trackBA];
+}
+
+// Array for Management System Courses
+var trackMI = [
+  {
+    name: 'MBA 580',
+    description: 'Management Info. Systems',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 543',
+    description: 'Dev. of Support Networks',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'MBA 582',
+    description: 'Dbase Mgmt. and Applications',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'MBA 597',
+    description: 'Special Topics Info. Systems',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//Function to map Managment Informaton Systems Courses 
+  function getTrackMICourses(trackMI) {
+  var mapping8 = {};
+  return mapping8[trackMI];
+}
+
+
+
+// Array for Minor Required Courses
+var minorRequired = [
+  {
+    name: 'Required courses - Choice 1',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'Required courses - Choice 2',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+  {
+    name: 'Required courses - Choice 3',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }
+];
+
+//Function to map Required minor courses
+  function getMinorRequiredCourses(minorRequired) {
+  var mapping9 = {
+"Required courses - Choice 1": [
+      {
+        course_code: "CMPS 160",
+        course_description: "Databases"
+      },
+      {
+        course_code: "CMPS 161",
+        course_description: "Networking"
+      },
+      {
+        course_code: "CMPS 162",
+        course_description: "Intro to Programming"
+      },
+      {
+        course_code: "CMPS 163",
+        course_description: "Business Analytics"
+      } 
+    ],
+"Required courses - Choice 2": [
+      {
+        course_code: "CMPS 160",
+        course_description: "Databases"
+      },
+      {
+        course_code: "CMPS 161",
+        course_description: "Networking"
+      },
+      {
+        course_code: "CMPS 162",
+        course_description: "Intro to Programming"
+      },
+      {
+        course_code: "CMPS 163",
+        course_description: "Business Analytics"
+      } 
+    ],
+"Required courses - Choice 3": [
+      {
+        course_code: "CMPS 160",
+        course_description: "Databases"
+      },
+      {
+        course_code: "CMPS 161",
+        course_description: "Networking"
+      },
+      {
+        course_code: "CMPS 162",
+        course_description: "Intro to Programming"
+      },
+      {
+        course_code: "CMPS 163",
+        course_description: "Business Analytics"
+      } 
+    ]                    
+  };
+  return mapping9[minorRequired];
+}
+
+// Array for Minor addtional courses
+var minorAdditional = [
+   {
+    name: 'CMPS 260',
+    description: 'Data Structurese',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 261',
+    description: 'Server Management',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 262',
+    description: 'Advanced Programming',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 480',
+    description: 'Senior Capstone',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+    {
+    name: 'CMPS 355',
+    description: 'Internship in Info Tech I',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 356',
+    description: 'Internship in Info Tech II',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 360',
+    description: 'Survey of Programming Languages',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 361',
+    description: 'Web Application Development',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 362',
+    description: 'Networking',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 363',
+    description: 'Digital Security',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 364',
+    description: 'NoSQL Databases',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 460',
+    description: 'Mobile Application Development',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+  {
+    name: 'CMPS 461',
+    description: 'Big Data Applications',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 462',
+    description: 'Data Mining',
+    credits: '3.0',
+    needed: false,
+    completed: false
+    },
+    {
+    name: 'CMPS 463',
+    description: 'Entrepreneurship for Software Development',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'CMPS 464',
+    description: 'Software Development for E-Commerce',
+    credits: '3.0',
+    needed: false,
+    completed: false
+  },
+  {
+    name: 'TBD',
+    description: 'Special Topics/Independent Studye',    
+    credits: '3.0',
+    needed: false,
+    completed: false
+  }    
+];
+
+//Function to map additonal minor Ccourses
+  function getMinorAdditionalCourses(minorAdditional) {
+  var mapping10 = {};
+  return mapping10[minorAdditional];
+}
+
+
 function displayCourses(name, createRow) {
   if (name === "Core") {
     var courseset = unicores;
@@ -902,11 +1259,33 @@ function displayCourses(name, createRow) {
     var courseset = genelecs;
     var getcoursedatafn = getGenCourses;
   }
+  if (name === "MBA Theme") {
+    var courseset = themeMBA;
+    var getcoursedatafn = getThemeMBACourses;
+  }
+  if (name === "Business Analytics Track") {
+    var courseset = trackBA;
+    var getcoursedatafn = getTrackBACourses;
+  }
+    if (name === "Management Information Systems") {
+    var courseset = trackMI;
+    var getcoursedatafn = getTrackMICourses;
+  }
+    if (name === "Minor Courses") {
+    var courseset = minorRequired;
+    var getcoursedatafn = getMinorRequiredCourses;
+  }
+    if (name === "Additional CMPS Courses") {
+    var courseset = minorAdditional;
+    var getcoursedatafn = getMinorAdditionalCourses;
+  }                
   courseset.forEach((course) => {
     var coursedata = getcoursedatafn(course.name);
     createRow(course, coursedata);
   })
 }
+
+
 
  function calculateCreditsNeeded(item, currentvalue, notify) {
   var total = 0;
@@ -966,75 +1345,6 @@ function displayCourses(name, createRow) {
      listeners[i](grid);
    }
  }
-
-  //Darnita - 3/26/2018 - Line 1072-ish "Additional Courses"
-  var theme_minor_data = [
-    [ 'Required courses - Choice 1', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Required courses - Choice 2', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Required courses - Choice 3', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'Required courses - Choice 4', 'Need Dropdown', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-theme_minor_data.forEach( function( rowData ){
-    $('#theme_minor').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var CMPS_elec_data = [
-    [ 'CMPS 260', 'Data Structures', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 261', 'Server Management', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 262', 'Advanced Programming', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 480', 'Senior Project', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 355', 'Cooperative Education II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 356', 'Internship in Info Tech I', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 360', 'Internship in Info Tech II', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 361', 'Survey of Programming Languages', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 362', 'Web Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 363', 'Networking', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 364', 'NoSQL Databases', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 460', 'Mobile Application Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 461', 'Big Data Applications', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 462', 'Data Mining', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 463', 'Entrepreneurship for Software Development', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'CMPS 464', 'Software Development for E-Commerce', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'TBD', 'Special Topics/Independent Study', '1-6', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-CMPS_elec_data.forEach( function( rowData ){
-    $('#CMPS_elec').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-  //line 502
-  var theme_MBA_data = [
-    [ 'MBA 511', 'Accounting for Managers', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 570', 'Global Environment of Business', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 571', 'Legal Environment of Business', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 572', 'Marketing', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 573', 'Corporate Finance', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 574', 'Organizational Behaviors', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 576 or 540', 'Quanitative Methods or Statistics and Quanitative Methods', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 578', 'Managerial Economics', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-theme_MBA_data.forEach( function( rowData ){
-    $('#theme_MBA').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var theme_analytics_data = [
-    [ 'MBA 542', 'Business Analytics', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 543', 'Data Analysis and Visualization', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 544', 'Applied Data Mining', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 595', 'Corporate Finance', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-theme_analytics_data.forEach( function( rowData ){
-    $('#theme_analytics').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
-  var theme_MIS_data = [
-    [ 'MBA 580', 'Management Info. Systems', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 581', 'Dev. of Support Networks', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 582', 'Dbase Mgmt. and Applications', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-    [ 'MBA 597', 'Special Topics Info. Systems', '3.0', '<input type="checkbox"/>','<input type="checkbox"/>' ],
-  ];
-theme_MIS_data.forEach( function( rowData ){
-    $('#theme_MIS').append('<tr><td>' + rowData.join('</td><td>') + '</td></tr>')
-  })
-
 
 // store all the listeners
 // we have to call all of them if something changes
