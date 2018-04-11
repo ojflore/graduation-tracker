@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="gradtracker.css"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="testjs.js"></script>
+<title>Test JS</title>
+</head>
+  <body>
+	<script>
+	$(function(){
+//ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
+	 gradtracker.listen(function(){ //listens to model everything it changes
+      //$("#sched-table").empty(); //empties the table
+      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+      // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
+      // console.log(cmps160);
+      var tr = $("<tr>");
+      $("#sched-table").append(tr);
+      tr.append("<td>Course #</td>"); //adds object to the table
+      // for (var key in cmps160) {
+        // console.log(key);
+        tr.append("<td>Description</td>"); //adds object to the table
+        tr.append("<td>Prerequisites</td>"); //adds object to the table
+        tr.append("<td>Credits</td>"); //adds object to the table
+      // }
+      for (var catalogElt in catalog) {
+        for (var course in catalog[catalogElt]) {
+          var tr = $("<tr>");
+          $("#sched-table").append(tr);
+          tr.append("<td>" + course + "</td>"); //adds object to the table
+          // for (var key in catalog[catalogElt][course]) {
+
+            // console.log(key);
+            tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
+            tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
+            tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
+
+          // }
+        }
+      }
+     });
+
+	 $("#course-add").click(function(){ //makes a change in the model
+	  gradtracker.addCourse("ZU 18", "");
+     });
+  });
+ </script>
+
+    <!-- UNDERGRAD GENERAL ELECTIVES TABLE -->
+<script type="text/javascript">
+  $(function(){
+    var schedulerDiv = $('<div>');
+    schedulerDiv
+
+
+  });
+
+  $(function() {
+    // create table row
+    var tableRow = $('<tr>');
+    // apend data to the first column
+    tableRow.append($('<td>').append(""));
+
+   // create selector
+    var selector = $('<select>');
+    selector.append('<option value="">Select a Course </option>')
+    tableRow.append($('<td>').append(selector));
+    selector.change(function() {
+      console.log($(this).val());
+      // gradtracker.register($("<td>").append($(this).val()));
+    });
+    // append credits
+    // tableRow.append($('<td>').append(""))
+    // create checkbox
+    // var checkbox = $('<input>', {
+    //   type: 'checkbox',
+    //   value: ''
+    // });
+    // var checkbox1 = $('<input>', {
+    //   type: 'checkbox',
+    //   value: ''
+    // });
+    // tableRow.append($('<td>').append("3.0"))
+    // tableRow.append($('<td>').append(checkbox1))
+
+   $('#myImplementation5').find('tbody').append(tableRow);
+      gradtracker.display5Courses(function(genelec, genelecData) {
+        genelecData.forEach((data, i) => {
+          selector.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>')
+        });
+      })
+    });
+</script>
+
+	<div class="scheduler">
+    <center>
+    <h1>Course Scheduler</h1>
+  </center>
+    <!-- <h4>Select Term: </h4>
+    <select>
+      <option>select</option>
+      <option>Fall 2018-2019</option>
+      <option>Spring 2018-2019</option>
+    </select><br><br> -->
+  <div id="myImplementation5">
+    <button id="course-add">+</button>
+    <table class="genelec">
+      <tr>
+       <th>Course #</th>
+       <th>Course Description</th>
+       <th>Credits</th>
+      </tr>
+    </table>
+	  <table id="sched-table">
+	  </table>
+  </div>
+  </div>
+  </body>
+ </html>
