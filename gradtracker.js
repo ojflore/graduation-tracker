@@ -1825,10 +1825,6 @@ var minorCatalog =
 
 /*------------------------------------------------------------------- */
 
-// $.each(catalogIT, function(courses, statedata) {
-// 	$('#selector').append( $('<option> </option>').val(statedata.description).html(statedata.course_description) )
-// 	console.log(statedata.title);
-// });
 
 var gradtracker = (function() {
 

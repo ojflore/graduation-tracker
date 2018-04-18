@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!-- <script src="jquery-3.3.1.min.js"></script> -->
-  <script src="trash.js"></script>
+  <script src="gradtracker.js"></script>
   <title>PPU Grad-Tracker</title>
   <!-- Need Listner function for checkboxes when clicked -->
   <script type="text/javascript">
@@ -52,227 +52,228 @@
 
 
 
-
-
-
-  <!-- Scheduler Page -->
-  <div class="ctn" id="ctn5">
-  <h1 class="title">IT Schedule Planner</h1>
-  <h2>Schedule of Courses by Term</h2><br>
-  <h3>Fall 2018 - 2019</h3>
-  <script>
-  $(function(){
-  //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
-   gradtracker.listen(function(){ //listens to model everything it changes
-      //$("#sched-table").empty(); //empties the table
-      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
-      // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
-      // console.log(cmps160);
-      var tr = $("<tr>");
-      $("#sched-table").append(tr);
-      tr.append("<td>Course #</td>"); //adds object to the table
-      // for (var key in cmps160) {
-        // console.log(key);
-        tr.append("<td>Description</td>"); //adds object to the table
-        tr.append("<td>Prerequisites</td>"); //adds object to the table
-        tr.append("<td>Credits</td>"); //adds object to the table
-      // }
-      for (var catalogElt in catalog) {
-        for (var course in catalog[catalogElt]) {
-          var tr = $("<tr>");
-          $("#sched-table").append(tr);
-          tr.append("<td>" + course + "</td>"); //adds object to the table
-          // for (var key in catalog[catalogElt][course]) {
-
-            // console.log(key);
-            tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
-            tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
-            tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
-
-          // }
-        }
-      }
-     });
-
-   $("#course-add").click(function(){ //makes a change in the model
-    gradtracker.addCourse("ZU 18", "");
-     });
-  });
-  </script>
-
-    <!-- UNDERGRAD GENERAL ELECTIVES TABLE -->
-  <script type="text/javascript">
-  $(function() {
-    // create table row
-    var tableRow = $('<tr>');
-    // apend data to the first column
-    tableRow.append($('<td>').append(""));
-
-   // create selector
-    var selector = $('<select>');
-    selector.append('<option value="">Select a Course </option>')
-    tableRow.append($('<td>').append(selector));
-    selector.change(function() {
-      console.log($(this).val());
-      // gradtracker.register($("<td>").append($(this).val()));
-    });
-    // append credits
-    // tableRow.append($('<td>').append(""))
-    // create checkbox
-    // var checkbox = $('<input>', {
-    //   type: 'checkbox',
-    //   value: ''
-    // });
-    // var checkbox1 = $('<input>', {
-    //   type: 'checkbox',
-    //   value: ''
-    // });
-    // tableRow.append($('<td>').append("3.0"))
-    // tableRow.append($('<td>').append(checkbox1))
-
-   $('#myImplementation5').find('tbody').append(tableRow);
-      gradtracker.display5Courses(function(genelec, genelecData) {
-        genelecData.forEach((data, i) => {
-          selector.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>')
-        });
-      })
-    });
-  </script>
-
-  <div class="scheduler">
-    <center>
-    <h1>Course Scheduler</h1>
-  </center>
-    <!-- <h4>Select Term: </h4>
-    <select>
-      <option>select</option>
-      <option>Fall 2018-2019</option>
-      <option>Spring 2018-2019</option>
-    </select><br><br> -->
-  <div id="myImplementation5">
-    <button id="course-add">+</button>
-    <table class="genelec">
-      <tr>
-       <th>Course #</th>
-       <th>Course Description</th>
-       <th>Credits</th>
-      </tr>
-    </table>
-    <table id="sched-table">
-    </table>
-
+  <!-- /////////////////////    FIX    /////////////////////////////////// -->
+  <div class="totals">
+    <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
+    <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
   </div>
-
+</br></br>
+  <div>
+    <button class="sched-button" id="sub-button">Course Schedule</button>
+  </div>
 </div>
 
+<!-- /////////////////////    FIX    /////////////////////////////////// -->
 
-
-<script src="trash.js"></script>
+<!-- Scheduler script -->
 <script>
+//Scheduler jquery
+$(function(){
+  //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
+  gradtracker.listen(function(){ //listens to model everything it changes
+    //$("#sched-table").empty(); //empties the table
+    var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+    // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
+    // console.log(cmps160);
+    var tr = $("<tr>");
+    $("#sched-table").append(tr);
+    tr.append("<td>Course #</td>"); //adds object to the table
+    // for (var key in cmps160) {
+    // console.log(key);
+    tr.append("<td>Description</td>"); //adds object to the table
+    tr.append("<td>Prerequisites</td>"); //adds object to the table
+    tr.append("<td>Credits</td>"); //adds object to the table
+    // }
+    for (var catalogElt in catalog) {
+      for (var course in catalog[catalogElt]) {
+        var tr = $("<tr>");
+        $("#sched-table").append(tr);
+        tr.append("<td>" + course + "</td>"); //adds object to the table
+        // for (var key in catalog[catalogElt][course]) {
+
+        // console.log(key);
+        tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
+        tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
+        tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
+
+        // }
+      }
+    }
+  });
+
+  $("#course-add").click(function(){ //makes a change in the model
+    gradtracker.addCourse("ZU 18", "");
+  });
+});
+</script>
+
+<!-- Scheduler Araea -->
+
+<div class="ctn" id="ctn5">
+  <h1 class="title">IT Schedule Planner</h1><br>
+  <button id="home3">Home</button><br><br>
+  <h4>Select Term: </h4>
+  <select>
+    <option>select</option>
+    <option>Fall 2018-2019</option>
+    <option>Spring 2018-2019</option>
+  </select><br><br>
+  <button id="course-add">+</button><br>
+  <div id="myImplementation11">
+    <table class="addCourse">
+      <tr>
+        <th>Course #</th>
+        <th>Course Description</th>
+        <th>Credits</th>
+      </tr>
+    </table>
+    <table id="sched-table"></table>
+  </div>
+</div>
+
+<script>
+//Scheduler jquery
+$(function(){
+  //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
+  gradtracker.listen(function(){ //listens to model everything it changes
+    //$("#sched-table").empty(); //empties the table
+    var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+    // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
+    // console.log(cmps160);
+    var tr = $("<tr>");
+    $("#sched-table").append(tr);
+    tr.append("<td>Course #</td>"); //adds object to the table
+    // for (var key in cmps160) {
+    // console.log(key);
+    tr.append("<td>Description</td>"); //adds object to the table
+    tr.append("<td>Prerequisites</td>"); //adds object to the table
+    tr.append("<td>Credits</td>"); //adds object to the table
+    // }
+    for (var catalogElt in catalog) {
+      for (var course in catalog[catalogElt]) {
+        var tr = $("<tr>");
+        $("#sched-table").append(tr);
+        tr.append("<td>" + course + "</td>"); //adds object to the table
+        // for (var key in catalog[catalogElt][course]) {
+
+        // console.log(key);
+        tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
+        tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
+        tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
+
+        // }
+      }
+    }
+  });
+
+  $("#course-add").click(function(){ //makes a change in the model
+    gradtracker.addCourse("ZU 18", "");
+  });
+});
+</script>
 
 
+<script src="gradtracker.js"></script>
+<script>
 function CreateCategory(category){
 
   // $category is the container for a course set
   var $category = $('<div class="Category" />').appendTo('#app');
 
   // the header for the json Object UndergraduateCatalog
-  $category.append('<h2>'+category.title+'</h2>');
+  $category.append('<h2>'+category.title+'</h2>'+'</br>');
+
 
   // the header for the course set
-
-
-    // the header for the course set
   category.subcategories.forEach(function(subcategory) {
-      $category.append('<h3>'+subcategory.title+'</h3>');
+    $category.append('<h3>'+subcategory.title+'</h3>'+'</br>');
 
 
-      var $table = $('<table />').appendTo($category);
+    var $table = $('<table />').appendTo($category);
 
-      // table header
-      var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credits</th><th>Completed</th></tr>');
-      $tableHeader.appendTo($table);
-
-
-
-      // we will go through every course in a category and create a table row for every course set
-      subcategory.courses.forEach( function(course){
-      				$row = $('<tr />').appendTo($table);
-      				var descTag = '<td>'+course.title+'</td>';
-      				// if (category.title === "Thematic") {
-
-      				if (!(course.description instanceof Array))
-      					descTag += '<td>'+course.description+'</td>';
-      				else {
-      					descTag += '<td><select><option value="">Select a Course </option>';
-      					course.description.forEach(function(subcourse) {
-      						descTag += '<option>' + subcourse.course_code
-      							+ '-' +  subcourse.course_description  + '</option>';
-      					});
-      					descTag += '</select></td>';
-      				}
-
-      				$row.append(descTag);
-
-
-      				$row.append('<td class="credits">'+course.credits+'</td>');
-      				$row.append( $('<td><input class="completed" type="checkbox" '+ (course.completed ?  'checked': '') +' /></td>') );
-      			});
-
-      var $info = $('</table>').appendTo($category);
-      // this will be the info element after the table
-      var $info = $('<div/>').appendTo($category);
+    // table header
+    var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credits</th><th>Completed</th></tr>');
+    $tableHeader.appendTo($table);
 
 
 
+    // we will go through every course in a category and create a table row for every course set
+    subcategory.courses.forEach( function(course){
+      $row = $('<tr />').appendTo($table);
+      var descTag = '<td>'+course.title+'</td>';
 
-// total credits for this category
-var total = 0;
+      if (!(course.description instanceof Array))
+      descTag += '<td>'+course.description+'</td>';
+      else {
+        descTag += '<td><select><option value="">Select a Course </option>';
+        course.description.forEach(function(subcourse) {
+          descTag += '<option>' + subcourse.course_code
+          + '-' +  subcourse.course_description  + '</option>';
+        });
+        descTag += '</select></td>';
+      }
 
-// this function will recalculate the total credits for this course set
-function calculateTotal(){
-  total = 0; // <-- reset the total before we add up
+      $row.append(descTag);
 
-  // find all checked checkboxes in this table
-  var $checkedCheckboxes = $table.find('.completed:checked');
 
-  // let's go through every checked checkbox in this table
-  $checkedCheckboxes.each( function(){
-    var $checkbox = $(this); // <-- one of the checked checkboxes as we go through them
+      $row.append('<td class="credits">'+course.credits+'</td>');
+      $row.append( $('<td><input class="completed" type="checkbox" '+ (course.completed ?  'checked': '') +' /></td>') );
+    });
 
-    // this is how we find the ".credits" cell in the same row:
-    var $creditsCell = $checkbox.closest('tr').find('.credits');
+    var $info = $('</table>').appendTo($category);
+    // this will be the info element after the table
+    var $info = $('<div/>').appendTo($category);
 
-    // get the credits value
-    var credits = parseFloat($creditsCell.text(),10);
 
-    // increment the total credits for this course set
-    total += credits;
-  } );
-}
 
-// this function will update the info element
-function updateInfo(){
-  calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
-  // with .html we will replace the info to include current total credits
-  $info.html('<p></br>Total credits earned for <b>'+subcategory.title+'</b> <br/> Total credits: <b>'+total+'</b> </p>')
-}
 
-// update the info once after we created the table, which should render the initial value for the total credits
-updateInfo();
+    // total credits for this category
+    var total = 0;
 
-// start listening for when a checkbox in this table changes value, and call updateInfo function
-$table.on('change', 'input[type=checkbox]', updateInfo);
-		});
+    // this function will recalculate the total credits for this course set
+    function calculateTotal(){
+      total = 0; // <-- reset the total before we add up
+
+      // find all checked checkboxes in this table
+      var $checkedCheckboxes = $table.find('.completed:checked');
+
+      // let's go through every checked checkbox in this table
+      $checkedCheckboxes.each( function(){
+        var $checkbox = $(this); // <-- one of the checked checkboxes as we go through them
+
+        // this is how we find the ".credits" cell in the same row:
+        var $creditsCell = $checkbox.closest('tr').find('.credits');
+
+        // get the credits value
+        var credits = parseFloat($creditsCell.text(),10);
+
+        // increment the total credits for this course set
+        total += credits;
+      } );
+    }
+
+    // this function will update the info element
+    function updateInfo(){
+      calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
+      // with .html we will replace the info to include current total credits
+      $info.html('<p></br>Total credits earned for <b>'+subcategory.title+'</b> <br/> Total credits: <b>'+total+'</b> </p>')
+    }
+
+    // update the info once after we created the table, which should render the initial value for the total credits
+    updateInfo();
+
+    // start listening for when a checkbox in this table changes value, and call updateInfo function
+    $table.on('change', 'input[type=checkbox]', updateInfo);
+  });
 }
 
 
 /* THE APP STARTS HERE, by calling `createTable` function for every course set */
-$('<h1 class = title>'+ UndergraduateCatalog.title + '</h1>').appendTo('#app');
+$('<h1 class = "title">'+ UndergraduateCatalog.title + '</h1>').appendTo('#app');
 UndergraduateCatalog.categories.forEach(CreateCategory);
-$('<h1 class = title>'+ MBACatalog.title + '</h1>').appendTo('#app');
+$('<h1 class = "title">'+ MBACatalog.title + '</h1>').appendTo('#app');
 MBACatalog.categories.forEach(CreateCategory);
-$('<h1 class = title>'+ minorCatalog.title + '</h1>').appendTo('#app');
+$('<h1 class = "title">'+ minorCatalog.title + '</h1>').appendTo('#app');
 minorCatalog.categories.forEach(CreateCategory);
 
 
