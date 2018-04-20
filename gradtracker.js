@@ -1,4 +1,4 @@
-// this is the model
+// this is the modeltest
 // it should NOT contain any html or css
 /*------------------------------------------------------------------- */
 /* The data */
