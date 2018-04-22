@@ -1,24 +1,28 @@
 <!doctype html>
-<!-- test  Select all, Total additon, home buttons, and add to gradtracker.js -->
-/
+<!-- test  Select all, Total additon,and add to gradtracker.js -->
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="gradtracker.css"/>
+  <link rel="stylesheet" type="text/css" href="gradtracker.css" />
   <link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!-- <script src="jquery-3.3.1.min.js"></script> -->
+  <script src="gradtrackermodel.js"></script>
   <script src="gradtracker.js"></script>
+
   <title>PPU Grad-Tracker</title>
-  <!-- Need Listner function for checkboxes when clicked -->
+  <!-- // /////////////////////////////////// Begin Jamie's D3  //////////////////////////////////////////////// -->
   <script type="text/javascript">
-  $( function() {
+  $(function () {
     d3.select("body")
     .transition()
     .duration(3000)
@@ -35,451 +39,343 @@
     .transition()
     .duration(5500)
     .style("opacity", "1");
-  } );
+  });
 
   </script>
-
+  <!-- // /////////////////////////////////// END Jamie's D3  //////////////////////////////////////////////// -->
 </head>
+
 <body>
+
   <!-- Main page -->
   <div class="ctn1" id="ctn1">
     <img src="pointparkseal.png">
     <h1 class="title">Point Park University Graduation Tracker</h1>
     <h4>Choose Degree Program:</h4>
-    <button class="undergrad" id="undergrad" onclick="showundergrad()">Undergraduate</button>
-    <button class="mba" id="mba" onclick="showmba()">MBA</button>
-    <button class="minor" id="minor" onclick="showMinor()">Minor</button>
+    <!-- // ///////////////////////////////////DARNITA's Uupdated Code  //////////////////////////////////////////////// -->
+    <button class="undergrad" id="undergrad" onclick="showCourseCatalog('undergrad')">Undergraduate</button>
+    <button class="mba" id="mba" onclick="showCourseCatalog('mba')">MBA</button>
+    <button class="minor" id="minor" onclick="showCourseCatalog('minor')">Minor</button>
   </div>
+
   <div id="app"></div>
 
+  <script>
+//dh
+  $(document).ready(function() {
+    CreateHTMLForCatalog("undergrad");
+    CreateHTMLForCatalog("mba");
+    CreateHTMLForCatalog("minor");
 
 
-  <!-- /////////////////////    FIX    /////////////////////////////////// -->
-  <!-- <div class="totals">
-  <h5 class="tot-earn"> Total Credits Earned: </h5> <p id="earn-cred">30.0</p>
-  <h5 class="tot-need"> Total Credits Needed: </h5> <p id="need-creed">18.0</p>
-</div> -->
-
-
-<!-- /////////////////////    BEGIN DARNTA    /////////////////////////////////// -->
-
-<script src="gradtracker.js"></script>
-<script>
-function CreateCategory(category){
-
-  //find by class name $
-  // $category is the container for a course set
-  //find alal of the nodes that have a class of category and then remve
-  //find all of a divs with particular category witht he # sign
-
-  var $category = $('<div class="ctn" id="ctn' + category.value + '" />').appendTo('#app');
-
-
-
-
-  // the header for the json Object UndergraduateCatalog
-  $category.append('<h2>'+category.title+'</h2>'+'</br>');
-
-  // the header for the course set
-  category.subcategories.forEach(function(subcategory) {
-    $category.append('<h3>'+subcategory.title+'</h3>'+'</br>');
-
-
-    var $table = $('<table />').appendTo($category);
-
-    // table header
-    var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credits</th><th>Completed   <input type="checkbox" onchange="selectall()"/></th></tr>');
-    $tableHeader.appendTo($table);
-
-
-
-    // we will go through every course in a category and create a table row for every course set
-    subcategory.courses.forEach( function(course){
-      $row = $('<tr />').appendTo($table);
-      var descTag = '<td>'+course.title+'</td>';
-
-      if (!(course.description instanceof Array))
-      descTag += '<td>'+course.description+'</td>';
-      else {
-        descTag += '<td><select><option value="">Select a Course </option>';
-        course.description.forEach(function(subcourse) {
-          descTag += '<option>' + subcourse.course_code
-          + '-' +  subcourse.course_description  + '</option>';
-        });
-        descTag += '</select></td>';
-      }
-
-      $row.append(descTag);
-
-
-      $row.append('<td class="credits">'+course.credits+'</td>');
-      $row.append( $('<td><input class="completed" type="checkbox" '+ (course.completed ?  'checked': '') +' /></td>') );
+    $(".ctn").hide();
+    //hides page section onclick of home button and takes you back to main page
+    $(".homeBtn").click(function () {
+      $("#ctn1").show();
+      $(".ctn").hide();
     });
-
-    var $info = $('</table>').appendTo($category);
-    // this will be the info element after the table
-    var $info = $('<div/>').appendTo($category);
-
-
-    // total credits for this category
-    var total = 0;
-
-    // this function will recalculate the total credits for this course set
-    function calculateTotal(){
-      total = 0; // <-- reset the total before we add up
-
-      // find all checked checkboxes in this table
-      var $checkedCheckboxes = $table.find('.completed:checked');
-
-      // let's go through every checked checkbox in this table
-      $checkedCheckboxes.each( function(){
-        var $checkbox = $(this); // <-- one of the checked checkboxes as we go through them
-
-        // this is how we find the ".credits" cell in the same row:
-        var $creditsCell = $checkbox.closest('tr').find('.credits');
-
-        // get the credits value
-        var credits = parseFloat($creditsCell.text(),10);
-
-        // increment the total credits for this course set
-        total += credits;
-      } );
-    }
-
-    // this function will update the info element
-    function updateInfo(){
-      calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
-      // with .html we will replace the info to include current total credits
-      $info.html('<p></br>Total credits earned for <b>'+subcategory.title+'</b> <br/> Total credits: <b>'+total+'</b> </p>')
-    }
-
-    // update the info once after we created the table, which should render the initial value for the total credits
-    updateInfo();
-
-    // start listening for when a checkbox in this table changes value, and call updateInfo function
-    $table.on('change', 'input[type=checkbox]', updateInfo);
-  });
-}
-
-
-/* THE APP STARTS HERE, by calling `createTable` function for every course set */
-function showundergrad() {
-    $("#ctn1").toggle();
-    UndergraduateCatalog.categories.forEach(CreateCategory);
-  $('<h1 class = "title">'+ UndergraduateCatalog.title + '</h1>').appendTo('#ctn2');
-  $('<button class="undergrad" id="home">Home</button>').appendTo('#ctn2');
-  $('</br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn2');
-
-  //takes you to the Scheduler Page onclick
-  $(".sched-button").click(function(){
-    $("#ctn5").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-    // $("#ctn1").toggle();
-  });
-  //hides mba page onclick of home button and takes you back to main page
-  $("#home").click(function(){
-    $("#ctn1").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-  });
-}
-function showmba() {
-      $("#ctn1").toggle();
-  MBACatalog.categories.forEach(CreateCategory);
-  $('<h1 class = "title">'+ MBACatalog.title + '</h1>').appendTo('#ctn3');
-  $('<button class="mba" id="home1">Home</button>').appendTo('#ctn3');
-  $('</br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn3');
 
     //takes you to the Scheduler Page onclick
-    $(".sched-button").click(function(){
-      $("#ctn5").toggle();
-      $("#ctn2").toggle();
-      $("#ctn3").toggle();
-      $("#ctn4").toggle();
-      // $("#ctn1").toggle();
+    $(".sched-button").click(function () {
+      $("#ctn5").show();
+      $("#ctn2").hide();
+      $("#ctn3").hide();
+      $("#ctn4").hide();
     });
-    //hides mba page onclick of home button and takes you back to main page
-    $("#home1").click(function(){
-      $("#ctn2").toggle();
-      $("#ctn1").toggle();
-      $("#ctn2").toggle();
-      $("#ctn3").toggle();
-      $("#ctn4").toggle();
+
+  });
+  /* THE APP STARTS HERE, by calling `CreateCategory` function for every jSON objects UndergraduateCatalog, MBA, MINOR */
+  function CreateHTMLForCatalog(catalog) {
+    gradtracker.setCatalogView(catalog);
+    gradtracker.getCategories().forEach(CreateCategory);
+
+    $('<h1 class = "title">' + gradtracker.getTitle() + '</h1>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="home">Home</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('</br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn' + gradtracker.getValue());
+  }
+
+  // the app
+  //
+  function CreateCategory(category) {
+
+    //find by class name $
+    // $category is the container for a course set/track
+    //find all of the nodes that have a class of category and then remove
+    //find all of a divs with particular category witht he # sign
+    var $category = $('<div class="ctn" id="ctn' + category.value + '" />').appendTo('#app');
+
+    // the header for the json Object UndergraduateCatalog, MBA, MINOR
+    $category.append('<h2>' + category.title + '</h2>' + '</br>');
+
+    // the header for the course set/category
+    category.subcategories.forEach(function (subcategory) {
+      $category.append('<h3>' + subcategory.title + '</h3>' + '</br>');
+      //creates a table for the header
+      var $table = $('<table />').appendTo($category);
+
+      // table header
+      var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credits</th><th>Completed   <input type="checkbox" class="checkbox" onchange="gradtracker.selectAll(this)"/></th></tr>');
+      $tableHeader.appendTo($table);
+
+      // we will go through every course in a category and create a table row for every subcategory
+      subcategory.courses.forEach(function (course) {
+        $row = $('<tr />').appendTo($table);
+        var descTag = '<td>' + course.title + '</td>';
+        //logic checks to see if the description is an array so it can create the dropdown
+        if (!(course.description instanceof Array))
+        descTag += '<td>' + course.description + '</td>';
+        else {
+          descTag += '<td><select id= "programs"><option value="">Select a Course </option>';
+          course.description.forEach(function (subcourse) {
+            descTag += '<option>' + subcourse.course_code
+            + '-' + subcourse.course_description + '</option>';
+          });
+          descTag += '</select></td>';
+        }
+        //actually adds the description data cell
+        $row.append(descTag);
+        // ///////////////////////////////////END DARNITA'S UNDERGRAD/MBA/MINOR TRACKS ////////////////////////////////////////////////
+
+        // ///////////////////////////////////BEGIN DARNITA Checkbox data cells and logic ---NEED TO FIX ////////////////////////////////////////////////
+
+        $row.append('<td class="credits">' + course.credits + '</td>');
+        let isChecked = course.completed ? 'checked' : '';
+        let courseSelection = {
+          course: course.title,
+          isChecked: isChecked
+        }
+        var str = "{course:'" + course.title + "',isChecked:'" + isChecked + "'}";
+        let td = '<td><input class="completed" onchange="gradtracker.checkboxclick("' + str + '") type="checkbox" +' + isChecked + '/></td>';
+        $row.append(td);
+      });
+
+      // /////////////////////////////////// END DARNITA'S Checkbox data cells and logic - Affects total calcualtions  ////////////////////////////////////////////////
+
+
+
+      var $info = $('</table>').appendTo($category);
+      // this will be the info element after the table
+      var $info = $('<div/>').appendTo($category);
+
+      // /////////////////////////////////// BEGIN DARNITA'S CALCULATIONS for credits  ////////////////////////////////////////////////
+      // total credits for this category
+      var total = 0;
+
+      // this function will recalculate the total credits for this course set
+      function calculateTotal() {
+        total = 0; // <-- reset the total before we add up
+
+        // find all checked checkboxes in this table
+        var $checkedCheckboxes = $table.find('.completed:checked');
+
+        // let's go through every checked checkbox in this table
+        $checkedCheckboxes.each(function () {
+          var $checkbox = $(this); // <-- one of the checked checkboxes as we go through them
+
+          // this is how we find the ".credits" cell in the same row:
+          var $creditsCell = $checkbox.closest('tr').find('.credits');
+
+          // get the credits value
+          var credits = parseFloat($creditsCell.text(), 10);
+
+          // increment the total credits for this course set
+          total += credits;
+        });
+      }
+      // /////////////////////////////////// END CALCULATIONS ////////////////////////////////////////////////
+
+      // /////////////////////////////////// BEGIN UPDATING/Printing totals /////////////////////////////////
+      // this function will update the info element
+
+      function updateInfo() {
+
+        calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
+        // with .html we will replace the info to include current total credits
+        $info.html('<p></br>Total credits earned for <b>' + subcategory.title + ': ' + total + '</b> <br/> Total credits: <b>' + gradtracker.getTotalCreditsEarned(subcategory.courses) + '</b> </p>')
+      }
+
+      // update the info once after we created the table, which should render the initial value for the total credits
+      updateInfo();
+
+      // start listening for when a checkbox in this table changes value, and call updateInfo function
+      $table.on('change', 'input[type=checkbox]', updateInfo);
     });
   }
-function showMinor(){
-  $("#ctn1").toggle();
-  $('<h1 class = "title">'+ minorCatalog.title + '</h1>').appendTo('#app');
-  $('<button class="mba" id="home2">Home</button>').appendTo('#ctn4');
-  minorCatalog.categories.forEach(CreateCategory);
-  //Course Scheduler buttion
-  $('</br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn3');
-  //takes you to the Scheduler Page onclick
-    //takes you to the Scheduler Page onclick
-    $(".sched-button").click(function(){
-      $("#ctn5").toggle();
-      $("#ctn2").toggle();
-      $("#ctn3").toggle();
-      $("#ctn1").toggle();
-      $("#ctn4").toggle();
-      // $("#ctn1").toggle();
-    });
-    //hides mba page onclick of home button and takes you back to main page
-    $("#home2").click(function(){
-      $("#ctn3").toggle();
-      $("#ctn1").toggle();
-      $("#ctn2").toggle();
-      $("#ctn4").toggle();
-        });
-}
-</script>
-<!-- </br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div> -->
-<!-- /////////////////////    end darnita    /////////////////////////////////// -->
-
-<!-- /////////////////////    BEGIN JOSE    /////////////////////////////////// -->
-<!-- Scheduler Page -->
-<div class="ctn" id="ctn5">
-  <h1 class="title">IT Schedule Planner</h1><br>
-  <button id="home3">Home</button><br><br>
-  <h1>Select a Term: </h1>
-  <select id='term-select'>
-    <option>select</option>
-    <option value="0">FALL 18-19</option>
-    <option value="1">SPRING 18-19</option>
-  </select>
-  <br><br>
-  <div id="course-dropdown">
-  </div>
+  // /////////////////////////////////// BEGIN UPDATING/Printing totals /////////////////////////////
 
 
-  <script>
-  $(document).ready(function(){
-    $("#course-dropdown").hide();
-    $("#term-select").change(function(){
-      $("#course-dropdown").show();
-    });
-    // create table row
-    var tableRow = $('<tr>');
-    // apend data to the first column
-    tableRow.append($('<td>').append(""));
-    // create selector
-    var selector_term = $("<select id='select_course'></select>");
-    $("#course-dropdown").append(selector_term);
-    $("#select_course").append("<option value=''>Select a Course </option>");
-    selector_term.change(function() {
-      if (this.value === '0')
-      {
-        gradtracker.displaySchedule(function(schedule, scheduleData) {
-          scheduleData.forEach((data, i) => {
-            $("#select_course").append('<option>' + data.course_code + ' - ' + data.course_description + '</option>');
-          });
-        });
+  /* The funciton behind the onclick buttions that displays and hides the content based on track  */
+  let showCtn = true;
+
+  function showCourseCatalog(catalogView) {
+    $("#ctn1").hide();
+    gradtracker.setCatalogView(catalogView);
+    $("#ctn" + gradtracker.getValue()).show();
+  }
+  </script>
+  <!-- /////////////////////    End All Darnita    ////////////////////////////// -->
+
+  <!-- /////////////////////    BEGIN JOSE    /////////////////////////////////// -->
+  <!-- Scheduler Page -->
+  <div class="ctn" id="ctn5">
+    <h1 class="title">IT Schedule Planner</h1>
+    <br>
+    <button class="homeBtn" id="home3">Home</button>
+    <br>
+    <br>
+    <h1>Select a Term: </h1>
+    <select id='term-select'>
+      <option>select</option>
+      <option value="0">FALL 18-19</option>
+      <option value="1">SPRING 18-19</option>
+    </select>
+    <br>
+    <br>
+    <div id="course-dropdown">
+    </div>
+
+
+    <script>
+    $(document).ready(function () {
+      $("#course-dropdown").hide();
+      $("#term-select").change(function () {
         $("#course-dropdown").show();
-      }
-    });
-    $('#term-select').on('change', function() {
-      if (this.value === '0')
-      {
-        gradtracker.displaySchedule(function(schedule, scheduleData) {
-          scheduleData.forEach((data, i) => {
-            selector_term.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>').show()
+      });
+      // create table row
+      var tableRow = $('<tr>');
+      // apend data to the first column
+      tableRow.append($('<td>').append(""));
+      // create selector
+      var selector_term = $("<select id='select_course'></select>");
+      $("#course-dropdown").append(selector_term);
+      $("#select_course").append("<option value=''>Select a Course </option>");
+      selector_term.change(function () {
+        if (this.value === '0') {
+          gradtracker.displaySchedule(function (schedule, scheduleData) {
+            scheduleData.forEach((data, i) => {
+              $("#select_course").append('<option>' + data.course_code + ' - ' + data.course_description + '</option>');
+            });
           });
-        });
-      }
-      else if (this.value === '1')
-      {
-        gradtracker.displaySchedule(function(schedule, scheduleData) {
-          scheduleData.forEach((data, i) => {
-            selector_term.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>').show();
+          $("#course-dropdown").show();
+        }
+      });
+      $('#term-select').on('change', function () {
+        if (this.value === '0') {
+          gradtracker.displaySchedule(function (schedule, scheduleData) {
+            scheduleData.forEach((data, i) => {
+              selector_term.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>').show()
+            });
           });
-        });
-      }
-    });
-  });
-
-  //Scheduler jquery
-  $(function(){
-    //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
-    gradtracker.listen(function(){ //listens to model everything it changes
-      //$("#sched-table").empty(); //empties the table
-      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
-      // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
-      // console.log(cmps160);
-      var tr = $("<tr>");
-      $("#sched-table").append(tr);
-      tr.append("<td>Course #</td>"); //adds object to the table
-      // for (var key in cmps160) {
-      // console.log(key);
-      tr.append("<td>Description</td>"); //adds object to the table
-      tr.append("<td>Prerequisites</td>"); //adds object to the table
-      tr.append("<td>Credits</td>"); //adds object to the table
-      // }
-      for (var catalogElt in catalog) {
-        for (var course in catalog[catalogElt]) {
-          var tr = $("<tr>");
-          $("#sched-table").append(tr);
-          tr.append("<td>" + course + "</td>"); //adds object to the table
-          // for (var key in catalog[catalogElt][course]) {
-          // console.log(key);
-          tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
-          tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
-          tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
-          // }
         }
-      }
-    });
-    $("#course-add").click(function(){ //makes a change in the model
-      gradtracker.addCourse("ZU 18", "");
-    });
-  });
-  </script>
-
-
-  <script>
-  //Scheduler jquery
-  $(function(){
-    //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
-    gradtracker.listen(function(){ //listens to model everything it changes
-      //$("#sched-table").empty(); //empties the table
-      var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
-      // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
-      // console.log(cmps160);
-      var tr = $("<tr>");
-      $("#sched-table").append(tr);
-      tr.append("<td>Course #</td>"); //adds object to the table
-      // for (var key in cmps160) {
-      // console.log(key);
-      tr.append("<td>Description</td>"); //adds object to the table
-      tr.append("<td>Prerequisites</td>"); //adds object to the table
-      tr.append("<td>Credits</td>"); //adds object to the table
-      // }
-      for (var catalogElt in catalog) {
-        for (var course in catalog[catalogElt]) {
-          var tr = $("<tr>");
-          $("#sched-table").append(tr);
-          tr.append("<td>" + course + "</td>"); //adds object to the table
-          // for (var key in catalog[catalogElt][course]) {
-
-          // console.log(key);
-          tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
-          tr.appe
-
-          nd("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
-          tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
-
-          // }
+        else if (this.value === '1') {
+          gradtracker.displaySchedule(function (schedule, scheduleData) {
+            scheduleData.forEach((data, i) => {
+              selector_term.append('<option>' + data.course_code + ' - ' + data.course_description + '</option>').show();
+            });
+          });
         }
-      }
+      });
     });
 
-    $("#course-add").click(function(){ //makes a change in the model
-      gradtracker.addCourse("ZU 18", "");
+    //Scheduler jquery
+    $(function () {
+      //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
+      gradtracker.listen(function () { //listens to model everything it changes
+        //$("#sched-table").empty(); //empties the table
+        var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+        // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
+        // console.log(cmps160);
+        var tr = $("<tr>");
+        $("#sched-table").append(tr);
+        tr.append("<td>Course #</td>"); //adds object to the table
+        // for (var key in cmps160) {
+        // console.log(key);
+        tr.append("<td>Description</td>"); //adds object to the table
+        tr.append("<td>Prerequisites</td>"); //adds object to the table
+        tr.append("<td>Credits</td>"); //adds object to the table
+        // }
+        for (var catalogElt in catalog) {
+          for (var course in catalog[catalogElt]) {
+            var tr = $("<tr>");
+            $("#sched-table").append(tr);
+            tr.append("<td>" + course + "</td>"); //adds object to the table
+            // for (var key in catalog[catalogElt][course]) {
+            // console.log(key);
+            tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
+            tr.append("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
+            tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
+            // }
+          }
+        }
+      });
+      $("#course-add").click(function () { //makes a change in the model
+        gradtracker.addCourse("ZU 18", "");
+      });
     });
-  });
+    </script>
 
 
-  // jquery starts here
-  $(function(){
-    gradtracker.listen(function(){ //listens to model everything it changess
-      $("#test").empty(); //empties the table
-      var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
-      // console.log(schedule);
-      var sp18 = schedule["SP 18"];
-      // console.log(sp18);
-      for (var i = 0; i < sp18.length; i++) {
-        $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
-      }
+    <script>
+    //Scheduler jquery
+    $(function () {
+      //ADDS TABLE ROW TO SCHEDULER ONCLICK OF PLUS BUTTON
+      gradtracker.listen(function () { //listens to model everything it changes
+        //$("#sched-table").empty(); //empties the table
+        var catalog = gradtracker.getCatalog(); //calls the function in gradtracker.js that returns the object in the schedule
+        // var cmps160 = catalog["IT Core Courses"]["CMPS 160"];
+        // console.log(cmps160);
+        var tr = $("<tr>");
+        $("#sched-table").append(tr);
+        tr.append("<td>Course #</td>"); //adds object to the table
+        // for (var key in cmps160) {
+        // console.log(key);
+        tr.append("<td>Description</td>"); //adds object to the table
+        tr.append("<td>Prerequisites</td>"); //adds object to the table
+        tr.append("<td>Credits</td>"); //adds object to the table
+        // }
+        for (var catalogElt in catalog) {
+          for (var course in catalog[catalogElt]) {
+            var tr = $("<tr>");
+            $("#sched-table").append(tr);
+            tr.append("<td>" + course + "</td>"); //adds object to the table
+            // for (var key in catalog[catalogElt][course]) {
+
+            // console.log(key);
+            tr.append("<td>" + catalog[catalogElt][course]["Description"] + "</td>"); //adds object to the table
+            tr.appe
+
+            nd("<td>" + catalog[catalogElt][course]["Prerequisites"] + "</td>"); //adds object to the table
+            tr.append("<td>" + catalog[catalogElt][course]["Credits"] + "</td>"); //adds object to the table
+
+            // }
+          }
+        }
+      });
+
+      $("#course-add").click(function () { //makes a change in the model
+        gradtracker.addCourse("ZU 18", "");
+      });
     });
 
 
-  });
+    // jquery starts here
+    $(function () {
+      gradtracker.listen(function () { //listens to model everything it changess
+        $("#test").empty(); //empties the table
+        var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+        // console.log(schedule);
+        var sp18 = schedule["SP 18"];
+        // console.log(sp18);
+        for (var i = 0; i < sp18.length; i++) {
+          $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
+        }
+      });
 
 
-  // $("#ctn2").hide();
-  // $("#ctn3").hide();
-  // $("#ctn4").hide();
-  $("#ctn5").hide();
-  // //Toggle Table Views
-  // $("#toggle1").click(function(){
-  //   $(".myImplementation").toggle();
-  //   $(".myImplementation2").toggle();
-  // });
-  // $("#toggle2").click(function(){
-  //   $(".marjorReq").toggle();
-  //   $(".marjorelec").toggle();
-  // });
-  // //Tool Tips
-  // $("#toggle1").tooltip();
-  // $("#toggle2").tooltip();
-  // //hides the main div onclick of undergrad button and shows undergrad page
-  // $("#undergrad").click(function(){
-  //   $("#ctn1").toggle();
-  //   $("#ctn2").toggle();
-  // });
-  //hides undergrad page onclick of home button and takes you back to main page
-  $("#home").click(function(){
-    $("#ctn1").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-  });
-  //hides mba page onclick of home button and takes you back to main page
-  $("#home1").click(function(){
-    $("#ctn1").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-  });
-  //hides mba page onclick of home button and takes you back to main page
-  $("#home2").click(function(){
-    $("#ctn1").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-  });
-  //hides mba page onclick of home button and takes you back to main page
-  $("#home3").click(function(){
-    $("#ctn1").toggle();
-    $("#ctn2").toggle();
-    $("#ctn3").toggle();
-    $("#ctn4").toggle();
-  });
+    });
 
-  // //hides main page onclick of mba button and takes you to mba page
-  // $("#mba").click(function(){
-  //   $("#ctn3").toggle();
-  //   $("#ctn1").toggle();
-  // });
-  // //hides mba page onclick of home button and takes you back to main page
-  // $("#home1").click(function(){
-  //   $("#ctn1").toggle();
-  //   $("#ctn3").toggle();
-  // });
-  // //hides main page onclick of mba button and takes you to mba page
-  // $("#minor").click(function(){
-  //   $("#ctn4").toggle();
-  //   $("#ctn2").toggle();
-  // });
-  // //hides mba page onclick of home button and takes you back to main page
-  // $("#home2").click(function(){
-  //   $("#ctn1").toggle();
-  //   $("#ctn4").toggle();
-  // });
-  $(".sched-button").click(function(){
-    $("#ctn5").toggle();
-    $("#ctn2").toggle();
 
-  });
-  // //hides mba page onclick of home button and takes you back to main page
-  // $("#home3").click(function(){
-  //   $("#ctn1").toggle();
-  //   $("#ctn5").toggle();
-  //   <!-- /////////////////////    JOSE    /////////////////////////////////// -->
-  // });
+    </script>
+  </body>
 
-  </script>
-</body>
-</html>
+  </html>
