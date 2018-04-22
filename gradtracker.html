@@ -109,7 +109,7 @@
 
     // the header for the course set/category
     category.subcategories.forEach(function (subcategory) {
-      $category.append('<h3>' + subcategory.title + '</h3>' + '</br>');
+      $category.append('</br><h3>' + subcategory.title + '</h3>' + '</br></br>');
       //creates a table for the header
       var $table = $('<table />').appendTo($category);
 
@@ -191,7 +191,7 @@
 
         calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
         // with .html we will replace the info to include current total credits
-        $info.html('<p></br>Total credits earned for <b>' + subcategory.title + ': ' + total + '</b> <br/> Total credits: <b>' + gradtracker.getTotalCreditsEarned(subcategory.courses) + '</b> </p>')
+        $info.html('<p></br>Total credits earned for <b>' + subcategory.title + ' ' + total + '</b> <br/> Total credits: <b>' + gradtracker.getTotalCreditsEarned(subcategory.courses) + '</b> </p>')
       }
 
       // update the info once after we created the table, which should render the initial value for the total credits
