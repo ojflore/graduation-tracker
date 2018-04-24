@@ -20,7 +20,95 @@
     <tr><td>gradtracker.getSchedule()</td><td>Calls the function in gradtracker.js that returns the object in the schedule.</td><td>None</td></td><td>This method allows a user to <b>select</b> a course based on the term they have selected. Each term only allows for the selection of certain (available) courses.</td></tr>
     <tr><td>gradtracker.addCourse()</td><td>Calls the function in gradtracker.js that adds the object to the schedule.</td><td>None</td></td><td>This method allows a user to <b>add</b> a course based on the term they have selected to the schedule.</td></tr>
     <tr><td>listen(cb)</td><td><i>cb:</i> is the callback function. This function will be called when a change is made in the schedule.</td><td>None</td><td>The listen(cb) functionality is used to track changes in the model and receive notifications. This allows the UI to be updated when the model changes.</td></tr>
-	<tr><td>notify()</td><td>The notify function nests the addCourse() method.</td><td>None</td></td><td>This function notifies the global variable to add the course selected to the schedule.</td></tr>
+	<tr><td>notify()</td><td>The notify function nests the addCourse() method.</td><td>None</td></td><td>This function notifies the global variable to add the course selected to the schedule.</td>
+    <tr >
+    <td >gradtracker.setCatalogView(catalog)</td>
+    <td ><i>catalog:</i>is the call back function. This function will be called when page is loaded.
+    </td>
+    <td >None</td>
+    <td>This method allows a user to create <b>view</b> the information in the undergrad, mba and minor sections</td>
+    </tr>
+    <tr>
+    <td>gradtracker.getCategories()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns the object selected from the setCatalogView function</td>
+    <td>None</td>
+    <td>This method allows a user to <b>view</b> the buttons and undergrad, mba and minor data per json object</td>
+    </tr>
+    <tr>
+    <td>gradtracker.getTitle()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns the title within the subcategory of the json object</td>
+    <td>None</td>
+    <td>This method allows a user to <b>view</b> the title of the table</td>
+    </tr>
+    <tr>
+    <td>gradtracker.getValue()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns value of the json object</td>
+    <td>None</td>
+    <td>This method allows the div id creation</td>
+    </tr>
+    <tr>
+    <td>gradtracker.displaySchedule()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns the object in catalog/schedule.</td>
+    <td>None</td>
+    <td>This method allows a user to view the schedule</td>
+    </tr>
+    <tr>
+    <td>gradtracker.displayScheduleSpring()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns the object in the</td>
+    <td>None</td>
+    <td>This method allows a user to</td>
+    </tr>
+    <tr>
+    <td>gradtracker.checkboxclick()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns the object if true or false</td>
+    <td>None</td>
+    <td>This method allows a user to check the boxes in the table</td>
+    </tr>
+    <tr>
+    <tr>
+    <td>gradtracker.getTotalCreditsEarned()</td>
+    <td><i></i>Calls the function in the gradtracker.js that returns total credits earned based on boxes checked</td>
+    <td>None</td>
+    <td>This method allows a user to view credit totals</td>
+    </tr>
+    <tr>
+    <td>showCourseCatalog()</td>
+    <td><i></i>Calls the function in the gradtracker.js that allows onclick buttions to display and hide divs</td>
+    <td>None</td>
+    <td>This method allows a user to only show selected information based on the buttons pressed</td>
+    </tr>
+    <tr>
+    <td>CreateHTMLForCatalog()</td>
+    <td><i></i>Calls the function the DOM that returns the objects in the catetgories</td>
+    <td>None</td>
+    <td>This method allows a user to the html when the page is created so the same information is not appended when the buttons are presed</td>
+    </tr>
+    <tr>
+    <td>CreateCategory()</td>
+    <td><i></i>Calls the funiton in the DOM that returns the json object in gradtrackermodel.js</td>
+    <td>None</td>
+    <td>This method allows a user start the app which dynamically creates the divs,tables and pulls content</td>
+    </tr>
+    <td>calculateSectionTotal()</td>
+    <td><i></i>Calls the function in the DOM that returns the total boxes check multiply by the credits</td>
+    <td>None</td>
+    <td>This method allows a user to calculate the totals by section</td>
+    </tr>
+    <tr>
+    <td>calculateUltimateTotal()</td>
+    <td><i></i>Calls the function in the DOM that returns total credits for boxes checked in current json object</td>
+    <td>None</td>
+    <td>This method allows a user to calculate the totals in the selected track</td>
+    </tr>
+    <tr>
+    <td>updateInfo()</td>
+    <td><i></i> Calls the function in the gradtracker.js that updates the calcualtions onclick</td>
+    <td>None</td>
+    <td>This method allows a user to see the undated information from calcualtions</td>
+    </tr>
+    </tbody>
+    </table>
+  </tr>
   </table>
 </body>
 </html>
