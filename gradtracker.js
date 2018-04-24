@@ -2,7 +2,6 @@
 // it should NOT contain any html or css
 /*------------------------------------------------------------------- */
 /* The data */
-//json object
 var gradtracker = (function () {
 	// this is the internal state of the model
 	// no one can access this directly
@@ -159,6 +158,32 @@ var gradtracker = (function () {
 		}
 		else if (state.catalogView === "minor") {
 			return minorCatalog.categories;
+		} else {
+			// display error message
+		}
+	}
+
+	function getTitle() {
+		if (state.catalogView === "undergrad") {
+			return UndergraduateCatalog.title;
+		} else if (state.catalogView === "mba") {
+			return MBACatalog.title;
+		}
+		else if (state.catalogView === "minor") {
+			return minorCatalog.title;
+		} else {
+			// display error message
+		}
+	}
+
+	function getValue() {
+		if (state.catalogView === "undergrad") {
+			return UndergraduateCatalog.value;
+		} else if (state.catalogView === "mba") {
+			return MBACatalog.value;
+		}
+		else if (state.catalogView === "minor") {
+			return minorCatalog.value;
 		} else {
 			// display error message
 		}
@@ -342,15 +367,15 @@ var gradtracker = (function () {
 			listeners[i](schedule);
 		}
 	}
-// //////////////////////////// DARNITA - TOTALS ///////////////////////////////////////////////
+// //////////////////////////// BEGIN DARNITA -  ///////////////////////////////////////////////
 
 	function checkboxclick(courseSelection) {
 		alert(courseSelection);
 
 		if (courseSelection.isChecked === 'checked') {
-			courseSelection.course.isCompleted = true;
+			courseSelection.course.completed = true;
 		} else {
-			courseSelection.course.isCompleted = false;
+			courseSelection.course.completed = false;
 		}
 	}
 
@@ -361,7 +386,7 @@ var gradtracker = (function () {
 
 		// this is an example. you need to pass in the correct course
 		courses.forEach(course => {
-			if (course.isCompleted) {
+			if (course.completed) {
 				total += course.credits;
 			}
 		});
@@ -386,7 +411,7 @@ var i = 0;
 		}
 	}
 }
-// //////////////////////////// DARNITA - TOTALS ///////////////////////////////////////////////
+// //////////////////////////// END DARNITA -  ///////////////////////////////////////////////
 	return {
 		listen: listen,
 		notify: notify,
@@ -395,6 +420,8 @@ var i = 0;
 		getCatalog: getCatalog,
 		setCatalogView: setCatalogView,
 		getCategories: getCategories,
+		getTitle : getTitle,
+		getValue : getValue,
 		displaySchedule: displaySchedule,
 		displayScheduleSpring: displayScheduleSpring,
 		checkboxclick: checkboxclick,

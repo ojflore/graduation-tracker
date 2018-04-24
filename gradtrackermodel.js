@@ -8,7 +8,7 @@ var UndergraduateCatalog =
                 value: "2",
                 subcategories: [
                     {
-                        title: 'My Required Courses', // <-- table
+                        title: 'My Required Courses (12 Credits):', // <-- table
                         courses: [ // <-- rows
                             //Next Course Row
                             {
@@ -51,7 +51,7 @@ var UndergraduateCatalog =
                     },//ends table/subcategory
 
                     {
-                        title: 'Thematic', // <-- table
+                        title: 'Thematic (30 Credits):', // <-- table
                         courses: [ // <-- rows
                             //New Course
                             {
@@ -781,7 +781,7 @@ var UndergraduateCatalog =
                     },//ends div/subcategory
                     //new table/subcategory
                     {
-                        title: 'Departmental Major Requirements (60 credits)', // <-- table begins/Table Title
+                        title: 'Departmental Major Requirements (60 credits):', // <-- table begins/Table Title
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -977,13 +977,13 @@ var UndergraduateCatalog =
 
                     // New Table/subcategory
                     {
-                        title: 'Departmental Elective Requirements (9 credits)', // <-- table
+                        title: 'Departmental Elective Requirements (9 credits):', // <-- table
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
                                 title: 'BMGT 380',
                                 description: 'Cooperative Education I',
-                                credits: '3.0',
+                                credits: '6.0',
                                 completed: false,
                                 prerequisites: [],
                                 Semester: ["FA"]
@@ -992,7 +992,7 @@ var UndergraduateCatalog =
                             {
                                 title: 'BMGT 480',
                                 description: 'Cooperative Education II',
-                                credits: '3.0',
+                                credits: '6.0',
                                 completed: false,
                                 prerequisites: [],
                                 Semester: ["FA"]
@@ -1111,7 +1111,7 @@ var UndergraduateCatalog =
                     //New Table/subcategory
                     {
 
-                        title: 'General Elective Requirements (9 credits)', // <-- table
+                        title: 'General Elective Requirements (9 credits):', // <-- table
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -1707,4 +1707,3 @@ var minorCatalog =
             }//end
         ]//end variable
     };
-
