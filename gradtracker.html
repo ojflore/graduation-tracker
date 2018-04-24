@@ -69,17 +69,17 @@
   $(document).ready(function() {
     CreateHTMLForCatalog("undergrad");
   /////-Jaime Additions-/////
-    $('<button class="homeBtn" id="print">Print</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="Gelective1">General Electives</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="Delective1">Department Electives</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="Departmental1">Departmental Courses</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="Thematic1">Thematic Courses</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="print">Print</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="Gelective1">General Electives</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="Delective1">Department Electives</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="Departmental1">Departmental Courses</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="Thematic1">Thematic Courses</button>').prependTo('#ctn' + gradtracker.getValue());
     CreateHTMLForCatalog("mba");
-    $('<button class="homeBtn" id="print2">Print</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="MIS1">MIS Track</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('<button class="homeBtn" id="Analytics1">Business Analytics Track</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="print2">Print</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="MIS1">MIS Track</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="Analytics1">Business Analytics Track</button>').prependTo('#ctn' + gradtracker.getValue());
     CreateHTMLForCatalog("minor");
-    $('<button class="homeBtn" id="print3">Print</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="Btn" id="print3">Print</button>').prependTo('#ctn' + gradtracker.getValue());
 
 
     $(".ctn").hide();
@@ -441,7 +441,7 @@ var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credit
       <button onclick="printpage()" type="button" class="btn btn-default btn-md">
             <span class="glyphicon glyphicon-print"></span> Print
           </button><br><br>
-          
+
       <h1 class="title">IT Schedule Planner</h1><br>
       <button id="home3">Home</button><br><br>
       <h1>Select a Term: </h1>
