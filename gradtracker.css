@@ -35,7 +35,7 @@ body {
   text-align: center;
   color: black;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 44px;
 }
 
@@ -114,6 +114,47 @@ button:hover {
 
 .uni-core {
   margin-bottom: 15px;
+}
+
+.btn {
+  float: right;
+  font-size: 1em;
+  margin: 5px;
+}
+
+.table, th, td {
+  background: white;
+}
+
+th {
+  border: solid 2px green;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #606060;
+  background-color: #63831d;
+  color: orange;
+}
+
+table {
+  border: solid 2px black;
+  border-width: medium;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+th {
+  font-size: 25px;
+  border-width: medium;
+}
+
+tbody {
+  font-size: 20px;
+  color: white;
 }
 
 table, th, td {
