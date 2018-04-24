@@ -273,9 +273,13 @@ div:first-child {
   font-family: 'Slabo 27px', serif;
 }
 
+a {
+  margin: 10px;
+}
 
-
-
+.homeBtn {
+  margin-top: 10px;
+}
 
 /* IT MBA and Minor CSS */
 .total-need {

@@ -31,7 +31,7 @@
     .transition()
     .duration(3500)
     .style("background-color", "green");
-    d3.selectAll("h1")
+    d3.selectAll("a")
     .transition()
     .duration(5000)
     .style("color", "#228B22");
@@ -55,7 +55,11 @@
     <!-- // ///////////////////////////////////DARNITA's Updated Code  //////////////////////////////////////////////// -->
     <button class="undergrad" id="undergrad" onclick="showCourseCatalog('undergrad')">Undergraduate</button>
     <button class="mba" id="mba" onclick="showCourseCatalog('mba')">MBA</button>
-    <button class="minor" id="minor" onclick="showCourseCatalog('minor')">Minor</button>
+    <button class="minor" id="minor" onclick="showCourseCatalog('minor')">Minor</button><br><br>
+    <!--////-Jaime Updates-///-->
+    <a href="https://pointweb.pointpark.edu/ics" target="_blank">Point Web</a>
+    <a href="https://jballe.it.pointpark.edu/graduation-tracker/about.html" target="_blank">About Us</a>
+
   </div>
 
   <div id="app"></div>
@@ -64,8 +68,18 @@
   //dh
   $(document).ready(function() {
     CreateHTMLForCatalog("undergrad");
+  /////-Jaime Additions-/////
+    $('<button class="homeBtn" id="print">Print</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="Gelective1">General Electives</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="Delective1">Department Electives</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="Departmental1">Departmental Courses</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="Thematic1">Thematic Courses</button>').prependTo('#ctn' + gradtracker.getValue());
     CreateHTMLForCatalog("mba");
+    $('<button class="homeBtn" id="print2">Print</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="MIS1">MIS Track</button>').prependTo('#ctn' + gradtracker.getValue());
+    $('<button class="homeBtn" id="Analytics1">Business Analytics Track</button>').prependTo('#ctn' + gradtracker.getValue());
     CreateHTMLForCatalog("minor");
+    $('<button class="homeBtn" id="print3">Print</button>').prependTo('#ctn' + gradtracker.getValue());
 
 
     $(".ctn").hide();
@@ -82,7 +96,40 @@
       $("#ctn3").hide();
       $("#ctn4").hide();
     });
-
+    //Jaimes Additions//
+    $("#Departmental1").click(function(){
+      $('html, body').animate({
+  scrollTop: $("#Departmental").offset().top}, 500);
+    });
+    $("#Thematic1").click(function(){
+      $('html, body').animate({
+  scrollTop: $("#Thematic").offset().top}, 500);
+    });
+    $("#Delective1").click(function(){
+      $('html, body').animate({
+  scrollTop: $("#Delective").offset().top}, 500);
+    });
+    $("#Gelective1").click(function(){
+      $('html, body').animate({
+    scrollTop: $("#Gelective").offset().top}, 500);
+    });
+    $("#Analytics1").click(function(){
+      $('html, body').animate({
+    scrollTop: $("#Analytics").offset().top}, 800);
+    });
+    $("#MIS1").click(function(){
+      $('html, body').animate({
+    scrollTop: $("#MIS").offset().top}, 800);
+    });
+    $("#print").click(  function printpage() {
+        window.print();
+    });
+    $("#print2").click(  function printpage() {
+        window.print();
+    });
+    $("#print3").click(  function printpage() {
+        window.print();
+    });
   });
   /* THE APP STARTS HERE, by calling `CreateCategory` function for every jSON objects UndergraduateCatalog, MBA, MINOR */
   function CreateHTMLForCatalog(catalog) {
@@ -91,8 +138,8 @@
 
     $('<h1 class = "title">' + gradtracker.getTitle() + '</h1>').prependTo('#ctn' + gradtracker.getValue());
     $('<button class="homeBtn" id="home">Home</button>').prependTo('#ctn' + gradtracker.getValue());
-    $('</br></br><div><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn' + gradtracker.getValue());
-  }
+    $('</br></br><div id = "button"><button class="sched-button" id="sub-button">Course Schedule</button></div>').appendTo('#ctn' + gradtracker.getValue());
+    }
 
   // the app
   //
@@ -109,7 +156,7 @@
 
     // the header for the course set/category
     category.subcategories.forEach(function (subcategory) {
-      $category.append('</br><h3>' + subcategory.title + '</h3>' + '</br></br>');
+      $category.append('</br><h3 id="' + subcategory.id + '">' + subcategory.title + '</h3>' + '</br></br>');
       //creates a table for the header
       var $table = $('<table />').appendTo($category);
       // //////////////////////////***********************Need to fix - selectAll*********************************///////////////////////////////////////////

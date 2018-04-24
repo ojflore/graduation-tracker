@@ -52,6 +52,7 @@ var UndergraduateCatalog =
 
                     {
                         title: 'Thematic (30 Credits):', // <-- table
+                        id: 'Thematic', //Jaime Additions
                         courses: [ // <-- rows
                             //New Course
                             {
@@ -782,6 +783,7 @@ var UndergraduateCatalog =
                     //new table/subcategory
                     {
                         title: 'Departmental Major Requirements (60 credits):', // <-- table begins/Table Title
+                        id: 'Departmental', //Jaime Additions
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -978,6 +980,7 @@ var UndergraduateCatalog =
                     // New Table/subcategory
                     {
                         title: 'Departmental Elective Requirements (9 credits):', // <-- table
+                        id: 'Delective', //Jaime Additions
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -1112,6 +1115,7 @@ var UndergraduateCatalog =
                     {
 
                         title: 'General Elective Requirements (9 credits):', // <-- table
+                        id: 'Gelective', //Jaime Additions
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -1247,6 +1251,7 @@ var MBACatalog =
                     //New Table/subcategory
                     {
                         title: 'Business Analytics Track Concentration:', // <-- table header
+                        id: 'Analytics', //Jaime Additions
                         courses: [ // <-- table
                             //Next Course starts heare
                             {
@@ -1290,6 +1295,7 @@ var MBACatalog =
                     //New Table
                     {
                         title: 'Management Information Systems Track:', // <-- table
+                        id: 'MIS', //Jaime Additions
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
