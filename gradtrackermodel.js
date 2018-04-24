@@ -983,7 +983,7 @@ var UndergraduateCatalog =
                             {
                                 title: 'BMGT 380',
                                 description: 'Cooperative Education I',
-                                credits: '3.0',
+                                credits: '6.0',
                                 completed: false,
                                 prerequisites: [],
                                 Semester: ["FA"]
@@ -992,7 +992,7 @@ var UndergraduateCatalog =
                             {
                                 title: 'BMGT 480',
                                 description: 'Cooperative Education II',
-                                credits: '3.0',
+                                credits: '6.0',
                                 completed: false,
                                 prerequisites: [],
                                 Semester: ["FA"]
