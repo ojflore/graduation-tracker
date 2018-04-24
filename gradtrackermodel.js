@@ -8,7 +8,7 @@ var UndergraduateCatalog =
                 value: "2",
                 subcategories: [
                     {
-                        title: 'My Required Courses (12 Credits):', // <-- table
+                        title: 'My Required Courses', // <-- table
                         courses: [ // <-- rows
                             //Next Course Row
                             {
@@ -51,7 +51,7 @@ var UndergraduateCatalog =
                     },//ends table/subcategory
 
                     {
-                        title: 'Thematic (30 Credits):', // <-- table
+                        title: 'Thematic', // <-- table
                         courses: [ // <-- rows
                             //New Course
                             {
@@ -781,7 +781,7 @@ var UndergraduateCatalog =
                     },//ends div/subcategory
                     //new table/subcategory
                     {
-                        title: 'Departmental Major Requirements (60 credits):', // <-- table begins/Table Title
+                        title: 'Departmental Major Requirements (60 credits)', // <-- table begins/Table Title
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -977,7 +977,7 @@ var UndergraduateCatalog =
 
                     // New Table/subcategory
                     {
-                        title: 'Departmental Elective Requirements (9 credits):', // <-- table
+                        title: 'Departmental Elective Requirements (9 credits)', // <-- table
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -1111,7 +1111,7 @@ var UndergraduateCatalog =
                     //New Table/subcategory
                     {
 
-                        title: 'General Elective Requirements (9 credits):', // <-- table
+                        title: 'General Elective Requirements (9 credits)', // <-- table
                         courses: [ // <-- rows
                             //Next Course starts heare
                             {
@@ -1707,3 +1707,4 @@ var minorCatalog =
             }//end
         ]//end variable
     };
+
