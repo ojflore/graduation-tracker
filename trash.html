@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="gradtracker.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- <script src="jquery-3.3.1.min.js"></script> -->
+  <script src="trash.js"></script>
+  <title>PPU Grad-Tracker</title>
+  <!-- Need Listner function for checkboxes when clicked -->
+  <script type="text/javascript">
+  $( function() {
+    d3.select("body")
+    .transition()
+    .duration(3000)
+    .style("background-color", "white");
+    d3.selectAll("button")
+    .transition()
+    .duration(3500)
+    .style("background-color", "green");
+    d3.selectAll("h1")
+    .transition()
+    .duration(5000)
+    .style("color", "#228B22");
+    d3.selectAll("img")
+    .transition()
+    .duration(5500)
+    .style("opacity", "1");
+  } );
+
+  </script>
+
+</head>
+<body>
+
+  <!-- Main page -->
+  <div class="ctn1" id="ctn1">
+    <img src="pointparkseal.png">
+    <h1 class="title">Point Park University Graduation Tracker</h1>
+    <h4>Choose Degree Program:</h4>
+    <button class="undergrad" id="undergrad">Undergraduate</button>
+    <button id="mba">MBA</button>
+
+  </div>
+
+  <!-- IT Undergrad page -->
+  <div class="ctn" id="ctn2">
+    <div class="header" id="head1">
+      <h1 class="undergrad_program">Bachelor of Science: Information Technology</h1>
+
+    </div>
+
+    <h2 id="toggle1" title="Click To Toggle Table Views">University Core Curriculum (42 Credits)</h2><br><br>
+    <div id="app"></div>
+    <!-- thematic courses table starts here -->
+
+
+    <!-- <div class="required-courses">    -->
+
+
+    <!-- Concentration Courses start here -->
+    <div class="concentration">
+      <h3>Concentration:</h3><br>
+    </div>
+
+    <!--- Business analytics starts here -->
+    <div class="Business-analytics">
+      <h3>Business Analytics Track:</h3><br>
+
+    </div>
+
+    <!--management info systems starts here -->
+    <div class="Business-analytics">
+      <h3>Management Information Systems:</h3><br><br>
+
+    </div>
+
+    <!-- IT Minor Page -->
+    <div class="ctn" id="ctn4">
+      <h1 class="title">Bachelor of Science: Information Technology</h1>
+      <br>
+
+
+      <h2>Information Technology Minor</h2><br><br>
+      <!-- Minor required courses table starts here -->
+      <div class="required-courses">
+        <h3>Choose 3 of the following:</h3><br>
+
+        <!-- Additional Courses start here -->
+        <br>
+
+
+        <!-- Scheduler Page -->
+        <!-- <div class="ctn" id="ctn5">
+        <h1 class="title">IT Schedule Planner</h1>
+        <h2>Schedule of Courses by Term</h2><br>
+        <h3>Fall 2018 - 2019</h3>
+      </div> -->
+
+
+
+      <script src="trash.js"></script>
+<select id = "selector"></select>
+      <script>
+
+
+      function createTables(courseSet){
+
+        // $courseSet is the container for a course set
+        var $courseSet = $('<div class="courseSet" />').appendTo('#app');
+
+        // the header for the course set
+        $courseSet.append('<h1>'+courseSet.title+'</h1>');
+
+        // table
+        var $table = $('<table />').appendTo($courseSet);
+
+        // table header
+        var $tableHeader = $('<tr><th>Course #</th><th>Course description</th><th>Credits</th><th>Completed</th></tr>');
+        $tableHeader.appendTo($table);
+
+        // we will go through every course in a courseSet and create a table row for every course set
+        courseSet.courses.forEach( function(course){
+          $row = $('<tr />').appendTo($table);
+          $row.append('<td>'+course.title+'</td>');
+          // if (courseSet.title === "Thematic") {
+          $row.append('<td>'+course.description+'</td>');
+          $row.append('<td class="credits">'+course.credits+'</td>');
+          $row.append( $('<td><input class="completed" type="checkbox" '+ (course.completed ?  'checked': '') +' /></td>') );
+        });
+
+        // this will be the info element after the table
+        var $info = $('<div/>').appendTo($courseSet);
+
+        // total credits for this courseSet
+        var total = 0;
+
+        // this function will recalculate the total credits for this course set
+        function calculateTotal(){
+          total = 0; // <-- reset the total before we add up
+
+          // find all checked checkboxes in this table
+          var $checkedCheckboxes = $table.find('.completed:checked');
+
+          // let's go through every checked checkbox in this table
+          $checkedCheckboxes.each( function(){
+            var $checkbox = $(this); // <-- one of the checked checkboxes as we go through them
+
+            // this is how we find the ".credits" cell in the same row:
+            var $creditsCell = $checkbox.closest('tr').find('.credits');
+
+            // get the credits value
+            var credits = parseFloat($creditsCell.text(),10);
+
+            // increment the total credits for this course set
+            total += credits;
+          } );
+        }
+
+        // this function will update the info element
+        function updateInfo(){
+          calculateTotal(); // <-- we will recalculate the total credits every time before we update the info
+          // with .html we will replace the info to include current total credits
+          $info.html('<p>Total credits earned for <b>'+courseSet.title+'</b> <br/> Total credits: <b>'+total+'</b> </p>')
+        }
+
+        // update the info once after we created the table, which should render the initial value for the total credits
+        updateInfo();
+
+        // start listening for when a checkbox in this table changes value, and call updateInfo function
+        $table.on('change', 'input[type=checkbox]', updateInfo);
+      }
+
+
+      /* THE APP STARTS HERE, by calling `createTable` function for every course set */
+      catalogIT.forEach(createTables);
+
+
+      // jquery starts here
+      $(function(){
+        gradtracker.listen(function(){ //listens to model everything it changess
+          $("#test").empty(); //empties the table
+          var schedule = gradtracker.getSchedule(); //calls the function in gradtracker.js that returns the object in the schedule
+          // console.log(schedule);
+          var sp18 = schedule["SP 18"];
+          // console.log(sp18);
+          for (var i = 0; i < sp18.length; i++) {
+            $("#test1").append("<tr><td>" + sp18[i] + "</td></tr>");
+          }
+        });
+
+
+
+      });
+
+      </script>
+    </body>
+    </html>
